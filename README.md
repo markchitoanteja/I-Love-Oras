@@ -1,104 +1,59 @@
-# I Love Oras - Tourism & Community Portal 🌴
 
-A web-based tourism and community portal for **Oras, Eastern Samar**, developed with **CodeIgniter 4**. This project showcases the town’s attractions, culture, news, and local government initiatives — offering residents and tourists a centralized online experience.
+# 🌐 Tourist Web Portal Task List
 
-> 🛠️ Built with ❤️ by [Mark Chito Anteja](https://github.com/your-github-username)
-
----
-
-## 🌐 Live Site
-[https://i-love-oras.essuc.online](https://i-love-oras.essuc.online)
+This document outlines the tasks based on adviser feedback for the development of the tourist web portal.
 
 ---
 
-## 🚀 Features
-- 🗺️ Dynamic pages for tourism attractions
-- 📰 News and updates from the LGU
-- 📅 Events & festivals (e.g., Pakol Festival)
-- 📷 Media gallery
-- 🛠️ Admin panel for content management
-- 🔒 Role-based authentication system
+## 🗺️ Feature 1: “More Info” — Show Directions to Tourist Spot
+
+### Tasks
+- [ ] Add a "Get Directions" section in the tourist spot detail page.
+- [ ] Integrate mapping service (e.g. Google Maps, Mapbox).
+- [ ] Detect or request user's location (via browser or allow manual input).
+- [ ] Show route and travel options from current location to tourist spot.
+- [ ] Ensure mobile responsiveness and cross-browser compatibility.
+- [ ] Add loading/fallback behavior for users who block location access.
+
+### Notes
+- Use route APIs for real-time direction.  
+- Optimize for performance on slow networks.  
+- Consider accessibility (screen readers, keyboard nav).
 
 ---
 
-## 📦 Tech Stack
-- **Backend**: PHP (CodeIgniter 4)
-- **Frontend**: HTML5, CSS3, Bootstrap
-- **Database**: MySQL
-- **Server**: Apache (XAMPP-friendly)
+## 🖼️ Feature 2: Admin Panel – Upload Images for Public Content
+
+### Tasks
+- [ ] Create UI components for image uploads (News, Posts, Tourist Spots).
+- [ ] Implement image validation (format, size, dimensions).
+- [ ] Store images securely (e.g. cloud storage, CDN, or local storage).
+- [ ] Create image preview before upload.
+- [ ] Connect uploads to corresponding database entities (News, Posts, Tourist Spots).
+- [ ] Provide edit/delete image options in admin panel.
+
+### Notes
+- Consider drag-and-drop support for UX.  
+- Use image compression tools (client-side or server-side).  
+- Secure uploads (auth checks, content validation).
 
 ---
 
-## 🖥️ Local Setup using XAMPP
+## 📊 Feature 3: Visitor Reports (Daily, Monthly, Annual)
 
-Follow these steps to get the project running on your local machine:
+### Tasks
+- [ ] Design visitor tracking system (based on visits or check-ins).
+- [ ] Collect and store timestamped visit logs for each tourist spot.
+- [ ] Create data aggregation logic for daily, monthly, and annual summaries.
+- [ ] Build admin dashboard components to view visitor stats.
+- [ ] Add filter by date, tourist spot, and time range.
+- [ ] Export reports to CSV or PDF.
 
-### 📁 1. Clone the Repository
-```bash
-git clone https://github.com/your-github-username/i-love-oras.git
-```
-
-### 🗂️ 2. Move to XAMPP `htdocs` Directory
-```bash
-mv i-love-oras/ C:/xampp/htdocs/
-```
-
-Or manually copy the folder into:
-```
-C:\xampp\htdocs\i-love-oras
-```
-
-### 🗃️ 3. Create MySQL Database
-1. Open `phpMyAdmin` (http://localhost/phpmyadmin)
-2. Create a new database:
-   ```
-   iloveoras_db
-   ```
-3. Import the provided SQL dump file (usually under `/database/` or `/sql/` folder of the project)
-
-### ⚙️ 4. Configure `.env` File
-1. Copy `.env.example` to `.env`
-2. Set your database credentials:
-   ```env
-   database.default.hostname = localhost
-   database.default.database = iloveoras_db
-   database.default.username = root
-   database.default.password =
-   database.default.DBDriver = MySQLi
-   ```
-
-### 📌 5. Set Base URL
-Still in the `.env` file:
-```env
-app.baseURL = 'http://localhost/i-love-oras/public/'
-```
-
-### 🧼 6. Clear Caches & Migrate
-```bash
-php spark cache:clear
-php spark migrate
-php spark db:seed
-```
-
-*(Make sure you're in the project directory and have PHP configured in your PATH)*
-
-### ▶️ 7. Run the App
-Visit [http://localhost/i-love-oras/public](http://localhost/i-love-oras/public)
+### Notes
+- Consider privacy and consent if tracking real users.  
+- Use data visualization (charts/graphs) for better insight.  
+- Schedule nightly/monthly cron jobs to pre-process aggregated data if traffic scales.
 
 ---
 
-## 🛡️ Security Note
-For production, remember to:
-- Remove development tools (`spark` routes, debug settings)
-- Move out of `public/` via `.htaccess` rewrite or virtual host
-- Configure HTTPS properly
-
----
-
-## 🤝 Contributing
-PRs and suggestions are welcome. Fork it, build something, and submit a pull request!
-
----
-
-## 📄 License
-This project is open-source under the [MIT License](LICENSE).
+**Last Updated:** July 11, 2025
