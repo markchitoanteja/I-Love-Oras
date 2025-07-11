@@ -8,7 +8,7 @@ This document outlines the tasks based on adviser feedback for the development o
 ## 🗺️ Feature 1: “More Info” — Show Directions to Tourist Spot
 
 ### Tasks
-- [✔] Sample done task.
+- [x] Sample done task.
 - [ ] Add a "Get Directions" section in the tourist spot detail page.
 - [ ] Integrate mapping service (e.g. Google Maps, Mapbox).
 - [ ] Detect or request user's location (via browser or allow manual input).
