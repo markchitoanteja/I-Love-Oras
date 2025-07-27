@@ -5,8 +5,9 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
-// Home routes
- $routes->get('/', 'Home::index');
+// Landing routes
+ $routes->get('/', 'Landing::index');
+ $routes->get('/about_oras', 'Landing::about_oras');
 
 // Admin routes
 $routes->get('/admin/dashboard', 'Admin::index');

@@ -4,39 +4,21 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Travelix Project">
+    <meta name="description" content="I❤️Oras Project">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>I❤️Oras - Home</title>
+    <title>I❤️Oras - <?= session("page_title") ?></title>
 
     <link rel="shortcut icon" href="favicon.ico?v=1.1" type="image/x-icon">
 
-    <link rel="stylesheet" type="text/css" href="public/dist/home/styles/bootstrap4/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="public/dist/home/plugins/font-awesome-4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="public/dist/home/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
-    <link rel="stylesheet" type="text/css" href="public/dist/home/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
-    <link rel="stylesheet" type="text/css" href="public/dist/home/plugins/OwlCarousel2-2.2.1/animate.css">
-    <link rel="stylesheet" type="text/css" href="public/dist/home/styles/main_styles.css?v=1.1">
-    <link rel="stylesheet" type="text/css" href="public/dist/home/styles/responsive.css">
-
-    <style>
-        .logo a {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-        }
-
-        .logo img {
-            vertical-align: middle;
-            margin-right: 8px;
-        }
-
-        .logo-text {
-            font-size: 1rem;
-            color: #000;
-            font-weight: bold;
-        }
-    </style>
+    <link rel="stylesheet" href="public/dist/landing/styles/bootstrap4/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="public/dist/landing/plugins/font-awesome-4.7.0/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="public/dist/landing/plugins/OwlCarousel2-2.2.1/owl.carousel.css" type="text/css">
+    <link rel="stylesheet" href="public/dist/landing/plugins/OwlCarousel2-2.2.1/owl.theme.default.css" type="text/css">
+    <link rel="stylesheet" href="public/dist/landing/plugins/OwlCarousel2-2.2.1/animate.css" type="text/css">
+    <link rel="stylesheet" href="public/dist/landing/styles/main_styles.css?v=1.2" type="text/css">
+    <link rel="stylesheet" href="public/dist/landing/styles/responsive.css" type="text/css">
+    <link rel="stylesheet" href="public/dist/landing/styles/custom.css" type="text/css">
 </head>
 
 <body>
@@ -74,18 +56,18 @@
                         <div class="col main_nav_col d-flex flex-row align-items-center justify-content-start">
                             <div class="logo_container">
                                 <div class="logo">
-                                    <a href="javascript:void(0)">
-                                        <img src="public/dist/home/images/logo.png?v=1.0" alt="" width="50">I❤️Oras
+                                    <a href="<?= base_url() ?>">
+                                        <img src="public/dist/landing/images/logo.png?v=1.0" alt="" width="50">I❤️Oras
                                     </a>
                                 </div>
                             </div>
                             <div class="main_nav_container ml-auto">
                                 <ul class="main_nav_list">
-                                    <li class="main_nav_item"><a href="javascript:void(0)"><b>Home</b></a></li>
-                                    <li class="main_nav_item"><a href="javascript:void(0)">About Oras</a></li>
-                                    <li class="main_nav_item"><a href="javascript:void(0)">Attractions</a></li>
-                                    <li class="main_nav_item"><a href="javascript:void(0)">Gallery</a></li>
-                                    <li class="main_nav_item"><a href="javascript:void(0)">Contact</a></li>
+                                    <li class="main_nav_item <?= (session()->get('page') === 'home') ? 'active' : '' ?>"><a href="<?= base_url() ?>">Home</a></li>
+                                    <li class="main_nav_item <?= (session()->get('page') === 'about_oras') ? 'active' : '' ?>"><a href="<?= base_url('about_oras') ?>">About Oras</a></li>
+                                    <li class="main_nav_item <?= (session()->get('page') === 'attractions') ? 'active' : '' ?>"><a href="<?= base_url('attractions') ?>">Attractions</a></li>
+                                    <li class="main_nav_item <?= (session()->get('page') === 'gallery') ? 'active' : '' ?>"><a href="<?= base_url('gallery') ?>">Gallery</a></li>
+                                    <li class="main_nav_item <?= (session()->get('page') === 'contact') ? 'active' : '' ?>"><a href="<?= base_url('contact') ?>">Contact</a></li>
                                 </ul>
                             </div>
 
@@ -98,6 +80,7 @@
             </nav>
         </header>
 
+        <!-- Menu -->
         <div class="menu trans_500">
             <div class="menu_content d-flex flex-column align-items-center justify-content-center text-center">
                 <div class="menu_close_container">
@@ -105,15 +88,15 @@
                 </div>
                 <div class="logo menu_logo">
                     <a href="javascript:void(0)">
-                        <img src="public/dist/home/images/logo.png?v=1.0" alt="" width="50">
+                        <img src="public/dist/landing/images/logo.png?v=1.0" alt="" width="50">
                     </a>
                 </div>
                 <ul>
-                    <li class="menu_item"><a href="javascript:void(0)">Home</a></li>
-                    <li class="menu_item"><a href="javascript:void(0)">About Oras</a></li>
-                    <li class="menu_item"><a href="javascript:void(0)">Attractions</a></li>
-                    <li class="menu_item"><a href="javascript:void(0)">Gallery</a></li>
-                    <li class="menu_item"><a href="javascript:void(0)">Contact</a></li>
+                    <li class="menu_item <?= (session()->get('page') === 'home') ? 'active' : '' ?>"><a href="<?= base_url() ?>">Home</a></li>
+                    <li class="menu_item <?= (session()->get('page') === 'about_oras') ? 'active' : '' ?>"><a href="<?= base_url('about_oras') ?>">About Oras</a></li>
+                    <li class="menu_item <?= (session()->get('page') === 'attractions') ? 'active' : '' ?>"><a href="<?= base_url('attractions') ?>">Attractions</a></li>
+                    <li class="menu_item <?= (session()->get('page') === 'gallery') ? 'active' : '' ?>"><a href="<?= base_url('gallery') ?>">Gallery</a></li>
+                    <li class="menu_item <?= (session()->get('page') === 'contact') ? 'active' : '' ?>"><a href="<?= base_url('contact') ?>">Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -125,7 +108,7 @@
                 <div class="owl-carousel owl-theme home_slider">
                     <!-- Slider Item -->
                     <div class="owl-item home_slider_item">
-                        <div class="home_slider_background" style="background-image:url(public/dist/home/images/bg.jpg)"></div>
+                        <div class="home_slider_background" style="background-image:url(public/dist/landing/images/bg.jpg)"></div>
 
                         <div class="home_slider_content text-center">
                             <div class="home_slider_content_inner" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
@@ -136,7 +119,7 @@
                     </div>
                     <!-- Slider Item -->
                     <div class="owl-item home_slider_item">
-                        <div class="home_slider_background" style="background-image:url(public/dist/home/images/bg.jpg)"></div>
+                        <div class="home_slider_background" style="background-image:url(public/dist/landing/images/bg_2.jpg)"></div>
 
                         <div class="home_slider_content text-center">
                             <div class="home_slider_content_inner" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
@@ -147,7 +130,7 @@
                     </div>
                     <!-- Slider Item -->
                     <div class="owl-item home_slider_item">
-                        <div class="home_slider_background" style="background-image:url(public/dist/home/images/bg.jpg)"></div>
+                        <div class="home_slider_background" style="background-image:url(public/dist/landing/images/bg_3.jpg)"></div>
 
                         <div class="home_slider_content text-center">
                             <div class="home_slider_content_inner" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
@@ -313,7 +296,7 @@
                         <div class="intro_item">
                             <div class="intro_item_overlay"></div>
                             <!-- Image of a beach in Oras -->
-                            <div class="intro_item_background" style="background-image:url(public/dist/home/images/HaraFehaFun.jpg)"></div>
+                            <div class="intro_item_background" style="background-image:url(public/dist/landing/images/HaraFehaFun.jpg)"></div>
                             <div class="intro_item_content d-flex flex-column align-items-center justify-content-center">
                                 <div class="button intro_button">
                                     <div class="button_bcg"></div>
@@ -332,7 +315,7 @@
                         <div class="intro_item">
                             <div class="intro_item_overlay"></div>
                             <!-- Image of local cultural festival -->
-                            <div class="intro_item_background" style="background-image:url(public/dist/home/images/Binogawan.jpg)"></div>
+                            <div class="intro_item_background" style="background-image:url(public/dist/landing/images/Binogawan.jpg)"></div>
                             <div class="intro_item_content d-flex flex-column align-items-center justify-content-center">
                                 <div class="button intro_button">
                                     <div class="button_bcg"></div>
@@ -351,7 +334,7 @@
                         <div class="intro_item">
                             <div class="intro_item_overlay"></div>
                             <!-- Image of eco-tourism or hiking -->
-                            <div class="intro_item_background" style="background-image:url(public/dist/home/images/Apiton.jpg)"></div>
+                            <div class="intro_item_background" style="background-image:url(public/dist/landing/images/Apiton.jpg)"></div>
                             <div class="intro_item_content d-flex flex-column align-items-center justify-content-center">
                                 <div class="button intro_button">
                                     <div class="button_bcg"></div>
@@ -368,6 +351,7 @@
             </div>
         </div>
 
+        <!-- Testimonials -->
         <div class="testimonials bg-light">
             <div class="test_border"></div>
             <div class="container">
@@ -387,10 +371,10 @@
                                 <div class="owl-item">
                                     <div class="test_item">
                                         <div class="test_image">
-                                            <img src="public/dist/home/images/test_1.jpg" alt="Photo of Emma Johnson">
+                                            <img src="public/dist/landing/images/test_1.jpg" alt="Photo of Emma Johnson">
                                         </div>
                                         <div class="test_icon">
-                                            <img src="public/dist/home/images/backpack.png" alt="Travel icon">
+                                            <img src="public/dist/landing/images/backpack.png" alt="Travel icon">
                                         </div>
                                         <div class="test_content_container">
                                             <div class="test_content">
@@ -409,10 +393,10 @@
                                 <div class="owl-item">
                                     <div class="test_item">
                                         <div class="test_image">
-                                            <img src="public/dist/home/images/test_2.jpg" alt="Photo of Carlos Mendoza">
+                                            <img src="public/dist/landing/images/test_2.jpg" alt="Photo of Carlos Mendoza">
                                         </div>
                                         <div class="test_icon">
-                                            <img src="public/dist/home/images/island_t.png" alt="Island icon">
+                                            <img src="public/dist/landing/images/island_t.png" alt="Island icon">
                                         </div>
                                         <div class="test_content_container">
                                             <div class="test_content">
@@ -431,10 +415,10 @@
                                 <div class="owl-item">
                                     <div class="test_item">
                                         <div class="test_image">
-                                            <img src="public/dist/home/images/test_3.jpg" alt="Photo of Aisha Patel">
+                                            <img src="public/dist/landing/images/test_3.jpg" alt="Photo of Aisha Patel">
                                         </div>
                                         <div class="test_icon">
-                                            <img src="public/dist/home/images/kayak.png" alt="Kayak icon">
+                                            <img src="public/dist/landing/images/kayak.png" alt="Kayak icon">
                                         </div>
                                         <div class="test_content_container">
                                             <div class="test_content">
@@ -502,7 +486,7 @@
                         <div class="footer_col">
                             <div class="footer_content footer_about">
                                 <div class="logo_container footer_logo">
-                                    <div class="logo"><a href="#"><img src="public/dist/home/images/logo.png?v=1.0" alt="" width="37">I❤️Oras</a></div>
+                                    <div class="logo"><a href="#"><img src="public/dist/landing/images/logo.png?v=1.0" alt="" width="37">I❤️Oras</a></div>
                                 </div>
                                 <p class="footer_about_text"> Discover the heart of Oras with us. We bring you closer to the culture, experiences, and community that make this place unique.</p>
                                 <ul class="footer_social_list">
@@ -525,33 +509,33 @@
                                 <!-- Footer blog item -->
                                 <div class="footer_blog_item clearfix">
                                     <div class="footer_blog_image">
-                                        <img src="public/dist/home/images/footer_blog_1.jpg" alt="Sunset over a tropical beach with palm trees" />
+                                        <img src="public/dist/landing/images/footer_blog_1.jpg" alt="Sunset over a tropical beach with palm trees" />
                                     </div>
                                     <div class="footer_blog_content">
-                                        <div class="footer_blog_title"><a href="blog.html">Exploring Hidden Beaches Around the World</a></div>
-                                        <div class="footer_blog_date">May 15, 2025</div>
+                                        <div class="footer_blog_title no-function"><a href="javascript:void(0)">Exploring Hidden Beaches Around the World</a></div>
+                                        <div class="footer_blog_date no-function">May 15, 2025</div>
                                     </div>
                                 </div>
 
                                 <!-- Footer blog item -->
                                 <div class="footer_blog_item clearfix">
                                     <div class="footer_blog_image">
-                                        <img src="public/dist/home/images/footer_blog_2.jpg" alt="Mountain trail with hikers walking at sunrise" />
+                                        <img src="public/dist/landing/images/footer_blog_2.jpg" alt="Mountain trail with hikers walking at sunrise" />
                                     </div>
                                     <div class="footer_blog_content">
-                                        <div class="footer_blog_title"><a href="blog.html">Top 10 Hiking Trails for Adventure Seekers</a></div>
-                                        <div class="footer_blog_date">May 10, 2025</div>
+                                        <div class="footer_blog_title no-function"><a href="javascript:void(0)">Top 10 Hiking Trails for Adventure Seekers</a></div>
+                                        <div class="footer_blog_date no-function">May 10, 2025</div>
                                     </div>
                                 </div>
 
                                 <!-- Footer blog item -->
                                 <div class="footer_blog_item clearfix">
                                     <div class="footer_blog_image">
-                                        <img src="public/dist/home/images/footer_blog_3.jpg" alt="City skyline with colorful lights at night" />
+                                        <img src="public/dist/landing/images/footer_blog_3.jpg" alt="City skyline with colorful lights at night" />
                                     </div>
                                     <div class="footer_blog_content">
-                                        <div class="footer_blog_title"><a href="blog.html">City Lights: Nightlife in the World's Best Urban Spots</a></div>
-                                        <div class="footer_blog_date">May 5, 2025</div>
+                                        <div class="footer_blog_title no-function"><a href="javascript:void(0)">City Lights: Nightlife in the World's Best Urban Spots</a></div>
+                                        <div class="footer_blog_date no-function">May 5, 2025</div>
                                     </div>
                                 </div>
 
@@ -565,14 +549,14 @@
                             <div class="footer_title">tags</div>
                             <div class="footer_content footer_tags">
                                 <ul class="tags_list clearfix">
-                                    <li class="tag_item"><a href="javascript:void(0)">travel</a></li>
-                                    <li class="tag_item"><a href="javascript:void(0)">lifestyle</a></li>
-                                    <li class="tag_item"><a href="javascript:void(0)">technology</a></li>
-                                    <li class="tag_item"><a href="javascript:void(0)">wellness</a></li>
-                                    <li class="tag_item"><a href="javascript:void(0)">art</a></li>
-                                    <li class="tag_item"><a href="javascript:void(0)">food</a></li>
-                                    <li class="tag_item"><a href="javascript:void(0)">culture</a></li>
-                                    <li class="tag_item"><a href="javascript:void(0)">events</a></li>
+                                    <li class="tag_item no-function"><a href="javascript:void(0)">travel</a></li>
+                                    <li class="tag_item no-function"><a href="javascript:void(0)">lifestyle</a></li>
+                                    <li class="tag_item no-function"><a href="javascript:void(0)">technology</a></li>
+                                    <li class="tag_item no-function"><a href="javascript:void(0)">wellness</a></li>
+                                    <li class="tag_item no-function"><a href="javascript:void(0)">art</a></li>
+                                    <li class="tag_item no-function"><a href="javascript:void(0)">food</a></li>
+                                    <li class="tag_item no-function"><a href="javascript:void(0)">culture</a></li>
+                                    <li class="tag_item no-function"><a href="javascript:void(0)">events</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -586,19 +570,19 @@
                                 <ul class="contact_info_list">
                                     <li class="contact_info_item d-flex flex-row align-items-center">
                                         <div class="contact_info_icon">
-                                            <img src="public/dist/home/images/placeholder.svg" alt="Location Icon" />
+                                            <img src="public/dist/landing/images/placeholder.svg" alt="Location Icon" />
                                         </div>
                                         <div class="contact_info_text">Butnga, Oras, Eastern Samar</div>
                                     </li>
                                     <li class="contact_info_item d-flex flex-row align-items-center">
                                         <div class="contact_info_icon">
-                                            <img src="public/dist/home/images/phone-call.svg" alt="Phone Icon" />
+                                            <img src="public/dist/landing/images/phone-call.svg" alt="Phone Icon" />
                                         </div>
                                         <div class="contact_info_text"><a href="tel:+639176080214">+63 917 6080 214</a></div>
                                     </li>
                                     <li class="contact_info_item d-flex flex-row align-items-center">
                                         <div class="contact_info_icon">
-                                            <img src="public/dist/home/images/message.svg" alt="Email Icon" />
+                                            <img src="public/dist/landing/images/message.svg" alt="Email Icon" />
                                         </div>
                                         <div class="contact_info_text">
                                             <a href="mailto:lguoras@gmail.com?Subject=Inquiry" target="_top" rel="noopener noreferrer">lguoras@gmail.com</a>
@@ -606,10 +590,10 @@
                                     </li>
                                     <li class="contact_info_item d-flex flex-row align-items-center">
                                         <div class="contact_info_icon">
-                                            <img src="public/dist/home/images/planet-earth.svg" alt="Website Icon" />
+                                            <img src="public/dist/landing/images/planet-earth.svg" alt="Website Icon" />
                                         </div>
                                         <div class="contact_info_text">
-                                            <a href="https://www.yourdomain.com" target="_blank" rel="noopener noreferrer">www.yourdomain.com</a>
+                                            <a href="https://i-love-oras.essuc.online/" target="_blank" rel="noopener noreferrer">www.i-love-oras.essuc.online</a>
                                         </div>
                                     </li>
                                 </ul>
@@ -626,11 +610,11 @@
                 <div class="row">
                     <div class="col-lg-3 order-lg-1 order-2  ">
                         <div class="copyright_content d-flex flex-row align-items-center">
-                            <div><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            <div>
                                 Copyright &copy;<script>
                                     document.write(new Date().getFullYear());
                                 </script> All rights reserved.
-                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+
                             </div>
                         </div>
                     </div>
@@ -638,11 +622,11 @@
                         <div class="footer_nav_container d-flex flex-row align-items-center justify-content-lg-end">
                             <div class="footer_nav">
                                 <ul class="footer_nav_list">
-                                    <li class="footer_nav_item"><a href="javascript:void(0)">Home</a></li>
-                                    <li class="footer_nav_item"><a href="javascript:void(0)">About Oras</a></li>
-                                    <li class="footer_nav_item"><a href="javascript:void(0)">Attractions</a></li>
-                                    <li class="footer_nav_item"><a href="javascript:void(0)">Gallery</a></li>
-                                    <li class="footer_nav_item"><a href="javascript:void(0)">Contact</a></li>
+                                    <li class="footer_nav_item"><a href="<?= base_url() ?>">Home</a></li>
+                                    <li class="footer_nav_item"><a href="<?= base_url('about_oras') ?>">About Oras</a></li>
+                                    <li class="footer_nav_item"><a href="<?= base_url('attractions') ?>">Attractions</a></li>
+                                    <li class="footer_nav_item"><a href="<?= base_url('gallery') ?>">Gallery</a></li>
+                                    <li class="footer_nav_item"><a href="<?= base_url('contact') ?>">Contact</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -708,7 +692,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                    <h5 class="modal-title" id="loginModalLabel">Administrator Portal</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -736,52 +720,13 @@
         </div>
     </div>
 
-    <script src="public/dist/home/js/jquery-3.2.1.min.js"></script>
-    <script src="public/dist/home/styles/bootstrap4/popper.js"></script>
-    <script src="public/dist/home/styles/bootstrap4/bootstrap.min.js"></script>
-    <script src="public/dist/home/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
-    <script src="public/dist/home/plugins/easing/easing.js"></script>
-    <script src="public/dist/home/js/custom.js"></script>
-
-    <script>
-        $(document).ready(function() {
-            $("#loginForm").submit(function() {
-                const email = $("#loginEmail").val();
-                const password = $("#loginPassword").val();
-
-                $("#loginSubmit").attr("disabled", true);
-                $("#loginSubmit").text("Please wait...");
-
-                var formData = new FormData();
-
-                formData.append('email', email);
-                formData.append('password', password);
-
-                $.ajax({
-                    url: 'login',
-                    data: formData,
-                    type: 'POST',
-                    dataType: 'JSON',
-                    processData: false,
-                    contentType: false,
-                    success: function(response) {
-                        if (response.success) {
-                            location.href = "admin/dashboard";
-                        } else {
-                            $("#loginError").removeClass("d-none");
-
-                            $("#loginSubmit").removeAttr("disabled");
-                            $("#loginSubmit").text("Login");
-                        }
-
-                    },
-                    error: function(_, _, error) {
-                        console.error(error);
-                    }
-                });
-            })
-        })
-    </script>
+    <script src="public/dist/landing/js/jquery-3.2.1.min.js"></script>
+    <script src="public/dist/landing/styles/bootstrap4/popper.js"></script>
+    <script src="public/dist/landing/styles/bootstrap4/bootstrap.min.js"></script>
+    <script src="public/dist/landing/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+    <script src="public/dist/landing/plugins/easing/easing.js"></script>
+    <script src="public/dist/landing/js/custom.js"></script>
+    <script src="public/dist/landing/js/script.js"></script>
 </body>
 
 </html>

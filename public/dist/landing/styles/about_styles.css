@@ -121,14 +121,7 @@ p a:hover::after
 {
 	opacity: 0.2;
 }
-::selection
-{
-	
-}
-p::selection
-{
-	
-}
+
 h1{font-size: 48px;}
 h2{font-size: 36px;}
 h3{font-size: 24px;}
@@ -141,15 +134,7 @@ h1, h2, h3, h4, h5, h6
 	-webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
 	text-shadow: rgba(0,0,0,.01) 0 0 1px;
 }
-h1::selection, 
-h2::selection, 
-h3::selection, 
-h4::selection, 
-h5::selection, 
-h6::selection
-{
-	
-}
+
 .form-control
 {
 	color: #db5246;
@@ -410,17 +395,6 @@ section
 {
 	margin-right: 15px;
 }
-.user_box_login::after
-{
-	display: block;
-	position: absolute;
-	top: 15px;
-	right: -9px;
-	background: #FFFFFF;
-	width: 1px;
-	height: 9px;
-	content: '';
-}
 .main_nav_col
 {
 	height: 143px;
@@ -479,22 +453,21 @@ section
 3.3 Main Nav
 *********************************/
 
-.main_nav_container
-{
+.main_nav_container {
 	margin-right: 221px;
 }
-.main_nav_item
-{
+
+.main_nav_item {
 	position: relative;
 	display: inline-block;
 	margin-right: 40px;
 }
-.main_nav_item:last-child
-{
+
+.main_nav_item:last-child {
 	margin-right: 0px;
 }
-.main_nav_item a
-{
+
+.main_nav_item a {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 13px;
 	font-weight: 600;
@@ -503,8 +476,8 @@ section
 	padding-bottom: 10px;
 	padding-top: 10px;
 }
-.main_nav_item::after
-{
+
+.main_nav_item::after {
 	display: block;
 	position: absolute;
 	left: -1px;
@@ -520,10 +493,12 @@ section
 	-o-transition: all 200ms ease;
 	transition: all 200ms ease;
 }
-.main_nav_item:hover::after
-{
+
+.main_nav_item:hover::after,
+.main_nav_item.active::after {
 	opacity: 1;
 }
+
 .content_search
 {
 	-webkit-transform: translateY(-1px);
@@ -964,10 +939,7 @@ section
 	height: 100%;
 	padding-bottom: 5px;
 }
-.stats_last_content
-{
 
-}
 .stats_number
 {
 	font-size: 24px;
@@ -1342,10 +1314,7 @@ section
 {
 	height: 52px;
 }
-.footer_nav
-{
-	
-}
+
 .footer_nav_list
 {
 	font-size: 0px;
