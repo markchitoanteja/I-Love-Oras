@@ -1,4 +1,12 @@
 $(document).ready(function () {
+    $(".no-function").click(function () {
+        Swal.fire({
+            title: "Oops...",
+            text: "This feature is not available yet.",
+            icon: "error"
+        });
+    });
+
     $("#loginForm").submit(function () {
         const email = $("#loginEmail").val();
         const password = $("#loginPassword").val();
@@ -33,5 +41,23 @@ $(document).ready(function () {
                 console.error(error);
             }
         });
-    })
+    });
+
+    $("#contactForm").submit(function () {
+        $(".loading").removeClass("d-none");
+        $(".main-form").addClass("d-none");
+
+        setTimeout(function () {
+            $(".loading").addClass("d-none");
+            $(".main-form").removeClass("d-none");
+
+            $("#contactForm")[0].reset();
+
+            Swal.fire({
+                title: "Success!",
+                text: "Your message has been sent successfully!",
+                icon: "success"
+            });
+        }, 3000);
+    });
 })

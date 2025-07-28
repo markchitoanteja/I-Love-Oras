@@ -19,6 +19,24 @@
     <link rel="stylesheet" href="public/dist/landing/styles/main_styles.css?v=1.2" type="text/css">
     <link rel="stylesheet" href="public/dist/landing/styles/responsive.css" type="text/css">
     <link rel="stylesheet" href="public/dist/landing/styles/custom.css" type="text/css">
+
+    <style>
+        .img-wrapper {
+            width: 100%;
+            height: 120px;
+            /* Adjust height as needed */
+            overflow: hidden;
+            border-radius: 0.25rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0.25rem;
+        }
+    </style>
 </head>
 
 <body>
@@ -33,12 +51,12 @@
                             <div class="phone">+63 917 6080 214</div>
                             <div class="social">
                                 <ul class="social_list">
-                                    <li class="social_list_item"><a href="javascript:void(0)"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-                                    <li class="social_list_item"><a href="javascript:void(0)"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                    <li class="social_list_item"><a href="javascript:void(0)"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                    <li class="social_list_item"><a href="javascript:void(0)"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
-                                    <li class="social_list_item"><a href="javascript:void(0)"><i class="fa fa-behance" aria-hidden="true"></i></a></li>
-                                    <li class="social_list_item"><a href="javascript:void(0)"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                    <li class="social_list_item"><a href="javascript:void(0)" class="no-function"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                                    <li class="social_list_item"><a href="javascript:void(0)" class="no-function"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li class="social_list_item"><a href="javascript:void(0)" class="no-function"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                    <li class="social_list_item"><a href="javascript:void(0)" class="no-function"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+                                    <li class="social_list_item"><a href="javascript:void(0)" class="no-function"><i class="fa fa-behance" aria-hidden="true"></i></a></li>
+                                    <li class="social_list_item"><a href="javascript:void(0)" class="no-function"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
                                 </ul>
                             </div>
                             <div class="user_box ml-auto">
@@ -289,18 +307,16 @@
                     </div>
                 </div>
                 <div class="row intro_items">
-
                     <!-- Intro Item -->
-
                     <div class="col-lg-4 intro_col">
                         <div class="intro_item">
                             <div class="intro_item_overlay"></div>
                             <!-- Image of a beach in Oras -->
-                            <div class="intro_item_background" style="background-image:url(public/dist/landing/images/HaraFehaFun.jpg)"></div>
+                            <div class="intro_item_background" style="background-image:url(public/dist/landing/images/harafehafun.jpg)"></div>
                             <div class="intro_item_content d-flex flex-column align-items-center justify-content-center">
                                 <div class="button intro_button">
                                     <div class="button_bcg"></div>
-                                    <a href="#" data-toggle="modal" data-target="#modalBeach">More Info<span></span><span></span><span></span></a>
+                                    <a href="javascript:void(0)" data-toggle="modal" data-target="#modalHarafehafun">More Info<span></span><span></span><span></span></a>
                                 </div>
                                 <div class="intro_center text-center">
                                     <h1>HaraFeha Fun</h1>
@@ -308,18 +324,16 @@
                             </div>
                         </div>
                     </div>
-
                     <!-- Intro Item -->
-
                     <div class="col-lg-4 intro_col">
                         <div class="intro_item">
                             <div class="intro_item_overlay"></div>
                             <!-- Image of local cultural festival -->
-                            <div class="intro_item_background" style="background-image:url(public/dist/landing/images/Binogawan.jpg)"></div>
+                            <div class="intro_item_background" style="background-image:url(public/dist/landing/images/binogawan.jpg)"></div>
                             <div class="intro_item_content d-flex flex-column align-items-center justify-content-center">
                                 <div class="button intro_button">
                                     <div class="button_bcg"></div>
-                                    <a href="#" data-toggle="modal" data-target="#modalFestival">More Info<span></span><span></span><span></span></a>
+                                    <a href="javascript:void(0)" data-toggle="modal" data-target="#modalBinogawan">More Info<span></span><span></span><span></span></a>
                                 </div>
                                 <div class="intro_center text-center">
                                     <h1>Binogawan Island</h1>
@@ -327,18 +341,16 @@
                             </div>
                         </div>
                     </div>
-
                     <!-- Intro Item -->
-
                     <div class="col-lg-4 intro_col">
                         <div class="intro_item">
                             <div class="intro_item_overlay"></div>
                             <!-- Image of eco-tourism or hiking -->
-                            <div class="intro_item_background" style="background-image:url(public/dist/landing/images/Apiton.jpg)"></div>
+                            <div class="intro_item_background" style="background-image:url(public/dist/landing/images/apiton.jpg)"></div>
                             <div class="intro_item_content d-flex flex-column align-items-center justify-content-center">
                                 <div class="button intro_button">
                                     <div class="button_bcg"></div>
-                                    <a href="javascript:void(0)" data-toggle="modal" data-target="#modalEcoTourism">More Info<span></span><span></span><span></span></a>
+                                    <a href="javascript:void(0)" data-toggle="modal" data-target="#modalApiton">More Info<span></span><span></span><span></span></a>
                                 </div>
                                 <div class="intro_center text-center">
                                     <h1>Apiton Island</h1>
@@ -346,7 +358,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -357,21 +368,19 @@
             <div class="container">
                 <div class="row">
                     <div class="col text-center">
-                        <h2 class="section_title">What Our Visitors Are Saying</h2>
+                        <h2 class="section_title">What Our Fellow Orasnon Are Saying</h2>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
-
                         <!-- Testimonials Slider -->
                         <div class="test_slider_container">
                             <div class="owl-carousel owl-theme test_slider">
-
                                 <!-- Testimonial Item -->
                                 <div class="owl-item">
                                     <div class="test_item">
                                         <div class="test_image">
-                                            <img src="public/dist/landing/images/test_1.jpg" alt="Photo of Emma Johnson">
+                                            <img src="public/dist/landing/images/visitors/1.jpg" alt="Photo of Emma Johnson">
                                         </div>
                                         <div class="test_icon">
                                             <img src="public/dist/landing/images/backpack.png" alt="Travel icon">
@@ -379,61 +388,58 @@
                                         <div class="test_content_container">
                                             <div class="test_content">
                                                 <div class="test_item_info">
-                                                    <div class="test_name">Emma Johnson</div>
-                                                    <div class="test_date">March 12, 2024</div>
+                                                    <div class="test_name">Nagtitinda hin Karan-on</div>
+                                                    <div class="test_date">March 12, 2025</div>
                                                 </div>
-                                                <div class="test_quote_title">"An unforgettable adventure!"</div>
-                                                <p class="test_quote_text">Their team crafted a personalized experience that exceeded my expectations. Highly recommend for any traveler seeking authenticity.</p>
+                                                <div class="test_quote_title">"Palit na mga suki!"</div>
+                                                <p class="test_quote_text">Sobra nga rasa hit mga karan-on dinhi. Talagang sulit it kada piraso.</p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
                                 <!-- Testimonial Item -->
                                 <div class="owl-item">
                                     <div class="test_item">
                                         <div class="test_image">
-                                            <img src="public/dist/landing/images/test_2.jpg" alt="Photo of Carlos Mendoza">
+                                            <img src="public/dist/landing/images/visitors/2.jpg" alt="Photo of Emma Johnson">
                                         </div>
                                         <div class="test_icon">
-                                            <img src="public/dist/landing/images/island_t.png" alt="Island icon">
+                                            <img src="public/dist/landing/images/island_t.png" alt="Travel icon">
                                         </div>
                                         <div class="test_content_container">
                                             <div class="test_content">
                                                 <div class="test_item_info">
-                                                    <div class="test_name">Carlos Mendoza</div>
-                                                    <div class="test_date">April 8, 2024</div>
+                                                    <div class="test_name">Mga Taga Burak</div>
+                                                    <div class="test_date">June 07, 2025</div>
                                                 </div>
-                                                <div class="test_quote_title">"Smooth and hassle-free booking"</div>
-                                                <p class="test_quote_text">Booking was seamless and the support team was incredibly responsive. Made my trip planning stress-free and enjoyable.</p>
+                                                <div class="test_quote_title">"Damo an Gala!"</div>
+                                                <p class="test_quote_text">Maupay pagkinulaw hit usa nga sarayaw nga damo it gala pirme.</p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
                                 <!-- Testimonial Item -->
                                 <div class="owl-item">
                                     <div class="test_item">
                                         <div class="test_image">
-                                            <img src="public/dist/landing/images/test_3.jpg" alt="Photo of Aisha Patel">
+                                            <img src="public/dist/landing/images/visitors/3.jpg" alt="Photo of Emma Johnson">
                                         </div>
                                         <div class="test_icon">
-                                            <img src="public/dist/landing/images/kayak.png" alt="Kayak icon">
+                                            <img src="public/dist/landing/images/kayak.png" alt="Travel icon">
                                         </div>
                                         <div class="test_content_container">
                                             <div class="test_content">
                                                 <div class="test_item_info">
-                                                    <div class="test_name">Aisha Patel</div>
-                                                    <div class="test_date">May 2, 2024</div>
+                                                    <div class="test_name">Mga Taga Dao</div>
+                                                    <div class="test_date">June 07, 2025</div>
                                                 </div>
-                                                <div class="test_quote_title">"Incredible attention to detail"</div>
-                                                <p class="test_quote_text">Every part of my trip was thoughtfully planned. The little touches made a huge difference in my overall experience.</p>
+                                                <div class="test_quote_title">"Galante it Mayor hit Oras!"</div>
+                                                <p class="test_quote_text">Kaupay pagkinulawan ita nagkakalupad nga kwarta. Sana All.</p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
                             <!-- Testimonials Slider Nav - Prev -->
                             <div class="test_slider_nav test_slider_prev">
                                 <svg version="1.1" id="Layer_6" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -481,61 +487,74 @@
         <footer class="footer">
             <div class="container">
                 <div class="row">
-                    <!-- Footer Column -->
+                    <!-- About Column -->
                     <div class="col-lg-3 footer_column">
                         <div class="footer_col">
                             <div class="footer_content footer_about">
                                 <div class="logo_container footer_logo">
-                                    <div class="logo"><a href="#"><img src="public/dist/landing/images/logo.png?v=1.0" alt="" width="37">I❤️Oras</a></div>
+                                    <div class="logo">
+                                        <a href="#">
+                                            <img src="public/dist/landing/images/logo.png?v=1.0" alt="" width="37">
+                                            I❤️Oras
+                                        </a>
+                                    </div>
                                 </div>
-                                <p class="footer_about_text"> Discover the heart of Oras with us. We bring you closer to the culture, experiences, and community that make this place unique.</p>
+                                <p class="footer_about_text">
+                                    Discover the heart of Oras with us. We bring you closer to the culture, experiences, and community that make this place unique.
+                                </p>
                                 <ul class="footer_social_list">
-                                    <li class="footer_social_item"><a href="javascript:void(0)"><i class="fa fa-pinterest"></i></a></li>
-                                    <li class="footer_social_item"><a href="javascript:void(0)"><i class="fa fa-facebook-f"></i></a></li>
-                                    <li class="footer_social_item"><a href="javascript:void(0)"><i class="fa fa-twitter"></i></a></li>
-                                    <li class="footer_social_item"><a href="javascript:void(0)"><i class="fa fa-dribbble"></i></a></li>
-                                    <li class="footer_social_item"><a href="javascript:void(0)"><i class="fa fa-behance"></i></a></li>
+                                    <li class="footer_social_item"><a href="javascript:void(0)" class="no-function"><i class="fa fa-facebook-f"></i></a></li>
+                                    <li class="footer_social_item"><a href="javascript:void(0)" class="no-function"><i class="fa fa-twitter"></i></a></li>
+                                    <li class="footer_social_item"><a href="javascript:void(0)" class="no-function"><i class="fa fa-pinterest"></i></a></li>
+                                    <li class="footer_social_item"><a href="javascript:void(0)" class="no-function"><i class="fa fa-dribbble"></i></a></li>
+                                    <li class="footer_social_item"><a href="javascript:void(0)" class="no-function"><i class="fa fa-behance"></i></a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Footer Column -->
+                    <!-- Latest Blogs Column -->
                     <div class="col-lg-3 footer_column">
                         <div class="footer_col">
-                            <div class="footer_title">latest blog posts</div>
+                            <div class="footer_title">Latest from Oras</div>
                             <div class="footer_content footer_blog">
 
-                                <!-- Footer blog item -->
+                                <!-- Blog Post 1 -->
                                 <div class="footer_blog_item clearfix">
                                     <div class="footer_blog_image">
-                                        <img src="public/dist/landing/images/footer_blog_1.jpg" alt="Sunset over a tropical beach with palm trees" />
+                                        <img src="public/dist/landing/images/footer_blog_1.jpg" alt="Street parade in Oras during fiesta" />
                                     </div>
                                     <div class="footer_blog_content">
-                                        <div class="footer_blog_title no-function"><a href="javascript:void(0)">Exploring Hidden Beaches Around the World</a></div>
-                                        <div class="footer_blog_date no-function">May 15, 2025</div>
+                                        <div class="footer_blog_title">
+                                            <a href="javascript:void(0)" class="no-function">Oras Festival Parades & Local Celebrations</a>
+                                        </div>
+                                        <div class="footer_blog_date">June 2025</div>
                                     </div>
                                 </div>
 
-                                <!-- Footer blog item -->
+                                <!-- Blog Post 2 -->
                                 <div class="footer_blog_item clearfix">
                                     <div class="footer_blog_image">
-                                        <img src="public/dist/landing/images/footer_blog_2.jpg" alt="Mountain trail with hikers walking at sunrise" />
+                                        <img src="public/dist/landing/images/footer_blog_2.jpg" alt="Nature trails in Eastern Samar" />
                                     </div>
                                     <div class="footer_blog_content">
-                                        <div class="footer_blog_title no-function"><a href="javascript:void(0)">Top 10 Hiking Trails for Adventure Seekers</a></div>
-                                        <div class="footer_blog_date no-function">May 10, 2025</div>
+                                        <div class="footer_blog_title">
+                                            <a href="javascript:void(0)" class="no-function">Exploring Hidden Natural Gems of Eastern Samar</a>
+                                        </div>
+                                        <div class="footer_blog_date">February 2025</div>
                                     </div>
                                 </div>
 
-                                <!-- Footer blog item -->
+                                <!-- Blog Post 3 -->
                                 <div class="footer_blog_item clearfix">
                                     <div class="footer_blog_image">
-                                        <img src="public/dist/landing/images/footer_blog_3.jpg" alt="City skyline with colorful lights at night" />
+                                        <img src="public/dist/landing/images/footer_blog_3.jpg" alt="Samar Island Natural Park forest trails" />
                                     </div>
                                     <div class="footer_blog_content">
-                                        <div class="footer_blog_title no-function"><a href="javascript:void(0)">City Lights: Nightlife in the World's Best Urban Spots</a></div>
-                                        <div class="footer_blog_date no-function">May 5, 2025</div>
+                                        <div class="footer_blog_title">
+                                            <a href="javascript:void(0)" class="no-function">Tracks Through Samar Island Natural Park</a>
+                                        </div>
+                                        <div class="footer_blog_date">April 2025</div>
                                     </div>
                                 </div>
 
@@ -543,58 +562,46 @@
                         </div>
                     </div>
 
-                    <!-- Footer Column -->
+                    <!-- Tags Column -->
                     <div class="col-lg-3 footer_column">
                         <div class="footer_col">
-                            <div class="footer_title">tags</div>
+                            <div class="footer_title">Tags</div>
                             <div class="footer_content footer_tags">
                                 <ul class="tags_list clearfix">
-                                    <li class="tag_item no-function"><a href="javascript:void(0)">travel</a></li>
-                                    <li class="tag_item no-function"><a href="javascript:void(0)">lifestyle</a></li>
-                                    <li class="tag_item no-function"><a href="javascript:void(0)">technology</a></li>
-                                    <li class="tag_item no-function"><a href="javascript:void(0)">wellness</a></li>
-                                    <li class="tag_item no-function"><a href="javascript:void(0)">art</a></li>
-                                    <li class="tag_item no-function"><a href="javascript:void(0)">food</a></li>
-                                    <li class="tag_item no-function"><a href="javascript:void(0)">culture</a></li>
-                                    <li class="tag_item no-function"><a href="javascript:void(0)">events</a></li>
+                                    <li class="tag_item no-function"><a href="javascript:void(0)">Oras</a></li>
+                                    <li class="tag_item no-function"><a href="javascript:void(0)">Eastern Samar</a></li>
+                                    <li class="tag_item no-function"><a href="javascript:void(0)">Travel</a></li>
+                                    <li class="tag_item no-function"><a href="javascript:void(0)">Eco‑Tourism</a></li>
+                                    <li class="tag_item no-function"><a href="javascript:void(0)">Culture</a></li>
+                                    <li class="tag_item no-function"><a href="javascript:void(0)">Festivals</a></li>
+                                    <li class="tag_item no-function"><a href="javascript:void(0)">Nature</a></li>
+                                    <li class="tag_item no-function"><a href="javascript:void(0)">Hidden Gems</a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Footer Column -->
+                    <!-- Contact Info Column -->
                     <div class="col-lg-3 footer_column">
                         <div class="footer_col">
-                            <div class="footer_title">contact info</div>
+                            <div class="footer_title">Contact & Info</div>
                             <div class="footer_content footer_contact">
                                 <ul class="contact_info_list">
                                     <li class="contact_info_item d-flex flex-row align-items-center">
-                                        <div class="contact_info_icon">
-                                            <img src="public/dist/landing/images/placeholder.svg" alt="Location Icon" />
-                                        </div>
+                                        <div class="contact_info_icon"><img src="public/dist/landing/images/placeholder.svg" alt="Location Icon" /></div>
                                         <div class="contact_info_text">Butnga, Oras, Eastern Samar</div>
                                     </li>
                                     <li class="contact_info_item d-flex flex-row align-items-center">
-                                        <div class="contact_info_icon">
-                                            <img src="public/dist/landing/images/phone-call.svg" alt="Phone Icon" />
-                                        </div>
+                                        <div class="contact_info_icon"><img src="public/dist/landing/images/phone-call.svg" alt="Phone Icon" /></div>
                                         <div class="contact_info_text"><a href="tel:+639176080214">+63 917 6080 214</a></div>
                                     </li>
                                     <li class="contact_info_item d-flex flex-row align-items-center">
-                                        <div class="contact_info_icon">
-                                            <img src="public/dist/landing/images/message.svg" alt="Email Icon" />
-                                        </div>
-                                        <div class="contact_info_text">
-                                            <a href="mailto:lguoras@gmail.com?Subject=Inquiry" target="_top" rel="noopener noreferrer">lguoras@gmail.com</a>
-                                        </div>
+                                        <div class="contact_info_icon"><img src="public/dist/landing/images/message.svg" alt="Email Icon" /></div>
+                                        <div class="contact_info_text"><a href="mailto:lguoras@gmail.com?Subject=Inquiry">lguoras@gmail.com</a></div>
                                     </li>
                                     <li class="contact_info_item d-flex flex-row align-items-center">
-                                        <div class="contact_info_icon">
-                                            <img src="public/dist/landing/images/planet-earth.svg" alt="Website Icon" />
-                                        </div>
-                                        <div class="contact_info_text">
-                                            <a href="https://i-love-oras.essuc.online/" target="_blank" rel="noopener noreferrer">www.i-love-oras.essuc.online</a>
-                                        </div>
+                                        <div class="contact_info_icon"><img src="public/dist/landing/images/planet-earth.svg" alt="Website Icon" /></div>
+                                        <div class="contact_info_text"><a href="https://i-love-oras.essuc.online/" target="_blank" rel="noopener noreferrer">www.i-love-oras.essuc.online</a></div>
                                     </li>
                                 </ul>
                             </div>
@@ -611,10 +618,9 @@
                     <div class="col-lg-3 order-lg-1 order-2  ">
                         <div class="copyright_content d-flex flex-row align-items-center">
                             <div>
-                                Copyright &copy;<script>
+                                &copy; <script>
                                     document.write(new Date().getFullYear());
-                                </script> All rights reserved.
-
+                                </script> I❤️Oras. All rights reserved.
                             </div>
                         </div>
                     </div>
@@ -631,57 +637,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal HaraFeha Fun -->
-    <div class="modal fade" id="modalBeach" tabindex="-1" role="dialog" aria-labelledby="modalBeachLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content bg-dark text-white">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalBeachLabel">HaraFeha Fun</h5>
-                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p>HaraFeha Fun offers a delightful beach experience in Oras, featuring pristine white sands and crystal-clear waters. It’s an ideal spot for swimming, sunbathing, and enjoying family-friendly beach activities surrounded by nature’s beauty.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal Binogawan Island -->
-    <div class="modal fade" id="modalFestival" tabindex="-1" role="dialog" aria-labelledby="modalFestivalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content bg-dark text-white">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalFestivalLabel">Binogawan Island</h5>
-                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p>Binogawan Island is known for its rich biodiversity and beautiful coastal scenery. Visitors can enjoy island hopping, snorkeling, and exploring vibrant marine life, making it a must-visit spot for nature and adventure lovers in Oras.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal Apiton Island -->
-    <div class="modal fade" id="modalEcoTourism" tabindex="-1" role="dialog" aria-labelledby="modalEcoTourismLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content bg-dark text-white">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalEcoTourismLabel">Apiton Island</h5>
-                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p>Apiton Island offers exciting eco-tourism adventures including hiking trails, bird watching, and exploring lush tropical forests. This island promotes sustainable tourism while showcasing the natural beauty of Eastern Samar.</p>
                 </div>
             </div>
         </div>
@@ -720,13 +675,301 @@
         </div>
     </div>
 
+    <!-- HaraFehaFun Modal -->
+    <div class="modal fade" id="modalHarafehafun" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content shadow-lg border-0">
+                <!-- Header -->
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title mb-0" id="loginModalLabel">HaraFehaFun</h5>
+                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <!-- Body -->
+                <div class="modal-body p-4 bg-white rounded-bottom">
+                    <!-- Description Card -->
+                    <h6 class="font-weight-bold mb-3">Description</h6>
+                    <div class="mb-4 p-3 border rounded bg-light">
+                        <p class="text-dark mb-0">
+                            <strong>HaraFehaFun</strong> is a local favorite destination in Oras known for its <em>pristine beaches</em>,
+                            peaceful environment, and stunning natural scenery. Whether you're here to unwind or explore,
+                            it's the perfect spot for a relaxing escape with family and friends.
+                        </p>
+                    </div>
+
+                    <!-- Photo Gallery -->
+                    <h6 class="font-weight-bold mb-3">Photo Gallery</h6>
+                    <div class="border rounded mb-4 p-2 bg-light">
+                        <div id="harafehaCarousel" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                                <!-- Slide 1 -->
+                                <div class="carousel-item active">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="img-wrapper">
+                                                <img src="public/dist/landing/images/harafehafun.jpg" alt="Image 1">
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="img-wrapper">
+                                                <img src="public/dist/landing/images/harafehafun_2.jpg" alt="Image 2">
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="img-wrapper">
+                                                <img src="public/dist/landing/images/harafehafun_3.jfif" alt="Image 3">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Slide 2 -->
+                                <div class="carousel-item">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="img-wrapper">
+                                                <img src="public/dist/landing/images/harafehafun_4.jfif" alt="Image 4">
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="img-wrapper">
+                                                <img src="public/dist/landing/images/harafehafun_5.jpg" alt="Image 5">
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="img-wrapper">
+                                                <img src="public/dist/landing/images/harafehafun_6.jfif" alt="Image 6">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Carousel Controls -->
+                            <a class="carousel-control-prev" href="#harafehaCarousel" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#harafehaCarousel" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Map Section -->
+                    <h6 class="font-weight-bold mb-3">Map</h6>
+                    <div class="border rounded overflow-hidden shadow-sm">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.6018402391164!2d125.4391028!3d12.1393721!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33096f394630aa6d%3A0x6f444a9844396091!2sHaraFehaFun!5e0!3m2!1sen!2sph!4v1753722759137!5m2!1sen!2sph"
+                            width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Binogawan Island Modal -->
+    <div class="modal fade" id="modalBinogawan" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content shadow-lg border-0">
+                <!-- Header -->
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title mb-0" id="loginModalLabel">Binogawan Island</h5>
+                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <!-- Body -->
+                <div class="modal-body p-4 bg-white rounded-bottom">
+                    <!-- Description Card -->
+                    <h6 class="font-weight-bold mb-3">Description</h6>
+                    <div class="mb-4 p-3 border rounded bg-light">
+                        <p class="text-dark mb-0">
+                            <strong>Binogawan Island</strong> is a tranquil destination known for its crystal-clear waters,
+                            soft sand, and gentle waves. Ideal for snorkeling, beach picnics, and nature lovers seeking solitude.
+                        </p>
+                    </div>
+
+                    <!-- Photo Gallery -->
+                    <h6 class="font-weight-bold mb-3">Photo Gallery</h6>
+                    <div class="border rounded mb-4 p-2 bg-light">
+                        <div id="binogawanCarousel" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                                <!-- Slide 1 -->
+                                <div class="carousel-item active">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="img-wrapper">
+                                                <img src="public/dist/landing/images/binogawan.jpg" alt="Image 1">
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="img-wrapper">
+                                                <img src="public/dist/landing/images/binogawan_2.jpg?v=1.0" alt="Image 2">
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="img-wrapper">
+                                                <img src="public/dist/landing/images/binogawan_3.jfif" alt="Image 3">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Slide 2 -->
+                                <div class="carousel-item">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="img-wrapper">
+                                                <img src="public/dist/landing/images/binogawan_4.jfif" alt="Image 4">
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="img-wrapper">
+                                                <img src="public/dist/landing/images/binogawan_5.jpg" alt="Image 5">
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="img-wrapper">
+                                                <img src="public/dist/landing/images/binogawan_6.jfif" alt="Image 6">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Carousel Controls -->
+                            <a class="carousel-control-prev" href="#binogawanCarousel" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#binogawanCarousel" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Map Section -->
+                    <h6 class="font-weight-bold mb-3">Map</h6>
+                    <div class="border rounded overflow-hidden shadow-sm">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7800.196056147177!2d125.47191898126694!3d12.173728984561517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x330968ac9b2f629d%3A0xf7db52fe23309d4c!2sBinogawan%20Beach!5e0!3m2!1sen!2sph!4v1753722801665!5m2!1sen!2sph"
+                            width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Apiton Island Modal -->
+    <div class="modal fade" id="modalApiton" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content shadow-lg border-0">
+                <!-- Header -->
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title mb-0" id="loginModalLabel">Apiton Island</h5>
+                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <!-- Body -->
+                <div class="modal-body p-4 bg-white rounded-bottom">
+                    <!-- Description Card -->
+                    <h6 class="font-weight-bold mb-3">Description</h6>
+                    <div class="mb-4 p-3 border rounded bg-light">
+                        <p class="text-dark mb-0">
+                            <strong>Apiton Island</strong> is a small but beautiful island with calm turquoise waters and vibrant marine life.
+                            A must-visit for kayaking, diving, or simply enjoying the view from a quiet cove.
+                        </p>
+                    </div>
+
+                    <!-- Photo Gallery -->
+                    <h6 class="font-weight-bold mb-3">Photo Gallery</h6>
+                    <div class="border rounded mb-4 p-2 bg-light">
+                        <div id="apitonCarousel" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                                <!-- Slide 1 -->
+                                <div class="carousel-item active">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="img-wrapper">
+                                                <img src="public/dist/landing/images/apiton.jpg" alt="Image 1">
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="img-wrapper">
+                                                <img src="public/dist/landing/images/apiton_2.jpg" alt="Image 2">
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="img-wrapper">
+                                                <img src="public/dist/landing/images/apiton_3.jfif" alt="Image 3">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Slide 2 -->
+                                <div class="carousel-item">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="img-wrapper">
+                                                <img src="public/dist/landing/images/apiton_4.jfif" alt="Image 4">
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="img-wrapper">
+                                                <img src="public/dist/landing/images/apiton_5.jfif" alt="Image 5">
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="img-wrapper">
+                                                <img src="public/dist/landing/images/apiton_6.jfif" alt="Image 6">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Carousel Controls -->
+                            <a class="carousel-control-prev" href="#apitonCarousel" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#apitonCarousel" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Map Section -->
+                    <h6 class="font-weight-bold mb-3">Map</h6>
+                    <div class="border rounded overflow-hidden shadow-sm">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7800.444765651568!2d125.51715733773491!3d12.165257640273827!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33096887f7821111%3A0x2dca438f9e05f46d!2sApiton%20Island!5e0!3m2!1sen!2sph!4v1753722831145!5m2!1sen!2sph"
+                            width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <script src="public/dist/landing/js/jquery-3.2.1.min.js"></script>
     <script src="public/dist/landing/styles/bootstrap4/popper.js"></script>
     <script src="public/dist/landing/styles/bootstrap4/bootstrap.min.js"></script>
     <script src="public/dist/landing/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
     <script src="public/dist/landing/plugins/easing/easing.js"></script>
     <script src="public/dist/landing/js/custom.js"></script>
-    <script src="public/dist/landing/js/script.js"></script>
+    <script src="public/dist/landing/js/script.js?v=1.0"></script>
 </body>
 
 </html>

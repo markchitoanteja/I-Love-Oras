@@ -26,40 +26,87 @@ class Landing extends BaseController
     {
         session()->set('page', 'about_oras');
         session()->set('page_title', 'About Oras');
+        
+        $header = view('landing/layouts/header');
+        $body = view('landing/about_oras');
+        $footer = view('landing/layouts/footer');
 
         if (session()->has('user')) {
             $user = session()->get('user');
 
             if (isset($user['user_type']) && $user['user_type'] === 'user') {
-                return view('landing/about_oras');
+                return $header . $body . $footer;
             } else {
                 return redirect()->to(base_url('admin/dashboard'));
             }
         }
 
-        return view('landing/about_oras');
+        return $header . $body . $footer;
     }
-
-    public function my_bookings()
+    
+    public function attractions()
     {
-        $session = session();
+        session()->set('page', 'attractions');
+        session()->set('page_title', 'Attractions');
 
-        if ($session->has('user')) {
-            $user = $session->get('user');
+        $header = view('landing/layouts/header');
+        $body = view('landing/attractions');
+        $footer = view('landing/layouts/footer');
 
-            // Check if user_type is 'user'
+        if (session()->has('user')) {
+            $user = session()->get('user');
+
             if (isset($user['user_type']) && $user['user_type'] === 'user') {
-                // User is logged in and is a 'user'
-                // You can load a user-specific view or redirect somewhere else
-                return view('my_bookings');  // example user dashboard view
+                return $header . $body . $footer;
             } else {
-                // User is logged in but NOT a 'user' (e.g., admin or other)
-                // Redirect to admin or another appropriate place
                 return redirect()->to(base_url('admin/dashboard'));
             }
         }
 
-        // No user data in session, load the public home page
-        return view('my_bookings');
+        return $header . $body . $footer;
+    }
+    
+    public function gallery()
+    {
+        session()->set('page', 'gallery');
+        session()->set('page_title', 'Gallery');
+
+        $header = view('landing/layouts/header');
+        $body = view('landing/gallery');
+        $footer = view('landing/layouts/footer');
+
+        if (session()->has('user')) {
+            $user = session()->get('user');
+
+            if (isset($user['user_type']) && $user['user_type'] === 'user') {
+                return $header . $body . $footer;
+            } else {
+                return redirect()->to(base_url('admin/dashboard'));
+            }
+        }
+
+        return $header . $body . $footer;
+    }
+    
+    public function contact()
+    {
+        session()->set('page', 'contact');
+        session()->set('page_title', 'Contact Us');
+
+        $header = view('landing/layouts/header');
+        $body = view('landing/contact');
+        $footer = view('landing/layouts/footer');
+
+        if (session()->has('user')) {
+            $user = session()->get('user');
+
+            if (isset($user['user_type']) && $user['user_type'] === 'user') {
+                return $header . $body . $footer;
+            } else {
+                return redirect()->to(base_url('admin/dashboard'));
+            }
+        }
+
+        return $header . $body . $footer;
     }
 }
