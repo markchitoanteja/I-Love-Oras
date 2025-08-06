@@ -44,6 +44,28 @@ class Landing extends BaseController
         return $header . $body . $footer;
     }
     
+    public function events()
+    {
+        session()->set('page', 'events');
+        session()->set('page_title', 'Events');
+
+        $header = view('landing/layouts/header');
+        $body = view('landing/events');
+        $footer = view('landing/layouts/footer');
+
+        if (session()->has('user')) {
+            $user = session()->get('user');
+
+            if (isset($user['user_type']) && $user['user_type'] === 'user') {
+                return $header . $body . $footer;
+            } else {
+                return redirect()->to(base_url('admin/dashboard'));
+            }
+        }
+
+        return $header . $body . $footer;
+    }
+    
     public function attractions()
     {
         session()->set('page', 'attractions');

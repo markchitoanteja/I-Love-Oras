@@ -69,7 +69,7 @@
         opacity: 1;
     }
 
-    .modal-content {
+    .gallery-modal-content {
         margin: auto;
         max-width: 90%;
         min-height: 80vh;
@@ -117,7 +117,7 @@
             font-size: 28px;
         }
 
-        .modal-content {
+        .gallery-modal-content {
             max-height: 60vh;
         }
 
@@ -157,7 +157,7 @@
 <!-- Gallery Modal -->
 <div id="galleryModal" class="gallery-modal">
     <span class="close" onclick="closeModal()">&times;</span>
-    <img class="modal-content" id="modalImg">
+    <img class="gallery-modal-content modal-content" id="modalImg">
     <div id="modalCaption" class="caption"></div>
 </div>
 

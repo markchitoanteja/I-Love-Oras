@@ -83,6 +83,7 @@
                                 <ul class="main_nav_list">
                                     <li class="main_nav_item <?= (session()->get('page') === 'home') ? 'active' : '' ?>"><a href="<?= base_url() ?>">Home</a></li>
                                     <li class="main_nav_item <?= (session()->get('page') === 'about_oras') ? 'active' : '' ?>"><a href="<?= base_url('about_oras') ?>">About Oras</a></li>
+                                    <li class="main_nav_item <?= (session()->get('page') === 'events') ? 'active' : '' ?>"><a href="<?= base_url('events') ?>">Events</a></li>
                                     <li class="main_nav_item <?= (session()->get('page') === 'attractions') ? 'active' : '' ?>"><a href="<?= base_url('attractions') ?>">Attractions</a></li>
                                     <li class="main_nav_item <?= (session()->get('page') === 'gallery') ? 'active' : '' ?>"><a href="<?= base_url('gallery') ?>">Gallery</a></li>
                                     <li class="main_nav_item <?= (session()->get('page') === 'contact') ? 'active' : '' ?>"><a href="<?= base_url('contact') ?>">Contact</a></li>
@@ -292,7 +293,7 @@
         </div>
 
         <!-- Intro -->
-        <div class="intro">
+        <div class="intro bg-light">
             <div class="container">
                 <div class="row">
                     <div class="col">
@@ -355,6 +356,63 @@
                                 <div class="intro_center text-center">
                                     <h1>Apiton Island</h1>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Events Section -->
+        <div class="intro">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="font-weight-bold">🎉 Featured Events in Oras</h2>
+                    <p class="text-muted">Don't miss the hottest happenings in Oras, Eastern Samar!</p>
+                </div>
+
+                <div class="row">
+                    <!-- Event 1 -->
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card bg-dark text-white h-100 shadow-lg border-0" style="overflow: hidden; transition: transform 0.3s ease; border-radius: 0.5rem;">
+                            <img src="<?= base_url("public/dist/landing/images/event-1.jpg") ?>" class="card-img" alt="Tusukan Live Band" style="height: 100%; object-fit: cover; transition: opacity 0.3s ease;">
+                            <div class="card-img-overlay d-flex flex-column justify-content-end" style="padding: 1.5rem; color: #fff; background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 30%, rgba(0, 0, 0, 0) 100%); border-radius: 0.5rem;">
+                                <span style="background-color: #ff5e5e; padding: 0.3rem 0.6rem; font-size: 0.75rem; border-radius: 0.25rem; display: inline-block; margin-bottom: 0.5rem; font-weight: bold;">🎸 Live Band</span>
+                                <h5 style="font-size: 1.3rem; font-weight: 600;">Tusukan Live Band</h5>
+                                <p class="mb-1">Ret. Gen. Nonoy Gardiola and Dabarkads</p>
+                                <div style="font-size: 0.85rem;"><i class="fa fa-calendar"></i> Feb 4, 2025 – 5:00 PM</div>
+                                <div style="font-size: 0.85rem;"><i class="fa fa-map-marker"></i> Tusukan Food Park, Oras</div>
+                                <a href="javascript:void(0)" class="no-function" style="margin-top: 0.75rem; font-size: 0.8rem; color: #fff; border: 1px solid #fff; padding: 0.4rem 0.75rem; border-radius: 0.25rem; transition: 0.3s; align-self: flex-start; text-decoration: none;">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Event 2 -->
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card bg-dark text-white h-100 shadow-lg border-0" style="overflow: hidden; transition: transform 0.3s ease; border-radius: 0.5rem;">
+                            <img src="<?= base_url("public/dist/landing/images/event-2.jpg") ?>" class="card-img" alt="Disco Sayawan" style="height: 100%; object-fit: cover; transition: opacity 0.3s ease;">
+                            <div class="card-img-overlay d-flex flex-column justify-content-end" style="padding: 1.5rem; color: #fff; background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 30%, rgba(0, 0, 0, 0) 100%); border-radius: 0.5rem;">
+                                <span style="background-color: #ff5e5e; padding: 0.3rem 0.6rem; font-size: 0.75rem; border-radius: 0.25rem; display: inline-block; margin-bottom: 0.5rem; font-weight: bold;">🎉 Disco Night</span>
+                                <h5 style="font-size: 1.3rem; font-weight: 600;">Disco Sayawan</h5>
+                                <p class="mb-1">Pahanginan ha Kalumpinayan</p>
+                                <div style="font-size: 0.85rem;"><i class="fa fa-calendar"></i> June 1, 2025 – 6:00 PM</div>
+                                <div style="font-size: 0.85rem;"><i class="fa fa-map-marker"></i> Brgy. Sabang, Oras</div>
+                                <a href="javascript:void(0)" class="no-function" style="margin-top: 0.75rem; font-size: 0.8rem; color: #fff; border: 1px solid #fff; padding: 0.4rem 0.75rem; border-radius: 0.25rem; transition: 0.3s; align-self: flex-start; text-decoration: none;">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Event 3 -->
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card bg-dark text-white h-100 shadow-lg border-0" style="overflow: hidden; transition: transform 0.3s ease; border-radius: 0.5rem;">
+                            <img src="<?= base_url("public/dist/landing/images/event-3.jpg") ?>" class="card-img" alt="Kantahan Sayawan" style="height: 100%; object-fit: cover; transition: opacity 0.3s ease;">
+                            <div class="card-img-overlay d-flex flex-column justify-content-end" style="padding: 1.5rem; color: #fff; background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 30%, rgba(0, 0, 0, 0) 100%); border-radius: 0.5rem;">
+                                <span style="background-color: #ff5e5e; padding: 0.3rem 0.6rem; font-size: 0.75rem; border-radius: 0.25rem; display: inline-block; margin-bottom: 0.5rem; font-weight: bold;">🎤 Father's Night</span>
+                                <h5 style="font-size: 1.3rem; font-weight: 600;">Kantahan Sayawan</h5>
+                                <p class="mb-1">Drei Audio ft. Alex Evardone</p>
+                                <div style="font-size: 0.85rem;"><i class="fa fa-calendar"></i> June 15, 2025 – 6:00 PM</div>
+                                <div style="font-size: 0.85rem;"><i class="fa fa-map-marker"></i> Tusukan Food Park, Oras</div>
+                                <a href="javascript:void(0)" class="no-function" style="margin-top: 0.75rem; font-size: 0.8rem; color: #fff; border: 1px solid #fff; padding: 0.4rem 0.75rem; border-radius: 0.25rem; transition: 0.3s; align-self: flex-start; text-decoration: none;">View Details</a>
                             </div>
                         </div>
                     </div>
