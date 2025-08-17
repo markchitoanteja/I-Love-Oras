@@ -60,6 +60,19 @@ if (! function_exists('base_url')) {
     }
 }
 
+if (! function_exists('app_version')) {
+    /**
+     * Returns the current application version defined in Config\App.
+     *
+     * @return string Application version number (e.g. "1.0.0")
+     */
+    function app_version(): string
+    {
+        $config = new App(); // or config('App')
+        return $config->appVersion;
+    }
+}
+
 if (! function_exists('current_url')) {
     /**
      * Returns the current full URL based on the Config\App settings and IncomingRequest.

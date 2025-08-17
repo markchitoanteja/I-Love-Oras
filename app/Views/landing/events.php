@@ -85,6 +85,20 @@
         animation: fadeIn 0.5s ease-in-out;
     }
 
+    .section_title {
+        font-size: 36px;
+        font-weight: 700;
+        color: #222;
+        margin-bottom: 10px;
+    }
+
+    .section_subtitle {
+        font-size: 16px;
+        color: #777;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
     @keyframes fadeIn {
         from {
             opacity: 0;
@@ -99,9 +113,9 @@
 <div class="intro">
     <div class="container">
         <!-- Section Header -->
-        <div class="text-center mb-5">
-            <h2 class="font-weight-bold">🎊 Featured Events in Oras</h2>
-            <p class="text-muted">Catch the best activities happening around town!</p>
+        <div class="col-12 text-center mb-5">
+            <h2 class="section_title">Featured Events in Oras</h2>
+            <p class="section_subtitle">Catch the best activities happening around town!</p>
         </div>
 
         <!-- Tabs -->

@@ -1,4 +1,8 @@
 $(document).ready(function () {
+    if (notification) {
+        display_alert(notification);
+    }
+
     $(".no-function").click(function () {
         Swal.fire({
             title: "Oops...",
@@ -44,20 +48,42 @@ $(document).ready(function () {
     });
 
     $("#contactForm").submit(function () {
+        const name = $("#contact_name").val();
+        const email = $("#contact_email").val();
+        const message = $("#contact_message").val();
+
         $(".loading").removeClass("d-none");
         $(".main-form").addClass("d-none");
 
-        setTimeout(function () {
-            $(".loading").addClass("d-none");
-            $(".main-form").removeClass("d-none");
+        var formData = new FormData();
 
-            $("#contactForm")[0].reset();
+        formData.append('name', name);
+        formData.append('email', email);
+        formData.append('message', message);
 
-            Swal.fire({
-                title: "Success!",
-                text: "Your message has been sent successfully!",
-                icon: "success"
-            });
-        }, 3000);
+        $.ajax({
+            url: 'landing/submit_contact_form',
+            data: formData,
+            type: 'POST',
+            dataType: 'JSON',
+            processData: false,
+            contentType: false,
+            success: function (response) {
+                if (response.success) {
+                    location.reload();
+                }
+            },
+            error: function (_, _, error) {
+                console.error(error);
+            }
+        });
     });
+
+    function display_alert(notification) {
+        Swal.fire({
+            title: notification.title,
+            text: notification.text,
+            icon: notification.icon
+        });
+    }
 })

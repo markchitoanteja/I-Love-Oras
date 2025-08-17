@@ -106,16 +106,16 @@
                     <div class="main-form">
                         <form action="javascript:void(0)" id="contactForm">
                             <div class="form-group mb-3">
-                                <label for="name">Full Name</label>
-                                <input type="text" id="name" class="form-control" required>
+                                <label for="contact_name">Full Name</label>
+                                <input type="text" id="contact_name" class="form-control" required>
                             </div>
                             <div class="form-group mb-3">
-                                <label for="email">Email Address</label>
-                                <input type="email" id="email" class="form-control" required>
+                                <label for="contact_email">Email Address</label>
+                                <input type="email" id="contact_email" class="form-control" required>
                             </div>
                             <div class="form-group mb-4">
-                                <label for="message">Your Message</label>
-                                <textarea id="message" rows="5" class="form-control" required></textarea>
+                                <label for="contact_message">Your Message</label>
+                                <textarea id="contact_message" rows="5" class="form-control" required></textarea>
                             </div>
 
                             <button type="submit" class="btn btn-primary" id="contactSubmit">Send Message</button>

@@ -84,8 +84,8 @@
                             </div>
 
                             <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                                 <button type="submit" class="btn btn-primary" id="update_profile_submit">Save changes</button>
-                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                             </div>
                         </form>
                     </div>
@@ -98,7 +98,7 @@
                 <strong>I❤️Oras.</strong>
                 <span>All rights reserved.</span>
                 <div class="float-right d-none d-sm-inline-block">
-                    <b>Version</b> 1.0
+                    <b>Version</b> <?= app_version() ?>
                 </div>
             </footer>
         </div>
@@ -111,11 +111,26 @@
 
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         
-        <!-- Scripts -->
         <script src="<?= base_url("public/plugins/jquery/jquery.min.js") ?>"></script>
+
+        <!-- DataTables JS -->
+        <script src="<?= base_url() ?>public/plugins/datatables/jquery.dataTables.min.js"></script>
+        <script src="<?= base_url() ?>public/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+        <script src="<?= base_url() ?>public/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+        <script src="<?= base_url() ?>public/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+        <script src="<?= base_url() ?>public/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+        <script src="<?= base_url() ?>public/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+        <script src="<?= base_url() ?>public/plugins/jszip/jszip.min.js"></script>
+        <script src="<?= base_url() ?>public/plugins/pdfmake/pdfmake.min.js"></script>
+        <script src="<?= base_url() ?>public/plugins/pdfmake/vfs_fonts.js"></script>
+        <script src="<?= base_url() ?>public/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+        <script src="<?= base_url() ?>public/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+        <script src="<?= base_url() ?>public/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+
+        <!-- Scripts -->
         <script src="<?= base_url("public/plugins/bootstrap/js/bootstrap.bundle.min.js") ?>"></script>
         <script src="<?= base_url("public/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js") ?>"></script>
         <script src="<?= base_url("public/dist/admin/js/adminlte.js") ?>"></script>
-        <script src="<?= base_url("public/dist/admin/js/script.js?v=1.1") ?>"></script>
+        <script src="<?= base_url("public/dist/admin/js/script.js?v=" . app_version()) ?>"></script>
     </body>
 </html>

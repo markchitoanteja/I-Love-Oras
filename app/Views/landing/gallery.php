@@ -137,22 +137,32 @@
                 <p class="section_subtitle">A visual journey through Oras, Eastern Samar</p>
             </div>
 
-            <?php
-            // Loop from 1 to 12
-            for ($i = 1; $i <= 12; $i++):
-                $imagePath = "public/dist/landing/images/gallery/{$i}.jpg";
-                $altText = "Random Photo {$i}";
-            ?>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="gallery_item" onclick="openModal('<?php echo $imagePath; ?>', '<?php echo $altText; ?>')">
-                        <img src="<?php echo $imagePath; ?>" alt="<?php echo $altText; ?>" class="img-fluid rounded">
+            <?php if (!empty($images)): ?>
+                <?php foreach ($images as $img): ?>
+                    <?php
+                    $imagePath = base_url("public/dist/landing/images/gallery/" . $img['image']);
+                    $altText   = !empty($img['caption']) ? $img['caption'] : "Gallery Photo";
+                    ?>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="gallery_item" onclick="openModal('<?php echo $imagePath; ?>', '<?php echo $altText; ?>')">
+                            <img src="<?php echo $imagePath; ?>" alt="<?php echo $altText; ?>" class="img-fluid rounded">
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <div class="col-12 text-center py-5">
+                    <div class="no-gallery-placeholder">
+                        <img src="<?= base_url('public/dist/landing/images/no-image.png'); ?>"
+                            alt="No images"
+                            class="mb-3" style="max-width:150px; opacity:0.6;">
+                        <h4 class="text-muted">No images available</h4>
+                        <p class="text-muted">Our gallery will be updated soon. Please check back later.</p>
                     </div>
                 </div>
-            <?php endfor; ?>
+            <?php endif; ?>
         </div>
     </div>
 </div>
-
 
 <!-- Gallery Modal -->
 <div id="galleryModal" class="gallery-modal">

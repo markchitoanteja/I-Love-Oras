@@ -13,16 +13,50 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700&display=fallback">
     <link rel="stylesheet" href="<?= base_url() ?>public/plugins/fontawesome-free/css/all.min.css">
 
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="<?= base_url() ?>public/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="<?= base_url() ?>public/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="<?= base_url() ?>public/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+
     <!-- AdminLTE CSS -->
     <link rel="stylesheet" href="<?= base_url() ?>public/dist/admin/css/adminlte.min.css">
     <link rel="stylesheet" href="<?= base_url() ?>public/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+
+    <style>
+        #overlayLoader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.85);
+            z-index: 2000;
+            /* higher than sidebar/navbar */
+            display: none;
+            /* hidden by default */
+            display: flex;
+            /* enable flexbox */
+            justify-content: center;
+            /* center horizontally */
+            align-items: center;
+            /* center vertically */
+        }
+
+        #overlayLoader .loader-content {
+            text-align: center;
+            color: #333;
+        }
+    </style>
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
-        <!-- Preloader -->
-        <div class="preloader flex-column justify-content-center align-items-center">
-            <img class="animation__shake" src="<?= base_url("public/dist/admin/img/logo.png?v=1.0") ?>" alt="Logo" height="60" width="60">
+        <!-- Overlay Loader -->
+        <div id="overlayLoader">
+            <div class="loader-content">
+                <i class="fas fa-spinner fa-spin fa-3x"></i>
+                <p class="mt-2">Loading...</p>
+            </div>
         </div>
 
         <!-- Navbar -->

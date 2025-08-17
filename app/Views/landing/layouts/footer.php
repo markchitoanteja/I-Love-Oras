@@ -190,6 +190,10 @@
             </div>
         </div>
 
+        <script>
+            const notification = <?= json_encode(session()->getFlashdata('notification')) ?>;
+        </script>
+
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
         <script src="public/dist/landing/js/jquery-3.2.1.min.js"></script>
@@ -204,7 +208,7 @@
         <script src="public/dist/landing/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
         <script src="public/dist/landing/plugins/easing/easing.js"></script>
         <script src="public/dist/landing/js/about_custom.js"></script>
-        <script src="public/dist/landing/js/script.js?v=1.1"></script>
-    </body>
+        <script src="public/dist/landing/js/script.js?v=<?= app_version() ?>"></script>
+        </body>
 
-</html>
+        </html>

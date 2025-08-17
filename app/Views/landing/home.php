@@ -75,7 +75,7 @@
                             <div class="logo_container">
                                 <div class="logo">
                                     <a href="<?= base_url() ?>">
-                                        <img src="public/dist/landing/images/logo.png?v=1.0" alt="" width="50">I❤️Oras
+                                        <img src="public/dist/landing/images/logo.png?v=1.0" alt="" width="40">I❤️Oras
                                     </a>
                                 </div>
                             </div>
@@ -189,8 +189,7 @@
                 </div>
 
                 <!-- Home Slider Dots -->
-
-                <div class="home_slider_dots">
+                <!-- <div class="home_slider_dots">
                     <ul id="home_slider_custom_dots" class="home_slider_custom_dots">
                         <li class="home_slider_custom_dot active">
                             <div></div>01.
@@ -202,19 +201,15 @@
                             <div></div>03.
                         </li>
                     </ul>
-                </div>
+                </div> -->
             </div>
         </div>
 
         <!-- Search -->
-        <div class="search">
-            <!-- Search Contents -->
+        <!-- <div class="search">
             <div class="container fill_height">
                 <div class="row fill_height">
                     <div class="col fill_height">
-
-                        <!-- Search Tabs -->
-
                         <div class="search_tabs_container">
                             <div class="search_tabs d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
                                 <div class="search_tab active d-flex flex-row align-items-center justify-content-lg-center justify-content-start">
@@ -238,8 +233,6 @@
                             </div>
                         </div>
 
-                        <!-- Search Panel -->
-
                         <div class="search_panel text-white active">
                             <div class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
                                 <p class="text-white">
@@ -247,7 +240,6 @@
                                 </p>
                             </div>
                         </div>
-
                         <div class="search_panel text-white">
                             <div class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
                                 <p class="text-white">
@@ -255,7 +247,6 @@
                                 </p>
                             </div>
                         </div>
-
                         <div class="search_panel text-white">
                             <div class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
                                 <p class="text-white">
@@ -263,7 +254,6 @@
                                 </p>
                             </div>
                         </div>
-
                         <div class="search_panel text-white">
                             <div class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
                                 <p class="text-white">
@@ -271,7 +261,6 @@
                                 </p>
                             </div>
                         </div>
-
                         <div class="search_panel text-white">
                             <div class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
                                 <p class="text-white">
@@ -279,7 +268,6 @@
                                 </p>
                             </div>
                         </div>
-
                         <div class="search_panel text-white">
                             <div class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
                                 <p class="text-white">
@@ -290,7 +278,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <!-- Intro -->
         <div class="intro bg-light">
@@ -367,7 +355,7 @@
         <div class="intro">
             <div class="container">
                 <div class="text-center mb-5">
-                    <h2 class="font-weight-bold">🎉 Featured Events in Oras</h2>
+                    <h2 class="font-weight-bold">Featured Events in Oras</h2>
                     <p class="text-muted">Don't miss the hottest happenings in Oras, Eastern Samar!</p>
                 </div>
 
@@ -382,7 +370,7 @@
                                 <p class="mb-1">Ret. Gen. Nonoy Gardiola and Dabarkads</p>
                                 <div style="font-size: 0.85rem;"><i class="fa fa-calendar"></i> Feb 4, 2025 – 5:00 PM</div>
                                 <div style="font-size: 0.85rem;"><i class="fa fa-map-marker"></i> Tusukan Food Park, Oras</div>
-                                <a href="javascript:void(0)" class="no-function" style="margin-top: 0.75rem; font-size: 0.8rem; color: #fff; border: 1px solid #fff; padding: 0.4rem 0.75rem; border-radius: 0.25rem; transition: 0.3s; align-self: flex-start; text-decoration: none;">View Details</a>
+                                <a href="<?= base_url('events') ?>" style="margin-top: 0.75rem; font-size: 0.8rem; color: #fff; border: 1px solid #fff; padding: 0.4rem 0.75rem; border-radius: 0.25rem; transition: 0.3s; align-self: flex-start; text-decoration: none;">View Details</a>
                             </div>
                         </div>
                     </div>
@@ -397,7 +385,7 @@
                                 <p class="mb-1">Pahanginan ha Kalumpinayan</p>
                                 <div style="font-size: 0.85rem;"><i class="fa fa-calendar"></i> June 1, 2025 – 6:00 PM</div>
                                 <div style="font-size: 0.85rem;"><i class="fa fa-map-marker"></i> Brgy. Sabang, Oras</div>
-                                <a href="javascript:void(0)" class="no-function" style="margin-top: 0.75rem; font-size: 0.8rem; color: #fff; border: 1px solid #fff; padding: 0.4rem 0.75rem; border-radius: 0.25rem; transition: 0.3s; align-self: flex-start; text-decoration: none;">View Details</a>
+                                <a href="<?= base_url('events') ?>" style="margin-top: 0.75rem; font-size: 0.8rem; color: #fff; border: 1px solid #fff; padding: 0.4rem 0.75rem; border-radius: 0.25rem; transition: 0.3s; align-self: flex-start; text-decoration: none;">View Details</a>
                             </div>
                         </div>
                     </div>
@@ -412,7 +400,7 @@
                                 <p class="mb-1">Drei Audio ft. Alex Evardone</p>
                                 <div style="font-size: 0.85rem;"><i class="fa fa-calendar"></i> June 15, 2025 – 6:00 PM</div>
                                 <div style="font-size: 0.85rem;"><i class="fa fa-map-marker"></i> Tusukan Food Park, Oras</div>
-                                <a href="javascript:void(0)" class="no-function" style="margin-top: 0.75rem; font-size: 0.8rem; color: #fff; border: 1px solid #fff; padding: 0.4rem 0.75rem; border-radius: 0.25rem; transition: 0.3s; align-self: flex-start; text-decoration: none;">View Details</a>
+                                <a href="<?= base_url('events') ?>" style="margin-top: 0.75rem; font-size: 0.8rem; color: #fff; border: 1px solid #fff; padding: 0.4rem 0.75rem; border-radius: 0.25rem; transition: 0.3s; align-self: flex-start; text-decoration: none;">View Details</a>
                             </div>
                         </div>
                     </div>
@@ -422,13 +410,12 @@
 
         <!-- Testimonials -->
         <div class="testimonials bg-light">
-            <div class="test_border"></div>
             <div class="container">
-                <div class="row">
-                    <div class="col text-center">
-                        <h2 class="section_title">What Our Fellow Orasnon Are Saying</h2>
-                    </div>
+                <div class="text-center">
+                    <h2 class="font-weight-bold">Testimonials</h2>
+                    <p class="text-muted">What our fellow Orasnon are saying about us.</p>
                 </div>
+
                 <div class="row">
                     <div class="col">
                         <!-- Testimonials Slider -->
