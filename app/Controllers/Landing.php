@@ -7,25 +7,74 @@ use PHPMailer\PHPMailer\Exception;
 
 use App\Models\Gallery_Model;
 use App\Models\Message_Model;
+use App\Models\Log_Model;
 
 class Landing extends BaseController
 {
+    private function addLog($action, $type)
+    {
+        $logModel = new Log_Model();
+
+        $data = [
+            'action'     => $action,
+            'type'       => $type,
+            'created_at' => date('Y-m-d H:i:s'),
+        ];
+
+        $logModel->insert($data);
+    }
+
     public function index()
     {
         session()->set('page', 'home');
         session()->set('page_title', 'Home');
 
+        $eventsModel = new \App\Models\Event_Model();
+
+        // Fetch by categories with ordering
+        $ongoing  = $eventsModel->where('status', 'ongoing')->orderBy('date', 'ASC')->findAll();
+        $upcoming = $eventsModel->where('status', 'upcoming')->orderBy('date', 'ASC')->findAll();
+        $past     = $eventsModel->where('status', 'completed')->orderBy('date', 'DESC')->findAll();
+
+        // Build featured list
+        $featured = [];
+
+        // 1. Add ongoing
+        foreach ($ongoing as $event) {
+            if (count($featured) < 3) {
+                $featured[] = $event;
+            }
+        }
+
+        // 2. Fill with upcoming if needed
+        foreach ($upcoming as $event) {
+            if (count($featured) < 3) {
+                $featured[] = $event;
+            }
+        }
+
+        // 3. Fill with past if still less than 3
+        foreach ($past as $event) {
+            if (count($featured) < 3) {
+                $featured[] = $event;
+            }
+        }
+
+        $data = [
+            'featured' => $featured
+        ];
+
         if (session()->has('user')) {
             $user = session()->get('user');
 
             if (isset($user['user_type']) && $user['user_type'] === 'user') {
-                return view('landing/home');
+                return view('landing/home', $data);
             } else {
                 return redirect()->to(base_url('admin/dashboard'));
             }
         }
 
-        return view('landing/home');
+        return view('landing/home', $data);
     }
 
     public function about_oras()
@@ -55,8 +104,20 @@ class Landing extends BaseController
         session()->set('page', 'events');
         session()->set('page_title', 'Events');
 
+        $eventsModel = new \App\Models\Event_Model();
+
+        $upcoming = $eventsModel->where('status', 'upcoming')->orderBy('date', 'ASC')->findAll();
+        $ongoing  = $eventsModel->where('status', 'ongoing')->orderBy('date', 'ASC')->findAll();
+        $past     = $eventsModel->where('status', 'completed')->orderBy('date', 'DESC')->findAll();
+
+        $data = [
+            'upcoming' => $upcoming,
+            'ongoing'  => $ongoing,
+            'past'     => $past,
+        ];
+
         $header = view('landing/layouts/header');
-        $body = view('landing/events');
+        $body   = view('landing/events', $data);
         $footer = view('landing/layouts/footer');
 
         if (session()->has('user')) {
@@ -206,26 +267,20 @@ class Landing extends BaseController
             // Send email
             $emailSent = $this->send_email($email, $name, $subject, $body);
 
-            if ($emailSent) {
-                session()->setFlashdata("notification", [
-                    "title" => "Success!",
-                    "text"  => "Message has been saved and email sent successfully.",
-                    "icon"  => "success"
-                ]);
-            } else {
-                session()->setFlashdata("notification", [
-                    "title" => "Warning!",
-                    "text"  => "Message was saved but email could not be sent.",
-                    "icon"  => "warning"
-                ]);
-            }
+            session()->setFlashdata("notification", [
+                "title" => "Success!",
+                "text"  => "Message has been sent successfully.",
+                "icon"  => "success"
+            ]);
         } else {
             session()->setFlashdata("notification", [
                 "title" => "Error!",
-                "text"  => "Failed to save message.",
+                "text"  => "Failed to send message.",
                 "icon"  => "error"
             ]);
         }
+
+        $this->addLog("User submitted a message", "Message");
 
         return $this->response->setJSON([
             'success' => true,

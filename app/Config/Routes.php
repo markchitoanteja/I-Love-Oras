@@ -32,4 +32,7 @@ $routes->post('/admin/update_image', 'Admin::update_image');
 $routes->post('/admin/delete_image', 'Admin::delete_image');
 $routes->post('/admin/delete_message', 'Admin::delete_message');
 $routes->post('/admin/reply_message', 'Admin::reply_message');
+$routes->post('/admin/add_event', 'Admin::add_event');
+$routes->post('/admin/update_event', 'Admin::update_event');
+$routes->post('/admin/delete_event', 'Admin::delete_event');
 $routes->post('/landing/submit_contact_form', 'Landing::submit_contact_form');

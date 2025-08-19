@@ -8,6 +8,8 @@ use PHPMailer\PHPMailer\Exception;
 use App\Models\User_Model;
 use App\Models\Gallery_Model;
 use App\Models\Message_Model;
+use App\Models\Event_Model;
+use App\Models\Log_Model;
 
 class Admin extends BaseController
 {
@@ -45,6 +47,49 @@ class Admin extends BaseController
         }
     }
 
+    private function send_email($receiver_email, $receiver_name, $subject, $body)
+    {
+        $mail = new PHPMailer(true);
+
+        try {
+            $mail->isSMTP();
+            $mail->Host       = 'smtp.hostinger.com';
+            $mail->SMTPAuth   = true;
+            $mail->Username   = 'support@essuc.online';
+            $mail->Password   = '09465287111@Mark';
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+            $mail->Port       = 465;
+
+            $mail->CharSet = 'UTF-8';
+            $mail->setFrom('support@essuc.online', 'I❤️Oras Support');
+            $mail->addAddress($receiver_email, $receiver_name);
+
+            $mail->isHTML(true);
+            $mail->Subject = $subject;
+            $mail->Body    = $body;
+
+            $mail->send();
+
+            return true;
+        } catch (Exception $e) {
+            log_message('error', 'Mailer Error: ' . $e->getMessage()); // log the error
+            return false;
+        }
+    }
+
+    private function addLog($action, $type)
+    {
+        $logModel = new Log_Model();
+
+        $data = [
+            'action'     => $action,
+            'type'       => $type,
+            'created_at' => date('Y-m-d H:i:s'),
+        ];
+
+        $logModel->insert($data);
+    }
+
     public function index()
     {
         return redirect()->to(base_url('admin/dashboard'));
@@ -64,10 +109,6 @@ class Admin extends BaseController
         session()->set("current_page", "dashboard");
         session()->set("current_page_title", "Dashboard");
 
-        $header = view('admin/layouts/header');
-        $body = view('admin/dashboard');
-        $footer = view('admin/layouts/footer');
-
         $user = session()->get('user');
 
         if (!isset($user['user_type']) || $user['user_type'] !== 'admin') {
@@ -78,6 +119,25 @@ class Admin extends BaseController
 
             return redirect()->to(base_url());
         }
+
+        // ===== Models =====
+        $eventModel       = new Event_Model();
+        $galleryModel     = new Gallery_Model();
+        $logModel         = new Log_Model();
+        // $touristSpotModel = new TouristSpot_Model();
+
+        $count_data = [
+            'total_events'     => $eventModel->countAll(),
+            'total_gallery'   => $galleryModel->countAll(),
+            'total_tourist_spots'     => 0,
+        ];
+
+        $logs = $logModel->orderBy('id', 'DESC')->findAll();
+
+        // ===== Pass to view =====
+        $header = view('admin/layouts/header');
+        $body   = view('admin/dashboard', ['logs' => $logs, 'count_data' => $count_data]);
+        $footer = view('admin/layouts/footer');
 
         return $header . $body . $footer;
     }
@@ -96,10 +156,6 @@ class Admin extends BaseController
         session()->set("current_page", "events");
         session()->set("current_page_title", "Events");
 
-        $header = view('admin/layouts/header');
-        $body = view('admin/events');
-        $footer = view('admin/layouts/footer');
-
         $user = session()->get('user');
 
         if (!isset($user['user_type']) || $user['user_type'] !== 'admin') {
@@ -110,6 +166,15 @@ class Admin extends BaseController
 
             return redirect()->to(base_url());
         }
+
+        // Load events from database (order by id desc)
+        $eventModel = new Event_Model();
+        $events = $eventModel->orderBy('id', 'DESC')->findAll();
+
+        // Pass data into the view
+        $header = view('admin/layouts/header');
+        $body = view('admin/events', ['events' => $events]);
+        $footer = view('admin/layouts/footer');
 
         return $header . $body . $footer;
     }
@@ -278,6 +343,8 @@ class Admin extends BaseController
             "icon" => "success"
         ]);
 
+        $this->addLog('Updated user profile', "User");
+
         return $this->response->setJSON(['success' => true]);
     }
 
@@ -346,6 +413,8 @@ class Admin extends BaseController
             "text"  => "Image has been uploaded successfully.",
             "icon"  => "success"
         ]);
+
+        $this->addLog('Uploaded a new image', "Gallery");
 
         return $this->response->setJSON([
             'success' => true,
@@ -426,6 +495,8 @@ class Admin extends BaseController
             "icon"  => "success"
         ]);
 
+        $this->addLog('Updated an image', "Gallery");
+
         return $this->response->setJSON([
             'success' => true,
             'message' => 'Image updated successfully.'
@@ -469,6 +540,8 @@ class Admin extends BaseController
             "icon"  => "success"
         ]);
 
+        $this->addLog('Deleted an image', "Gallery");
+
         return $this->response->setJSON([
             'success' => true,
             'message' => 'Image deleted successfully.'
@@ -505,6 +578,8 @@ class Admin extends BaseController
             "text"  => "Message has been deleted successfully.",
             "icon"  => "success"
         ]);
+
+        $this->addLog('Deleted a message', "Message");
 
         return $this->response->setJSON([
             'success' => true,
@@ -580,39 +655,240 @@ class Admin extends BaseController
             ]);
         }
 
+        $this->addLog('Replied to a message', "Message");
+
         return $this->response->setJSON([
             'success' => $sent,
             'message' => $sent ? 'Reply sent successfully.' : 'Failed to send reply.'
         ]);
     }
 
-    private function send_email($receiver_email, $receiver_name, $subject, $body)
+    public function add_event()
     {
-        $mail = new PHPMailer(true);
-
-        try {
-            $mail->isSMTP();
-            $mail->Host       = 'smtp.hostinger.com';
-            $mail->SMTPAuth   = true;
-            $mail->Username   = 'support@essuc.online';
-            $mail->Password   = '09465287111@Mark';
-            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-            $mail->Port       = 465;
-
-            $mail->CharSet = 'UTF-8';
-            $mail->setFrom('support@essuc.online', 'I❤️Oras Support');
-            $mail->addAddress($receiver_email, $receiver_name);
-
-            $mail->isHTML(true);
-            $mail->Subject = $subject;
-            $mail->Body    = $body;
-
-            $mail->send();
-
-            return true;
-        } catch (Exception $e) {
-            log_message('error', 'Mailer Error: ' . $e->getMessage()); // log the error
-            return false;
+        if (!$this->request->isAJAX()) {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Invalid request.'
+            ]);
         }
+
+        $title = $this->request->getPost('title');
+        $event_type = $this->request->getPost('event_type');
+        $performers = $this->request->getPost('performers');
+        $date = $this->request->getPost('date');
+        $venue = $this->request->getPost('venue');
+        $start_time = $this->request->getPost('start_time');
+        $end_time = $this->request->getPost('end_time');
+        $status = $this->request->getPost('status');
+        $thumbnail   = $this->request->getFile('thumbnail');
+
+        // Validate image
+        if (!$thumbnail || !$thumbnail->isValid()) {
+            $errors['image'] = 'Please select a valid image.';
+        } elseif (!in_array(strtolower($thumbnail->getExtension()), ['jpg', 'jpeg', 'png', 'gif'])) {
+            $errors['image'] = 'Only JPG, PNG, or GIF files are allowed.';
+        } elseif ($thumbnail->getSize() > (2 * 1024 * 1024)) { // 2MB limit
+            $errors['image'] = 'Image must not exceed 2MB.';
+        }
+
+        if (!empty($errors)) {
+            return $this->response->setJSON([
+                'success' => true,
+                'errors'  => $errors
+            ]);
+
+            session()->setFlashdata("notification", [
+                "title" => "Oops...",
+                "text"  => $errors['image'],
+                "icon"  => "error"
+            ]);
+        }
+
+        $uploadedImage = $this->uploadImage($thumbnail, 'public/dist/landing/images/events/');
+
+        if (!$uploadedImage) {
+            session()->setFlashdata("notification", [
+                "title" => "Error!",
+                "text"  => "Image upload failed.",
+                "icon"  => "error"
+            ]);
+
+            return $this->response->setJSON([
+                'success' => true,
+                'message' => 'Image upload failed.'
+            ]);
+        }
+
+        $Event_Model = new Event_Model();
+
+        $Event_Model->insert([
+            'thumbnail'     => $uploadedImage,
+            'title'         => $title,
+            'performers'    => $performers,
+            'event_type'    => $event_type,
+            'date'          => $date,
+            'venue'         => $venue,
+            'start_time'    => $start_time,
+            'end_time'      => $end_time,
+            'status'        => $status,
+            'created_at'    => date('Y-m-d H:i:s'),
+            'updated_at'    => date('Y-m-d H:i:s'),
+        ]);
+
+        session()->setFlashdata("notification", [
+            "title" => "Success!",
+            "text"  => "Event has been added successfully.",
+            "icon"  => "success"
+        ]);
+
+        $this->addLog('Added a new event', "Event");
+
+        return $this->response->setJSON([
+            'success' => true,
+            'message' => 'Event added successfully.'
+        ]);
+    }
+
+    public function delete_event()
+    {
+        if (!$this->request->isAJAX()) {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Invalid request.'
+            ]);
+        }
+
+        $id = $this->request->getPost('id');
+        $Event_Model = new Event_Model();
+
+        // Fetch the event to get the thumbnail filename
+        $event = $Event_Model->find($id);
+
+        if (!$event) {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Event not found.'
+            ]);
+        }
+
+        // Delete the thumbnail image file if it exists
+        if (!empty($event['thumbnail'])) {
+            $imagePath = FCPATH . 'public/dist/landing/images/events/' . $event['thumbnail'];
+            if (is_file($imagePath)) {
+                unlink($imagePath);
+            }
+        }
+
+        if ($Event_Model->delete($id)) {
+            session()->setFlashdata("notification", [
+                "title" => "Success!",
+                "text"  => "Event deleted successfully.",
+                "icon"  => "success"
+            ]);
+        } else {
+            session()->setFlashdata("notification", [
+                "title" => "Oops...",
+                "text"  => "Failed to delete event.",
+                "icon"  => "error"
+            ]);
+        }
+
+        $this->addLog('Deleted an event', "Event");
+
+        return $this->response->setJSON([
+            'success' => true,
+            'message' => 'Event deleted successfully.'
+        ]);
+    }
+
+    public function update_event()
+    {
+        if (!$this->request->isAJAX()) {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Invalid request.'
+            ]);
+        }
+
+        $id = $this->request->getPost('id');
+        $old_image = $this->request->getPost('old_image');
+        $title = $this->request->getPost('title');
+        $event_type = $this->request->getPost('event_type');
+        $performers = $this->request->getPost('performers');
+        $date = $this->request->getPost('date');
+        $venue = $this->request->getPost('venue');
+        $start_time = $this->request->getPost('start_time');
+        $end_time = $this->request->getPost('end_time');
+        $status = $this->request->getPost('status');
+        $thumbnail   = $this->request->getFile('thumbnail');
+
+        if ($thumbnail) {
+            // Validate image
+            if (!$thumbnail || !$thumbnail->isValid()) {
+                $errors['image'] = 'Please select a valid image.';
+            } elseif (!in_array(strtolower($thumbnail->getExtension()), ['jpg', 'jpeg', 'png', 'gif'])) {
+                $errors['image'] = 'Only JPG, PNG, or GIF files are allowed.';
+            } elseif ($thumbnail->getSize() > (2 * 1024 * 1024)) { // 2MB limit
+                $errors['image'] = 'Image must not exceed 2MB.';
+            }
+
+            if (!empty($errors)) {
+                return $this->response->setJSON([
+                    'success' => true,
+                    'errors'  => $errors
+                ]);
+
+                session()->setFlashdata("notification", [
+                    "title" => "Oops...",
+                    "text"  => $errors['image'],
+                    "icon"  => "error"
+                ]);
+            }
+
+            $uploadedImage = $this->uploadImage($thumbnail, 'public/dist/landing/images/events/');
+
+            if (!$uploadedImage) {
+                session()->setFlashdata("notification", [
+                    "title" => "Error!",
+                    "text"  => "Image upload failed.",
+                    "icon"  => "error"
+                ]);
+
+                return $this->response->setJSON([
+                    'success' => true,
+                    'message' => 'Image upload failed.'
+                ]);
+            }
+        } else {
+            $uploadedImage = $old_image;
+        }
+
+        $Event_Model = new Event_Model();
+
+        $Event_Model->update($id, [
+            'thumbnail'     => $uploadedImage,
+            'title'         => $title,
+            'performers'    => $performers,
+            'event_type'    => $event_type,
+            'date'          => $date,
+            'venue'         => $venue,
+            'start_time'    => $start_time,
+            'end_time'      => $end_time,
+            'status'        => $status,
+            'updated_at'    => date('Y-m-d H:i:s'),
+        ]);
+
+        session()->setFlashdata("notification", [
+            "title" => "Success!",
+            "text"  => "Event has been updated successfully.",
+            "icon"  => "success"
+        ]);
+
+        $this->addLog('Updated an event', "Event");
+
+        return $this->response->setJSON([
+            'success' => true,
+            'message' => 'Event updated successfully.'
+        ]);
     }
 }

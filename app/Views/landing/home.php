@@ -360,50 +360,40 @@
                 </div>
 
                 <div class="row">
-                    <!-- Event 1 -->
-                    <div class="col-md-6 col-lg-4 mb-4">
-                        <div class="card bg-dark text-white h-100 shadow-lg border-0" style="overflow: hidden; transition: transform 0.3s ease; border-radius: 0.5rem;">
-                            <img src="<?= base_url("public/dist/landing/images/event-1.jpg") ?>" class="card-img" alt="Tusukan Live Band" style="height: 100%; object-fit: cover; transition: opacity 0.3s ease;">
-                            <div class="card-img-overlay d-flex flex-column justify-content-end" style="padding: 1.5rem; color: #fff; background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 30%, rgba(0, 0, 0, 0) 100%); border-radius: 0.5rem;">
-                                <span style="background-color: #ff5e5e; padding: 0.3rem 0.6rem; font-size: 0.75rem; border-radius: 0.25rem; display: inline-block; margin-bottom: 0.5rem; font-weight: bold;">🎸 Live Band</span>
-                                <h5 style="font-size: 1.3rem; font-weight: 600;">Tusukan Live Band</h5>
-                                <p class="mb-1">Ret. Gen. Nonoy Gardiola and Dabarkads</p>
-                                <div style="font-size: 0.85rem;"><i class="fa fa-calendar"></i> Feb 4, 2025 – 5:00 PM</div>
-                                <div style="font-size: 0.85rem;"><i class="fa fa-map-marker"></i> Tusukan Food Park, Oras</div>
-                                <a href="<?= base_url('events') ?>" style="margin-top: 0.75rem; font-size: 0.8rem; color: #fff; border: 1px solid #fff; padding: 0.4rem 0.75rem; border-radius: 0.25rem; transition: 0.3s; align-self: flex-start; text-decoration: none;">View Details</a>
+                    <?php if (!empty($featured)): ?>
+                        <?php foreach ($featured as $event): ?>
+                            <div class="col-md-6 col-lg-4 mb-4">
+                                <div class="card bg-dark text-white h-100 shadow-lg border-0" style="overflow: hidden; transition: transform 0.3s ease; border-radius: 0.5rem;">
+                                    <img src="<?= base_url("public/dist/landing/images/events/{$event['thumbnail']}") ?>" class="card-img" alt="<?= esc($event['title']) ?>" style="height: 100%; object-fit: cover; transition: opacity 0.3s ease;">
+                                    <div class="card-img-overlay d-flex flex-column justify-content-end" style="padding: 1.5rem; color: #fff; background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 30%, rgba(0, 0, 0, 0) 100%); border-radius: 0.5rem;">
+                                        <span style="background-color: #ff5e5e; padding: 0.3rem 0.6rem; font-size: 0.75rem; border-radius: 0.25rem; display: inline-block; margin-bottom: 0.5rem; font-weight: bold;">
+                                            <?= esc($event['event_type']) ?>
+                                        </span>
+                                        <h5 style="font-size: 1.3rem; font-weight: 600;"><?= esc($event['title']) ?></h5>
+                                        <p class="mb-1"><?= esc($event['performers']) ?></p>
+                                        <div style="font-size: 0.85rem;">
+                                            <i class="fa fa-calendar"></i>
+                                            <?= date('M d, Y', strtotime($event['date'])) ?> – <?= date('g:i A', strtotime($event['start_time'])) ?>
+                                        </div>
+                                        <div style="font-size: 0.85rem;">
+                                            <i class="fa fa-map-marker"></i> <?= esc($event['venue']) ?>
+                                        </div>
+                                        <a href="<?= base_url('events') ?>" style="margin-top: 0.75rem; font-size: 0.8rem; color: #fff; border: 1px solid #fff; padding: 0.4rem 0.75rem; border-radius: 0.25rem; transition: 0.3s; align-self: flex-start; text-decoration: none;">
+                                            View Details
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <div class="col-12 text-center">
+                            <div class="p-5 bg-white border rounded-3 shadow-sm mx-auto" style="max-width: 420px;">
+                                <i class="fa fa-calendar-o fa-4x text-muted mb-4"></i>
+                                <h4 class="fw-semibold text-dark mb-2">No Events Available</h4>
+                                <p class="text-muted mb-0">Please check back soon — new and exciting events will be added here.</p>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Event 2 -->
-                    <div class="col-md-6 col-lg-4 mb-4">
-                        <div class="card bg-dark text-white h-100 shadow-lg border-0" style="overflow: hidden; transition: transform 0.3s ease; border-radius: 0.5rem;">
-                            <img src="<?= base_url("public/dist/landing/images/event-2.jpg") ?>" class="card-img" alt="Disco Sayawan" style="height: 100%; object-fit: cover; transition: opacity 0.3s ease;">
-                            <div class="card-img-overlay d-flex flex-column justify-content-end" style="padding: 1.5rem; color: #fff; background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 30%, rgba(0, 0, 0, 0) 100%); border-radius: 0.5rem;">
-                                <span style="background-color: #ff5e5e; padding: 0.3rem 0.6rem; font-size: 0.75rem; border-radius: 0.25rem; display: inline-block; margin-bottom: 0.5rem; font-weight: bold;">🎉 Disco Night</span>
-                                <h5 style="font-size: 1.3rem; font-weight: 600;">Disco Sayawan</h5>
-                                <p class="mb-1">Pahanginan ha Kalumpinayan</p>
-                                <div style="font-size: 0.85rem;"><i class="fa fa-calendar"></i> June 1, 2025 – 6:00 PM</div>
-                                <div style="font-size: 0.85rem;"><i class="fa fa-map-marker"></i> Brgy. Sabang, Oras</div>
-                                <a href="<?= base_url('events') ?>" style="margin-top: 0.75rem; font-size: 0.8rem; color: #fff; border: 1px solid #fff; padding: 0.4rem 0.75rem; border-radius: 0.25rem; transition: 0.3s; align-self: flex-start; text-decoration: none;">View Details</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Event 3 -->
-                    <div class="col-md-6 col-lg-4 mb-4">
-                        <div class="card bg-dark text-white h-100 shadow-lg border-0" style="overflow: hidden; transition: transform 0.3s ease; border-radius: 0.5rem;">
-                            <img src="<?= base_url("public/dist/landing/images/event-3.jpg") ?>" class="card-img" alt="Kantahan Sayawan" style="height: 100%; object-fit: cover; transition: opacity 0.3s ease;">
-                            <div class="card-img-overlay d-flex flex-column justify-content-end" style="padding: 1.5rem; color: #fff; background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 30%, rgba(0, 0, 0, 0) 100%); border-radius: 0.5rem;">
-                                <span style="background-color: #ff5e5e; padding: 0.3rem 0.6rem; font-size: 0.75rem; border-radius: 0.25rem; display: inline-block; margin-bottom: 0.5rem; font-weight: bold;">🎤 Father's Night</span>
-                                <h5 style="font-size: 1.3rem; font-weight: 600;">Kantahan Sayawan</h5>
-                                <p class="mb-1">Drei Audio ft. Alex Evardone</p>
-                                <div style="font-size: 0.85rem;"><i class="fa fa-calendar"></i> June 15, 2025 – 6:00 PM</div>
-                                <div style="font-size: 0.85rem;"><i class="fa fa-map-marker"></i> Tusukan Food Park, Oras</div>
-                                <a href="<?= base_url('events') ?>" style="margin-top: 0.75rem; font-size: 0.8rem; color: #fff; border: 1px solid #fff; padding: 0.4rem 0.75rem; border-radius: 0.25rem; transition: 0.3s; align-self: flex-start; text-decoration: none;">View Details</a>
-                            </div>
-                        </div>
-                    </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>

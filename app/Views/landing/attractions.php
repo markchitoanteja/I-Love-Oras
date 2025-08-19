@@ -50,7 +50,7 @@
         margin: 0 auto;
     }
 
-    .no-function {
+    .more-info {
         display: inline-block;
         font-size: 14px;
         padding: 8px 16px;
@@ -59,7 +59,7 @@
         transition: background-color 0.3s ease;
     }
 
-    .no-function:hover {
+    .more-info:hover {
         background-color: #007bff;
         color: #fff;
         border-color: #007bff;
@@ -67,7 +67,7 @@
 </style>
 
 <!-- Intro -->
-<div class="intro">
+<div class="intro">info
     <div class="container">
         <div class="row">
             <!-- Section Title -->
@@ -83,7 +83,7 @@
                     <h4>HaraFehaFun</h4>
                     <p><strong>Location:</strong> Oras Bay Area</p>
                     <p>A playful beachfront spot where locals and tourists come to relax and have fun. With calm waters and scenic sunsets, it's perfect for families and weekend escapes.</p>
-                    <a href="javascript:void(0);" class="btn btn-sm btn-outline-primary no-function mt-auto">More Info</a>
+                    <a href="javascript:void(0);" class="btn btn-sm btn-outline-primary no-function more-info mt-auto">More Info</a>
                 </div>
             </div>
 
@@ -94,7 +94,7 @@
                     <h4>Binogawan</h4>
                     <p><strong>Location:</strong> Inland Oras</p>
                     <p>A natural spring surrounded by lush vegetation, known for its clear waters and peaceful ambiance — perfect for picnics, swimming, and nature lovers.</p>
-                    <a href="javascript:void(0);" class="btn btn-sm btn-outline-primary no-function mt-auto">More Info</a>
+                    <a href="javascript:void(0);" class="btn btn-sm btn-outline-primary no-function more-info mt-auto">More Info</a>
                 </div>
             </div>
 
@@ -105,7 +105,7 @@
                     <h4>Apiton Island</h4>
                     <p><strong>Location:</strong> Off the coast of Oras</p>
                     <p>A pristine island paradise with white sands, vibrant coral reefs, and peaceful waves. Ideal for snorkeling, island hopping, and quiet retreats.</p>
-                    <a href="javascript:void(0);" class="btn btn-sm btn-outline-primary no-function mt-auto">More Info</a>
+                    <a href="javascript:void(0);" class="btn btn-sm btn-outline-primary no-function more-info mt-auto">More Info</a>
                 </div>
             </div>
 
@@ -116,7 +116,7 @@
                     <h4>Mount Naliwatan</h4>
                     <p><strong>Location:</strong> Western Oras Highlands</p>
                     <p>This scenic mountain offers panoramic views of Eastern Samar and is a popular hiking and camping spot for adventurers and nature photographers.</p>
-                    <a href="javascript:void(0);" class="btn btn-sm btn-outline-primary no-function mt-auto">More Info</a>
+                    <a href="javascript:void(0);" class="btn btn-sm btn-outline-primary no-function more-info mt-auto">More Info</a>
                 </div>
             </div>
 
@@ -127,7 +127,7 @@
                     <h4>Can-avid River Trail</h4>
                     <p><strong>Location:</strong> North of Oras</p>
                     <p>A tranquil river trail lined with lush mangroves and native flora. Great for kayaking, fishing, and guided eco-tours.</p>
-                    <a href="javascript:void(0);" class="btn btn-sm btn-outline-primary no-function mt-auto">More Info</a>
+                    <a href="javascript:void(0);" class="btn btn-sm btn-outline-primary no-function more-info mt-auto">More Info</a>
                 </div>
             </div>
 
@@ -138,7 +138,7 @@
                     <h4>Lugas Cave</h4>
                     <p><strong>Location:</strong> Barangay Lugas</p>
                     <p>A mysterious cave known for its crystal formations and underground streams. Local guides offer tours that explore both its beauty and legends.</p>
-                    <a href="javascript:void(0);" class="btn btn-sm btn-outline-primary no-function mt-auto">More Info</a>
+                    <a href="javascript:void(0);" class="btn btn-sm btn-outline-primary no-function more-info mt-auto">More Info</a>
                 </div>
             </div>
 

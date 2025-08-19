@@ -3,9 +3,23 @@
 namespace App\Controllers;
 
 use App\Models\User_Model;
+use App\Models\Log_Model;
 
 class Auth extends BaseController
 {
+    private function addLog($action, $type)
+    {
+        $logModel = new Log_Model();
+
+        $data = [
+            'action'     => $action,
+            'type'       => $type,
+            'created_at' => date('Y-m-d H:i:s'),
+        ];
+
+        $logModel->insert($data);
+    }
+
     public function login()
     {
         $email = $this->request->getPost("email");
@@ -36,6 +50,8 @@ class Auth extends BaseController
                 "user_type" => $user["user_type"],
             ]);
         }
+
+        $this->addLog("Login Success", "User");
 
         return $this->response->setJSON([
             "success" => $success,
@@ -144,6 +160,8 @@ class Auth extends BaseController
             "type" => "success",
             "message" => "You have been logged out successfully."
         ]);
+
+        $this->addLog("Logout Success", "User");
 
         return $this->response->setJSON([
             "success" => true,

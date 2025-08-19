@@ -160,7 +160,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -173,7 +172,7 @@
         <div class="row">
             <div class="col">
                 <div class="add_container">
-                    <div class="add_background" style="background-image:url(public/dist/landing/images/HaraFehaFun.jpg)"></div>
+                    <div class="add_background" style="background-image:url(<?= base_url() ?>public/dist/landing/images/HaraFehaFun.jpg)"></div>
                     <div class="add_content">
                         <h1 class="add_title">HaraFehaFun</h1>
                         <div class="add_subtitle">Oras, <span>Eastern Samar</span></div>
@@ -191,7 +190,6 @@
 <div class="milestones">
     <div class="container">
         <div class="row">
-
             <!-- Milestone: Annual Visitors -->
             <div class="col-lg-3 milestone_col">
                 <div class="milestone text-center">
@@ -202,7 +200,6 @@
                     <div class="milestone_text">Annual Visitors</div>
                 </div>
             </div>
-
             <!-- Milestone: Eco-tourism Sites -->
             <div class="col-lg-3 milestone_col">
                 <div class="milestone text-center">
@@ -213,7 +210,6 @@
                     <div class="milestone_text">Eco-tourism Sites</div>
                 </div>
             </div>
-
             <!-- Milestone: Local Tour Guides -->
             <div class="col-lg-3 milestone_col">
                 <div class="milestone text-center">
@@ -224,7 +220,6 @@
                     <div class="milestone_text">Local Tour Guides</div>
                 </div>
             </div>
-
             <!-- Milestone: Barangays Involved -->
             <div class="col-lg-3 milestone_col">
                 <div class="milestone text-center">
@@ -235,7 +230,6 @@
                     <div class="milestone_text">Barangays Involved</div>
                 </div>
             </div>
-
         </div>
     </div>
 </div>

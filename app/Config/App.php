@@ -11,7 +11,7 @@ class App extends BaseConfig
      *
      * @var string
      */
-    public string $appVersion = '1.7.6';
+    public string $appVersion = '1.8.1';
 
     /**
      * --------------------------------------------------------------------------

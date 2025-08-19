@@ -133,151 +133,114 @@
 
         <!-- Tab Content -->
         <div class="tab-content" id="eventTabsContent">
-
-            <!-- Upcoming -->
             <div class="tab-pane fade show active" id="upcoming" role="tabpanel">
                 <div class="row">
-                    <!-- Event 1 -->
-                    <div class="col-md-6 col-lg-4 mb-4">
-                        <div class="card bg-dark text-white h-100">
-                            <img src="<?= base_url("public/dist/landing/images/event-1.jpg") ?>" class="card-img" alt="Tusukan Band">
-                            <div class="card-img-overlay">
-                                <span class="event-badge">🎸 Live Band</span>
-                                <h5 class="card-title">Tusukan Live Band</h5>
-                                <p class="mb-1">Ret. Gen. Nonoy Gardiola and Dabarkads</p>
-                                <div class="event-time"><i class="fa fa-calendar"></i> Feb 4, 2025 – 5:00 PM</div>
-                                <div class="event-location"><i class="fa fa-map-marker"></i> Tusukan Food Park</div>
-                                <a href="javascript:void(0)" class="btn-event no-function">View Details</a>
+                    <?php if (!empty($upcoming)): ?>
+                        <?php foreach ($upcoming as $event): ?>
+                            <div class="col-md-6 col-lg-4 mb-4">
+                                <div class="card bg-dark text-white h-100">
+                                    <img src="<?= base_url("public/dist/landing/images/events/{$event['thumbnail']}") ?>"
+                                        class="card-img"
+                                        alt="<?= esc($event['title']) ?>">
+                                    <div class="card-img-overlay">
+                                        <span class="event-badge"><?= esc($event['event_type']) ?></span>
+                                        <h5 class="card-title"><?= esc($event['title']) ?></h5>
+                                        <p class="mb-1"><?= esc($event['performers']) ?></p>
+                                        <div class="event-time">
+                                            <i class="fa fa-calendar"></i>
+                                            <?= date('M d, Y', strtotime($event['date'])) ?> – <?= date('g:i A', strtotime($event['start_time'])) ?>
+                                        </div>
+                                        <div class="event-location">
+                                            <i class="fa fa-map-marker"></i> <?= esc($event['venue']) ?>
+                                        </div>
+                                        <a href="javascript:void(0)" class="btn-event no-function">View Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <div class="col-12 text-center py-5">
+                            <div class="empty-events">
+                                <img src="<?= base_url('public/dist/landing/images/no-events.png') ?>" alt="No events" class="mb-4" style="max-width:180px; opacity:0.8;">
+                                <h4 class="fw-bold text-dark mb-2">No upcoming events</h4>
+                                <p class="text-muted mb-3">Check back later — we’re lining up something special for you!</p>
                             </div>
                         </div>
-                    </div>
-                    <!-- Event 2 -->
-                    <div class="col-md-6 col-lg-4 mb-4">
-                        <div class="card bg-dark text-white h-100">
-                            <img src="<?= base_url("public/dist/landing/images/event-2.jpg") ?>" class="card-img" alt="Acoustic Night">
-                            <div class="card-img-overlay">
-                                <span class="event-badge">🎶 Chill</span>
-                                <h5 class="card-title">Acoustic Night</h5>
-                                <p class="mb-1">Local talents unplugged</p>
-                                <div class="event-time"><i class="fa fa-calendar"></i> Sept 7, 2025 – 7:00 PM</div>
-                                <div class="event-location"><i class="fa fa-map-marker"></i> Oras Baywalk</div>
-                                <a href="javascript:void(0)" class="btn-event no-function">View Details</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Event 3 -->
-                    <div class="col-md-6 col-lg-4 mb-4">
-                        <div class="card bg-dark text-white h-100">
-                            <img src="<?= base_url("public/dist/landing/images/event-3.jpg") ?>" class="card-img" alt="Barangay Fiesta">
-                            <div class="card-img-overlay">
-                                <span class="event-badge">🎪 Fiesta</span>
-                                <h5 class="card-title">Barangay Fiesta</h5>
-                                <p class="mb-1">Parade, games & food stalls</p>
-                                <div class="event-time"><i class="fa fa-calendar"></i> Nov 15, 2025 – 10:00 AM</div>
-                                <div class="event-location"><i class="fa fa-map-marker"></i> Brgy. Cagmani</div>
-                                <a href="javascript:void(0)" class="btn-event no-function">View Details</a>
-                            </div>
-                        </div>
-                    </div>
+                    <?php endif; ?>
                 </div>
             </div>
-
-            <!-- Ongoing -->
-            <div class="tab-pane fade" id="ongoing" role="tabpanel">
+            <div class="tab-pane fade show" id="ongoing" role="tabpanel">
                 <div class="row">
-                    <!-- Event 1 -->
-                    <div class="col-md-6 col-lg-4 mb-4">
-                        <div class="card bg-dark text-white h-100">
-                            <img src="<?= base_url("public/dist/landing/images/event-1.jpg") ?>" class="card-img" alt="Disco Sayawan">
-                            <div class="card-img-overlay">
-                                <span class="event-badge">🕺 Disco</span>
-                                <h5 class="card-title">Disco Sayawan</h5>
-                                <p class="mb-1">Pahanginan ha Kalumpinayan</p>
-                                <div class="event-time"><i class="fa fa-calendar"></i> Aug 1–7, 2025</div>
-                                <div class="event-location"><i class="fa fa-map-marker"></i> Brgy. Sabang</div>
-                                <a href="javascript:void(0)" class="btn-event no-function">View Details</a>
+                    <?php if (!empty($ongoing)): ?>
+                        <?php foreach ($ongoing as $event): ?>
+                            <div class="col-md-6 col-lg-4 mb-4">
+                                <div class="card bg-dark text-white h-100">
+                                    <img src="<?= base_url("public/dist/landing/images/events/{$event['thumbnail']}") ?>"
+                                        class="card-img"
+                                        alt="<?= esc($event['title']) ?>">
+                                    <div class="card-img-overlay">
+                                        <span class="event-badge"><?= esc($event['event_type']) ?></span>
+                                        <h5 class="card-title"><?= esc($event['title']) ?></h5>
+                                        <p class="mb-1"><?= esc($event['performers']) ?></p>
+                                        <div class="event-time">
+                                            <i class="fa fa-calendar"></i>
+                                            <?= date('M d, Y', strtotime($event['date'])) ?> – <?= date('g:i A', strtotime($event['start_time'])) ?>
+                                        </div>
+                                        <div class="event-location">
+                                            <i class="fa fa-map-marker"></i> <?= esc($event['venue']) ?>
+                                        </div>
+                                        <a href="javascript:void(0)" class="btn-event no-function">View Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <div class="col-12 text-center py-5">
+                            <div class="empty-events">
+                                <img src="<?= base_url('public/dist/landing/images/no-events.png') ?>" alt="No events" class="mb-4" style="max-width:180px; opacity:0.8;">
+                                <h4 class="fw-bold text-dark mb-2">No ongoing events</h4>
+                                <p class="text-muted mb-3">Check back later — we’re lining up something special for you!</p>
                             </div>
                         </div>
-                    </div>
-                    <!-- Event 2 -->
-                    <div class="col-md-6 col-lg-4 mb-4">
-                        <div class="card bg-dark text-white h-100">
-                            <img src="<?= base_url("public/dist/landing/images/event-2.jpg") ?>" class="card-img" alt="DJ Night">
-                            <div class="card-img-overlay">
-                                <span class="event-badge">🎧 DJ</span>
-                                <h5 class="card-title">Beachside Beats</h5>
-                                <p class="mb-1">With DJ MARZ</p>
-                                <div class="event-time"><i class="fa fa-calendar"></i> Aug 6–8, 2025</div>
-                                <div class="event-location"><i class="fa fa-map-marker"></i> Tula-Tula Beach</div>
-                                <a href="javascript:void(0)" class="btn-event no-function">View Details</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Event 3 -->
-                    <div class="col-md-6 col-lg-4 mb-4">
-                        <div class="card bg-dark text-white h-100">
-                            <img src="<?= base_url("public/dist/landing/images/event-3.jpg") ?>" class="card-img" alt="Cultural Parade">
-                            <div class="card-img-overlay">
-                                <span class="event-badge">🎭 Parade</span>
-                                <h5 class="card-title">Cultural Parade</h5>
-                                <p class="mb-1">Street performances and floats</p>
-                                <div class="event-time"><i class="fa fa-calendar"></i> Aug 5–10, 2025</div>
-                                <div class="event-location"><i class="fa fa-map-marker"></i> Oras Town Proper</div>
-                                <a href="javascript:void(0)" class="btn-event no-function">View Details</a>
-                            </div>
-                        </div>
-                    </div>
+                    <?php endif; ?>
                 </div>
             </div>
-
-            <!-- Past -->
-            <div class="tab-pane fade" id="past" role="tabpanel">
+            <div class="tab-pane fade show" id="past" role="tabpanel">
                 <div class="row">
-                    <!-- Event 1 -->
-                    <div class="col-md-6 col-lg-4 mb-4">
-                        <div class="card bg-dark text-white h-100">
-                            <img src="<?= base_url("public/dist/landing/images/event-1.jpg") ?>" class="card-img" alt="Father's Night">
-                            <div class="card-img-overlay">
-                                <span class="event-badge">🎤 Father's Night</span>
-                                <h5 class="card-title">Kantahan Sayawan</h5>
-                                <p class="mb-1">Drei Audio ft. Alex Evardone</p>
-                                <div class="event-time"><i class="fa fa-calendar"></i> June 15, 2025</div>
-                                <div class="event-location"><i class="fa fa-map-marker"></i> Tusukan Food Park</div>
-                                <a href="javascript:void(0)" class="btn-event no-function">View Details</a>
+                    <?php if (!empty($past)): ?>
+                        <?php foreach ($past as $event): ?>
+                            <div class="col-md-6 col-lg-4 mb-4">
+                                <div class="card bg-dark text-white h-100">
+                                    <img src="<?= base_url("public/dist/landing/images/events/{$event['thumbnail']}") ?>"
+                                        class="card-img"
+                                        alt="<?= esc($event['title']) ?>">
+                                    <div class="card-img-overlay">
+                                        <span class="event-badge"><?= esc($event['event_type']) ?></span>
+                                        <h5 class="card-title"><?= esc($event['title']) ?></h5>
+                                        <p class="mb-1"><?= esc($event['performers']) ?></p>
+                                        <div class="event-time">
+                                            <i class="fa fa-calendar"></i>
+                                            <?= date('M d, Y', strtotime($event['date'])) ?> – <?= date('g:i A', strtotime($event['start_time'])) ?>
+                                        </div>
+                                        <div class="event-location">
+                                            <i class="fa fa-map-marker"></i> <?= esc($event['venue']) ?>
+                                        </div>
+                                        <a href="javascript:void(0)" class="btn-event no-function">View Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <div class="col-12 text-center py-5">
+                            <div class="empty-events">
+                                <img src="<?= base_url('public/dist/landing/images/no-events.png') ?>" alt="No events" class="mb-4" style="max-width:180px; opacity:0.8;">
+                                <h4 class="fw-bold text-dark mb-2">No past events</h4>
+                                <p class="text-muted mb-3">Check back later — we’re lining up something special for you!</p>
                             </div>
                         </div>
-                    </div>
-                    <!-- Event 2 -->
-                    <div class="col-md-6 col-lg-4 mb-4">
-                        <div class="card bg-dark text-white h-100">
-                            <img src="<?= base_url("public/dist/landing/images/event-2.jpg") ?>" class="card-img" alt="Summer Festival">
-                            <div class="card-img-overlay">
-                                <span class="event-badge">🌞 Summer Fest</span>
-                                <h5 class="card-title">Oras Summer Festival</h5>
-                                <p class="mb-1">Food booths, beach games</p>
-                                <div class="event-time"><i class="fa fa-calendar"></i> April 20, 2025</div>
-                                <div class="event-location"><i class="fa fa-map-marker"></i> Oras Downtown</div>
-                                <a href="javascript:void(0)" class="btn-event no-function">View Details</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Event 3 -->
-                    <div class="col-md-6 col-lg-4 mb-4">
-                        <div class="card bg-dark text-white h-100">
-                            <img src="<?= base_url("public/dist/landing/images/event-3.jpg") ?>" class="card-img" alt="New Year">
-                            <div class="card-img-overlay">
-                                <span class="event-badge">🎆 New Year Bash</span>
-                                <h5 class="card-title">Countdown Party</h5>
-                                <p class="mb-1">Fireworks & live music</p>
-                                <div class="event-time"><i class="fa fa-calendar"></i> Dec 31, 2024</div>
-                                <div class="event-location"><i class="fa fa-map-marker"></i> Town Plaza</div>
-                                <a href="javascript:void(0)" class="btn-event no-function">View Details</a>
-                            </div>
-                        </div>
-                    </div>
+                    <?php endif; ?>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
