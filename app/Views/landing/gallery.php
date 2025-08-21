@@ -144,17 +144,15 @@
                     $altText   = !empty($img['caption']) ? $img['caption'] : "Gallery Photo";
                     ?>
                     <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="gallery_item" onclick="openModal('<?php echo $imagePath; ?>', '<?php echo $altText; ?>')">
-                            <img src="<?php echo $imagePath; ?>" alt="<?php echo $altText; ?>" class="img-fluid rounded">
+                        <div class="gallery_item" data-image="<?= htmlspecialchars($imagePath, ENT_QUOTES); ?>" data-alt="<?= htmlspecialchars($altText, ENT_QUOTES); ?>">
+                            <img src="<?= $imagePath; ?>" alt="<?= htmlspecialchars($altText, ENT_QUOTES); ?>" class="img-fluid rounded">
                         </div>
                     </div>
                 <?php endforeach; ?>
             <?php else: ?>
                 <div class="col-12 text-center py-5">
                     <div class="no-gallery-placeholder">
-                        <img src="<?= base_url('public/dist/landing/images/no-image.png'); ?>"
-                            alt="No images"
-                            class="mb-3" style="max-width:150px; opacity:0.6;">
+                        <img src="<?= base_url('public/dist/landing/images/no-image.png'); ?>" alt="No images" class="mb-3" style="max-width:150px; opacity:0.6;">
                         <h4 class="text-muted">No images available</h4>
                         <p class="text-muted">Our gallery will be updated soon. Please check back later.</p>
                     </div>
@@ -179,7 +177,7 @@
 
         modal.style.display = "block";
         modalImg.src = src;
-        modalCaption.innerHTML = caption;
+        modalCaption.textContent = caption; // safer than innerHTML
     }
 
     function closeModal() {
@@ -193,4 +191,15 @@
             closeModal();
         }
     };
+
+    // ✅ Attach click events dynamically (instead of inline)
+    document.addEventListener("DOMContentLoaded", function() {
+        document.querySelectorAll(".gallery_item").forEach(function(item) {
+            item.addEventListener("click", function() {
+                const src = this.getAttribute("data-image");
+                const caption = this.getAttribute("data-alt");
+                openModal(src, caption);
+            });
+        });
+    });
 </script>

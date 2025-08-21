@@ -92,7 +92,6 @@
                     <button type="submit" class="btn btn-primary" id="reply_submit">Send Reply</button>
                 </div>
             </form>
-
         </div>
     </div>
 </div>

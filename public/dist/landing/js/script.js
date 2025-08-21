@@ -79,6 +79,61 @@ $(document).ready(function () {
         });
     });
 
+    $('#attractionModal').on('show.bs.modal', function (event) {
+        const button = $(event.relatedTarget);
+
+        const name = button.data('name');
+        const description = button.data('description');
+        const photos = button.data('photos');
+        const lat = button.data('lat');
+        const lng = button.data('lng');
+
+        // Set modal title & description
+        $('#modalTitle').text(name);
+        $('#modalDescription').text(description);
+
+        // Build photo carousel
+        const carouselInner = $('#carouselInner');
+        carouselInner.empty();
+
+        if (photos && photos.length) {
+            // chunk photos into groups of 3
+            for (let i = 0; i < photos.length; i += 3) {
+                const chunk = photos.slice(i, i + 3);
+                let rowHtml = '<div class="row">';
+
+                chunk.forEach(photo => {
+                    rowHtml += `
+                    <div class="col-4">
+                        <div class="img-wrapper" style="width: 100%; height: 120px; overflow: hidden; border-radius: 0.25rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+                            <img src="public/dist/landing/images/attractions/${photo}" 
+                                 alt="${name}" 
+                                 style="width: 100%; height: 100%; object-fit: cover; border-radius: 0.25rem;">
+                        </div>
+                    </div>
+                `;
+                });
+
+                rowHtml += '</div>';
+
+                carouselInner.append(`
+                <div class="carousel-item ${i === 0 ? 'active' : ''}">
+                    ${rowHtml}
+                </div>
+            `);
+            }
+        } else {
+            carouselInner.append(`<div class="text-center text-muted p-3">No photos available</div>`);
+        }
+
+        // Map
+        if (lat && lng) {
+            $('#modalMap').attr('src', `https://www.google.com/maps?q=${lat},${lng}&hl=en&z=14&output=embed`);
+        } else {
+            $('#modalMap').attr('src', '');
+        }
+    });
+
     function display_alert(notification) {
         Swal.fire({
             title: notification.title,

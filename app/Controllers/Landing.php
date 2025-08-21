@@ -5,6 +5,7 @@ namespace App\Controllers;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
+use App\Models\Attraction_Model;
 use App\Models\Gallery_Model;
 use App\Models\Message_Model;
 use App\Models\Log_Model;
@@ -138,8 +139,15 @@ class Landing extends BaseController
         session()->set('page', 'attractions');
         session()->set('page_title', 'Attractions');
 
+        $Attraction_Model = new Attraction_Model();
+        $attractions = $Attraction_Model->findAll();
+
+        $data = [
+            'attractions' => $attractions
+        ];
+
         $header = view('landing/layouts/header');
-        $body = view('landing/attractions');
+        $body = view('landing/attractions', $data);
         $footer = view('landing/layouts/footer');
 
         if (session()->has('user')) {

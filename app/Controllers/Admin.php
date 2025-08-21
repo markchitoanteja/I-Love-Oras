@@ -9,6 +9,7 @@ use App\Models\User_Model;
 use App\Models\Gallery_Model;
 use App\Models\Message_Model;
 use App\Models\Event_Model;
+use App\Models\Attraction_Model;
 use App\Models\Log_Model;
 
 class Admin extends BaseController
@@ -124,12 +125,12 @@ class Admin extends BaseController
         $eventModel       = new Event_Model();
         $galleryModel     = new Gallery_Model();
         $logModel         = new Log_Model();
-        // $touristSpotModel = new TouristSpot_Model();
+        $touristSpotModel = new Attraction_Model();
 
         $count_data = [
             'total_events'     => $eventModel->countAll(),
             'total_gallery'   => $galleryModel->countAll(),
-            'total_tourist_spots'     => 0,
+            'total_tourist_spots'     => $touristSpotModel->countAll(),
         ];
 
         $logs = $logModel->orderBy('id', 'DESC')->findAll();
@@ -193,8 +194,11 @@ class Admin extends BaseController
         session()->set("current_page", "tourist_spots");
         session()->set("current_page_title", "Tourist Spots");
 
+        $Attraction_Model = new Attraction_Model();
+        $attractions = $Attraction_Model->orderBy('id', 'DESC')->findAll();
+
         $header = view('admin/layouts/header');
-        $body = view('admin/tourist_spots');
+        $body = view('admin/tourist_spots', ['attractions' => $attractions]);
         $footer = view('admin/layouts/footer');
 
         $user = session()->get('user');
@@ -889,6 +893,141 @@ class Admin extends BaseController
         return $this->response->setJSON([
             'success' => true,
             'message' => 'Event updated successfully.'
+        ]);
+    }
+
+    public function new_tourist_spot()
+    {
+        if (!$this->request->isAJAX()) {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Invalid request.'
+            ]);
+        }
+
+        $name        = $this->request->getPost('name');
+        $description = $this->request->getPost('description');
+        $mapUrl      = $this->request->getPost('map_embed_url');
+        $latitude    = $this->request->getPost('latitude');
+        $longitude   = $this->request->getPost('longitude');
+
+        $files = $this->request->getFiles();
+        $errors = [];
+        $uploadedImages = [];
+
+        if (isset($files['photos'])) {
+            foreach ($files['photos'] as $file) {
+                if ($file->isValid() && !$file->hasMoved()) {
+                    $ext = strtolower($file->getExtension());
+
+                    if (!in_array($ext, ['jpg', 'jpeg', 'png', 'gif'])) {
+                        $errors[] = "Invalid file type: {$file->getName()}";
+                        continue;
+                    }
+
+                    if ($file->getSize() > (2 * 1024 * 1024)) { // 2MB
+                        $errors[] = "File too large: {$file->getName()}";
+                        continue;
+                    }
+
+                    // Use your uploadImage helper
+                    $newName = $this->uploadImage($file, 'public/dist/landing/images/attractions/');
+
+                    if ($newName) {
+                        $uploadedImages[] = $newName;
+                    } else {
+                        $errors[] = "Failed to upload: {$file->getName()}";
+                    }
+                } else {
+                    $errors[] = "Invalid file: {$file->getName()}";
+                }
+            }
+        }
+
+        if (!empty($errors)) {
+            return $this->response->setJSON([
+                'success' => false,
+                'errors'  => $errors
+            ]);
+        }
+
+        $Attraction_Model = new Attraction_Model();
+
+        $Attraction_Model->insert([
+            'name'        => $name,
+            'description' => $description,
+            'map_embed_url' => $mapUrl,
+            'latitude'    => $latitude,
+            'longitude'   => $longitude,
+            'photo_gallery'      => json_encode($uploadedImages), // store as JSON array
+            'created_at'  => date('Y-m-d H:i:s'),
+            'updated_at'  => date('Y-m-d H:i:s'),
+        ]);
+
+        session()->setFlashdata("notification", [
+            "title" => "Success!",
+            "text"  => "Tourist Spot has been added successfully.",
+            "icon"  => "success"
+        ]);
+
+        $this->addLog('Added a new tourist spot', "Tourist Spot");
+
+        return $this->response->setJSON([
+            'success' => true,
+            'message' => 'Tourist Spot added successfully.'
+        ]);
+    }
+
+    public function delete_tourist_spot()
+    {
+        if (!$this->request->isAJAX()) {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Invalid request.'
+            ]);
+        }
+
+        $Attraction_Model = new Attraction_Model();
+        $id = $this->request->getPost('id');
+
+        // Fetch record
+        $spot = $Attraction_Model->find($id);
+
+        if (!$spot) {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Tourist spot not found.'
+            ]);
+        }
+
+        // Unlink related images if they exist
+        if (!empty($spot['photo_gallery'])) {
+            $photos = json_decode($spot['photo_gallery'], true);
+
+            if (is_array($photos)) {
+                foreach ($photos as $fileName) {
+                    $filePath = FCPATH . 'public/dist/landing/images/attractions/' . $fileName;
+                    if (file_exists($filePath)) {
+                        @unlink($filePath); // suppress errors
+                    }
+                }
+            }
+        }
+
+        // Delete from DB
+        $Attraction_Model->delete($id);
+
+        session()->setFlashdata("notification", [
+            "title" => "Deleted!",
+            "text"  => "Tourist spot has been deleted successfully.",
+            "icon"  => "success"
+        ]);
+
+        $this->addLog('Deleted a tourist spot', "Tourist Spot");
+
+        return $this->response->setJSON([
+            'success' => true,
+            'message' => 'Tourist spot deleted successfully.'
         ]);
     }
 }

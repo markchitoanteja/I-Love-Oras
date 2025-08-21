@@ -191,7 +191,9 @@
         </div>
 
         <script>
-            const notification = <?= json_encode(session()->getFlashdata('notification')) ?>;
+            const base_url = "<?= base_url() ?>";
+            const user = <?= json_encode(session()->get("user")) ?>;
+            const notification = <?= json_encode(session()->get("notification")) ?>;
         </script>
 
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

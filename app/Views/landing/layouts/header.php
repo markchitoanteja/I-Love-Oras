@@ -57,7 +57,7 @@
                             <div class="logo_container">
                                 <div class="logo">
                                     <a href="<?= base_url() ?>">
-                                        <img src="public/dist/landing/images/logo.png?v=1.0" alt="" width="50">I❤️Oras
+                                        <img src="public/dist/landing/images/logo.png?v=1.0" alt="" width="40">I❤️Oras
                                     </a>
                                 </div>
                             </div>

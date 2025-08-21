@@ -64,10 +64,34 @@
         color: #fff;
         border-color: #007bff;
     }
+
+    .img-wrapper {
+        width: 100%;
+        height: 120px;
+        /* Adjust height as needed */
+        overflow: hidden;
+        border-radius: 0.25rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .img-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 0.25rem;
+    }
+
+    .description-truncate {
+        display: -webkit-box;
+        -webkit-line-clamp: 5;
+        line-clamp: 5;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
 </style>
 
-<!-- Intro -->
-<div class="intro">info
+<div class="intro">
     <div class="container">
         <div class="row">
             <!-- Section Title -->
@@ -76,72 +100,88 @@
                 <p class="section_subtitle">Discover these stunning destinations in Eastern Samar</p>
             </div>
 
-            <!-- Attraction: HaraFehaFun -->
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="attraction_item">
-                    <img src="public/dist/landing/images/harafehafun.jpg" alt="HaraFehaFun" class="img-fluid rounded mb-3">
-                    <h4>HaraFehaFun</h4>
-                    <p><strong>Location:</strong> Oras Bay Area</p>
-                    <p>A playful beachfront spot where locals and tourists come to relax and have fun. With calm waters and scenic sunsets, it's perfect for families and weekend escapes.</p>
-                    <a href="javascript:void(0);" class="btn btn-sm btn-outline-primary no-function more-info mt-auto">More Info</a>
+            <!-- Loop Attractions -->
+            <?php if (!empty($attractions)): ?>
+                <?php foreach ($attractions as $attraction): ?>
+                    <?php
+                    // Decode photo gallery JSON
+                    $photos = json_decode($attraction['photo_gallery'], true);
+                    $firstPhoto = !empty($photos) ? base_url('public/dist/landing/images/attractions/' . $photos[0]) : base_url('public/dist/landing/images/no-image.jpg');
+                    $modalId = "modalAttraction_" . $attraction['id'];
+                    ?>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="attraction_item">
+                            <img src="<?= esc($firstPhoto) ?>" alt="<?= esc($attraction['name']) ?>" class="img-fluid rounded mb-3">
+                            <h4 class="text-truncate" title="<?= esc($attraction['name']) ?>"><?= esc($attraction['name']) ?></h4>
+                            <?php if (!empty($attraction['latitude']) && !empty($attraction['longitude'])): ?>
+                                <p class="text-truncate" title="Location: <?= esc($attraction['latitude']) ?>, <?= esc($attraction['longitude']) ?>"><strong>Location:</strong> <?= esc($attraction['latitude']) ?>, <?= esc($attraction['longitude']) ?></p>
+                            <?php endif; ?>
+                            <p class="description-truncate"><?= esc($attraction['description']) ?></p>
+                            <a href="javascript:void(0);"
+                                class="btn btn-sm btn-outline-primary more-info mt-auto"
+                                data-toggle="modal"
+                                data-target="#attractionModal"
+                                data-name="<?= esc($attraction['name']) ?>"
+                                data-description="<?= esc($attraction['description']) ?>"
+                                data-photos='<?= json_encode($photos) ?>'
+                                data-lat="<?= esc($attraction['latitude']) ?>"
+                                data-lng="<?= esc($attraction['longitude']) ?>">
+                                More Info
+                            </a>
+
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <div class="col-12 text-center py-5">
+                    <div class="no-gallery-placeholder">
+                        <img src="<?= base_url('public/dist/landing/images/no-image.png'); ?>" alt="No images" class="mb-3" style="max-width:150px; opacity:0.6;">
+                        <h4 class="text-muted">No attractions available</h4>
+                        <p class="text-muted">Our attractions will be updated soon. Please check back later.</p>
+                    </div>
                 </div>
+            <?php endif; ?>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="attractionModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content shadow-lg border-0">
+
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title mb-0" id="modalTitle"></h5>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
 
-            <!-- Attraction: Binogawan -->
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="attraction_item">
-                    <img src="public/dist/landing/images/binogawan.jpg" alt="Binogawan" class="img-fluid rounded mb-3">
-                    <h4>Binogawan</h4>
-                    <p><strong>Location:</strong> Inland Oras</p>
-                    <p>A natural spring surrounded by lush vegetation, known for its clear waters and peaceful ambiance — perfect for picnics, swimming, and nature lovers.</p>
-                    <a href="javascript:void(0);" class="btn btn-sm btn-outline-primary no-function more-info mt-auto">More Info</a>
+            <div class="modal-body p-4 bg-white rounded-bottom">
+                <h6 class="font-weight-bold mb-3">Description</h6>
+                <div class="mb-4 p-3 border rounded bg-light">
+                    <p id="modalDescription" class="text-dark mb-0"></p>
+                </div>
+
+                <h6 class="font-weight-bold mb-3">Photo Gallery</h6>
+                <div class="border rounded mb-4 p-2 bg-light">
+                    <div id="modalCarousel" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner" id="carouselInner"></div>
+                        <a class="carousel-control-prev" href="#modalCarousel" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#modalCarousel" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+
+                <h6 class="font-weight-bold mb-3">Map</h6>
+                <div class="border rounded overflow-hidden shadow-sm">
+                    <iframe id="modalMap" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
-
-            <!-- Attraction: Apiton Island -->
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="attraction_item">
-                    <img src="public/dist/landing/images/apiton.jpg" alt="Apiton Island" class="img-fluid rounded mb-3">
-                    <h4>Apiton Island</h4>
-                    <p><strong>Location:</strong> Off the coast of Oras</p>
-                    <p>A pristine island paradise with white sands, vibrant coral reefs, and peaceful waves. Ideal for snorkeling, island hopping, and quiet retreats.</p>
-                    <a href="javascript:void(0);" class="btn btn-sm btn-outline-primary no-function more-info mt-auto">More Info</a>
-                </div>
-            </div>
-
-            <!-- Attraction: Mount Naliwatan -->
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="attraction_item">
-                    <img src="public/dist/landing/images/mt_naliwatan.png" alt="Mount Naliwatan" class="img-fluid rounded mb-3">
-                    <h4>Mount Naliwatan</h4>
-                    <p><strong>Location:</strong> Western Oras Highlands</p>
-                    <p>This scenic mountain offers panoramic views of Eastern Samar and is a popular hiking and camping spot for adventurers and nature photographers.</p>
-                    <a href="javascript:void(0);" class="btn btn-sm btn-outline-primary no-function more-info mt-auto">More Info</a>
-                </div>
-            </div>
-
-            <!-- Attraction: Can-avid River Trail -->
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="attraction_item">
-                    <img src="public/dist/landing/images/can_avid_river_trail.png" alt="Can-avid River Trail" class="img-fluid rounded mb-3">
-                    <h4>Can-avid River Trail</h4>
-                    <p><strong>Location:</strong> North of Oras</p>
-                    <p>A tranquil river trail lined with lush mangroves and native flora. Great for kayaking, fishing, and guided eco-tours.</p>
-                    <a href="javascript:void(0);" class="btn btn-sm btn-outline-primary no-function more-info mt-auto">More Info</a>
-                </div>
-            </div>
-
-            <!-- Attraction: Lugas Cave -->
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="attraction_item">
-                    <img src="public/dist/landing/images/lugas_cave.png" alt="Lugas Cave" class="img-fluid rounded mb-3">
-                    <h4>Lugas Cave</h4>
-                    <p><strong>Location:</strong> Barangay Lugas</p>
-                    <p>A mysterious cave known for its crystal formations and underground streams. Local guides offer tours that explore both its beauty and legends.</p>
-                    <a href="javascript:void(0);" class="btn btn-sm btn-outline-primary no-function more-info mt-auto">More Info</a>
-                </div>
-            </div>
-
         </div>
     </div>
 </div>

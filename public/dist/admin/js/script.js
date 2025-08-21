@@ -1,4 +1,6 @@
 $(document).ready(function () {
+  let allFiles = [];
+
   overlayLoader(false);
 
   if (notification) {
@@ -617,6 +619,100 @@ $(document).ready(function () {
       label.text('Choose file');
       preview.attr('src', "<?= base_url('public/dist/landing/images/no-image.png') ?>");
     }
+  });
+
+  $("#new_tourist_spot_photos").on("change", function (e) {
+    let newFiles = Array.from(e.target.files);
+
+    allFiles = allFiles.concat(newFiles);
+
+    $(this).val("");
+  });
+
+  $("#new_tourist_spot_form").on("submit", function () {
+    let name = $("#new_tourist_spot_name").val();
+    let description = $("#new_tourist_spot_description").val();
+    let mapUrl = $("#new_tourist_spot_map_embed_url").val();
+    let latitude = $("#new_tourist_spot_latitude").val();
+    let longitude = $("#new_tourist_spot_longitude").val();
+
+    $('#new_tourist_spot_submit').attr('disabled', true).html('Please wait...');
+
+    toggleModalLock('new_tourist_spot_modal');
+
+    let formData = new FormData();
+
+    formData.append("name", name);
+    formData.append("description", description);
+    formData.append("map_embed_url", mapUrl);
+    formData.append("latitude", latitude);
+    formData.append("longitude", longitude);
+
+    allFiles.forEach((file, _) => {
+      formData.append("photos[]", file);
+    });
+
+    $.ajax({
+      url: base_url + "admin/new_tourist_spot",
+      type: "POST",
+      data: formData,
+      dataType: "JSON",
+      processData: false,
+      contentType: false,
+      success: function (response) {
+        if (response.success) {
+          location.reload();
+        }
+      },
+      error: function (_, _, error) {
+        console.error(error);
+      }
+    });
+  });
+
+  $(document).on('click', '.delete_attraction', function () {
+    const id = $(this).data('id');
+
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        overlayLoader(true);
+
+        var formData = new FormData();
+
+        formData.append('id', id);
+
+        $.ajax({
+          url: base_url + 'admin/delete_tourist_spot',
+          data: formData,
+          type: 'POST',
+          dataType: 'JSON',
+          processData: false,
+          contentType: false,
+          success: function (response) {
+            if (response.success) {
+              location.reload();
+            } else {
+              Swal.fire({
+                title: "Error!",
+                text: response.message,
+                icon: "error"
+              });
+            }
+          },
+          error: function (_, _, error) {
+            console.error(error);
+          }
+        });
+      }
+    });
   });
 
   function overlayLoader(enabled) {

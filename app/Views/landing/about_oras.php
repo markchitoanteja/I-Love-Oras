@@ -1,16 +1,135 @@
+<style>
+    .intro_title .sub-text {
+        font-size: 16px;
+        font-weight: 400;
+        text-transform: none;
+        margin-top: 5px;
+    }
+</style>
+
 <!-- Intro -->
 <div class="intro">
     <div class="container">
         <div class="row">
             <div class="col-lg-7">
-                <div class="intro_image"><img src="public/dist/landing/images/intro.png" alt=""></div>
+                <div class="intro_image">
+                    <img src="public/dist/landing/images/about-oras.jpg" class="img-thumbnail" alt="">
+                </div>
             </div>
-            <div class="col-lg-5">
+            <div class="col-lg-5 px-4">
                 <div class="intro_content">
-                    <div class="intro_title">we have the best tours</div>
-                    <p class="intro_text">Oras, Eastern Samar is a hidden gem along the Philippine coastline, rich with breathtaking natural beauty and untouched landscapes. Travelers are welcomed by crystal-clear waters, lush mountains, and a peaceful atmosphere that offers both adventure and tranquility. From scenic river cruises to unspoiled white-sand beaches, the town is perfect for those seeking a quiet escape from city life. Local culture thrives in every corner, with warm hospitality and traditions passed down for generations. Discover caves, waterfalls, and marine sanctuaries that are just waiting to be explored. Whether you are looking to relax, reconnect with nature, or dive into new experiences, Oras offers a unique charm that stays with you long after your journey ends.</p>
-                    <div class="button intro_button">
-                        <div class="button_bcg"></div><a href="javascript:void(0)" class="no-function">More Info<span></span><span></span><span></span></a>
+                    <div class="intro_title text-center">
+                        <div class="main-text">ORAS</div>
+                        <div class="sub-text">Province of Eastern Samar</div>
+                    </div>
+                    <p class="intro_text">
+                        Oras is a coastal municipality in the province of Eastern Samar.
+                        The municipality has a land area of 188.70 square kilometers or 72.86 square miles which constitutes 4.09% of Eastern Samar's total area. Its population as determined by the 2020 Census was 37,451. This represented 7.85% of the total population of Eastern Samar province, or 0.82% of the overall population of the Eastern Visayas region. Based on these figures, the population density is computed at 198 inhabitants per square kilometer or 514 inhabitants per square mile.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Summary Data -->
+<div class="stats">
+    <div class="container">
+        <div class="row">
+            <div class="col text-center">
+                <div class="section_title">Summary Data</div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <p class="stats_text">
+                    Oras, Eastern Samar is a dynamic coastal municipality in the Visayas region, recognized for its strategic location, engaged community, and abundant natural resources.
+                </p>
+            </div>
+        </div>
+
+        <div class="row mt-5 d-flex justify-content-center">
+            <div class="col">
+                <div class="card shadow-lg border-0 rounded-3">
+                    <div class="card-header bg-light border-bottom text-center py-4">
+                        <h4 class="mb-0 fw-bold text-dark" style="letter-spacing: 1px;">
+                            Municipality Profile
+                        </h4>
+                        <small class="text-muted">Official Summary of Key Information</small>
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-4">
+                            <!-- Left Table -->
+                            <div class="col-md-6">
+                                <table class="table table-bordered align-middle mb-0">
+                                    <tbody>
+                                        <tr>
+                                            <th class="bg-light text-secondary w-50 py-3">Municipality Type</th>
+                                            <td class="fw-bold text-dark fs-6 py-3">Municipality</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="bg-light text-secondary py-3">Island Group</th>
+                                            <td class="fw-bold text-dark fs-6 py-3"><a href="#" class="text-dark text-decoration-none">Visayas</a></td>
+                                        </tr>
+                                        <tr>
+                                            <th class="bg-light text-secondary py-3">Region</th>
+                                            <td class="fw-bold text-dark fs-6 py-3"><a href="#" class="text-dark text-decoration-none">Eastern Visayas (VIII)</a></td>
+                                        </tr>
+                                        <tr>
+                                            <th class="bg-light text-secondary py-3">Province</th>
+                                            <td class="fw-bold text-dark fs-6 py-3"><a href="#" class="text-dark text-decoration-none">Eastern Samar</a></td>
+                                        </tr>
+                                        <tr>
+                                            <th class="bg-light text-secondary py-3">Barangays</th>
+                                            <td class="fw-bold text-dark fs-6 py-3">42</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="bg-light text-secondary py-3">Postal Code</th>
+                                            <td class="fw-bold text-dark fs-6 py-3">6818</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="bg-light text-secondary py-3">Location Type</th>
+                                            <td class="fw-bold text-dark fs-6 py-3">Coastal</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- Right Table -->
+                            <div class="col-md-6">
+                                <table class="table table-bordered align-middle mb-0">
+                                    <tbody>
+                                        <tr>
+                                            <th class="bg-light text-secondary w-50 py-3">Marine Waters</th>
+                                            <td class="fw-bold text-dark fs-6 py-3">Philippine Sea</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="bg-light text-secondary py-3">Major Island</th>
+                                            <td class="fw-bold text-dark fs-6 py-3">Samar</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="bg-light text-secondary py-3">Land Area (2013)</th>
+                                            <td class="fw-bold text-dark fs-6 py-3">188.70 km²<br><small class="text-muted">(72.86 sq mi)</small></td>
+                                        </tr>
+                                        <tr>
+                                            <th class="bg-light text-secondary py-3">Population (2020)</th>
+                                            <td class="fw-bold text-dark fs-6 py-3">37,451</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="bg-light text-secondary py-3">Population Density</th>
+                                            <td class="fw-bold text-dark fs-6 py-3">198 / km²<br><small class="text-muted">(514 / sq mi)</small></td>
+                                        </tr>
+                                        <tr>
+                                            <th class="bg-light text-secondary py-3">Coordinates</th>
+                                            <td class="fw-bold text-dark fs-6 py-3">12° 8′ N, 125° 26′ E<br><small class="text-muted">(12.1410, 125.4408)</small></td>
+                                        </tr>
+                                        <tr>
+                                            <th class="bg-light text-secondary py-3">Elevation</th>
+                                            <td class="fw-bold text-dark fs-6 py-3">10.4 m<br><small class="text-muted">(34 ft)</small></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -18,216 +137,361 @@
     </div>
 </div>
 
-<!-- Stats -->
-<div class="stats">
+<!-- Demographic profile of barangays -->
+<div class="stats bg-light">
     <div class="container">
         <div class="row">
             <div class="col text-center">
-                <div class="section_title">Oras Tourism Statistics</div>
+                <div class="section_title">Demographic profile of barangays</div>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-10 offset-lg-1 text-center">
                 <p class="stats_text">
-                    The tourism industry in Oras, Eastern Samar has experienced consistent growth in recent years. With improved accessibility, rising interest in eco-tourism, and community-led initiatives, more visitors are discovering the hidden treasures of this coastal paradise. These numbers reflect our progress in sharing Oras with the world.
+                    This section presents a concise overview of population trends and demographic changes across the barangays of Oras, Eastern Samar, based on the latest census data.
                 </p>
             </div>
         </div>
+
         <div class="row">
             <div class="col">
-                <div class="stats_years">
-                    <div class="stats_years_last">2020</div>
-                    <div class="stats_years_new float-right">2024</div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <div class="stats_contents">
-
-                    <!-- Visitors Stat -->
-                    <div class="stats_item d-flex flex-md-row flex-column clearfix">
-                        <div class="stats_last order-md-1 order-3">
-                            <div class="stats_last_icon d-flex flex-column align-items-center justify-content-end">
-                                <img src="public/dist/landing/images/stats_1.png" alt="">
-                            </div>
-                            <div class="stats_last_content">
-                                <div class="stats_number">480</div>
-                                <div class="stats_type">Visitors</div>
-                            </div>
-                        </div>
-                        <div class="stats_bar order-md-2 order-2" data-x="480" data-y="2890" data-color="#1e90ff">
-                            <div class="stats_bar_perc">
-                                <div>
-                                    <div class="stats_bar_value"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="stats_new order-md-3 order-1 text-right">
-                            <div class="stats_new_icon d-flex flex-column align-items-center justify-content-end">
-                                <img src="public/dist/landing/images/stats_1.png" alt="">
-                            </div>
-                            <div class="stats_new_content">
-                                <div class="stats_number">2890</div>
-                                <div class="stats_type">Visitors</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Eco-tour Sites -->
-                    <div class="stats_item d-flex flex-md-row flex-column clearfix">
-                        <div class="stats_last order-md-1 order-3">
-                            <div class="stats_last_icon d-flex flex-column align-items-center justify-content-end">
-                                <img src="public/dist/landing/images/stats_2.png" alt="">
-                            </div>
-                            <div class="stats_last_content">
-                                <div class="stats_number">3</div>
-                                <div class="stats_type">Eco-tour Sites</div>
-                            </div>
-                        </div>
-                        <div class="stats_bar order-md-2 order-2" data-x="3" data-y="8" data-color="#28a745">
-                            <div class="stats_bar_perc">
-                                <div>
-                                    <div class="stats_bar_value"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="stats_new order-md-3 order-1 text-right">
-                            <div class="stats_new_icon d-flex flex-column align-items-center justify-content-end">
-                                <img src="public/dist/landing/images/stats_2.png" alt="">
-                            </div>
-                            <div class="stats_new_content">
-                                <div class="stats_number">8</div>
-                                <div class="stats_type">Eco-tour Sites</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Local Tour Guides -->
-                    <div class="stats_item d-flex flex-md-row flex-column clearfix">
-                        <div class="stats_last order-md-1 order-3">
-                            <div class="stats_last_icon d-flex flex-column align-items-center justify-content-end">
-                                <img src="public/dist/landing/images/stats_3.png" alt="">
-                            </div>
-                            <div class="stats_last_content">
-                                <div class="stats_number">5</div>
-                                <div class="stats_type">Tour Guides</div>
-                            </div>
-                        </div>
-                        <div class="stats_bar order-md-2 order-2" data-x="5" data-y="21" data-color="#ffc107">
-                            <div class="stats_bar_perc">
-                                <div>
-                                    <div class="stats_bar_value"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="stats_new order-md-3 order-1 text-right">
-                            <div class="stats_new_icon d-flex flex-column align-items-center justify-content-end">
-                                <img src="public/dist/landing/images/stats_3.png" alt="">
-                            </div>
-                            <div class="stats_new_content">
-                                <div class="stats_number">21</div>
-                                <div class="stats_type">Tour Guides</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Barangays Involved -->
-                    <div class="stats_item d-flex flex-md-row flex-column clearfix">
-                        <div class="stats_last order-md-1 order-3">
-                            <div class="stats_last_icon d-flex flex-column align-items-center justify-content-end">
-                                <img src="public/dist/landing/images/stats_4.png" alt="">
-                            </div>
-                            <div class="stats_last_content">
-                                <div class="stats_number">7</div>
-                                <div class="stats_type">Barangays Involved</div>
-                            </div>
-                        </div>
-                        <div class="stats_bar order-md-2 order-2" data-x="7" data-y="14" data-color="#fd7e14">
-                            <div class="stats_bar_perc">
-                                <div>
-                                    <div class="stats_bar_value"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="stats_new order-md-3 order-1 text-right">
-                            <div class="stats_new_icon d-flex flex-column align-items-center justify-content-end">
-                                <img src="public/dist/landing/images/stats_4.png" alt="">
-                            </div>
-                            <div class="stats_new_content">
-                                <div class="stats_number">14</div>
-                                <div class="stats_type">Barangays Involved</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Add -->
-<div class="add">
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <div class="add_container">
-                    <div class="add_background" style="background-image:url(<?= base_url() ?>public/dist/landing/images/HaraFehaFun.jpg)"></div>
-                    <div class="add_content">
-                        <h1 class="add_title">HaraFehaFun</h1>
-                        <div class="add_subtitle">Oras, <span>Eastern Samar</span></div>
-                        <div class="button add_button">
-                            <div class="button_bcg"></div><a href="javascript:void(0)" class="no-function">More Info<span></span><span></span><span></span></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Milestones -->
-<div class="milestones">
-    <div class="container">
-        <div class="row">
-            <!-- Milestone: Annual Visitors -->
-            <div class="col-lg-3 milestone_col">
-                <div class="milestone text-center">
-                    <div class="milestone_icon">
-                        <img src="public/dist/landing/images/milestone_1.png" alt="Visitors Icon">
-                    </div>
-                    <div class="milestone_counter" data-end-value="2890">0</div>
-                    <div class="milestone_text">Annual Visitors</div>
-                </div>
-            </div>
-            <!-- Milestone: Eco-tourism Sites -->
-            <div class="col-lg-3 milestone_col">
-                <div class="milestone text-center">
-                    <div class="milestone_icon">
-                        <img src="public/dist/landing/images/milestone_2.png" alt="Eco Sites Icon">
-                    </div>
-                    <div class="milestone_counter" data-end-value="8">0</div>
-                    <div class="milestone_text">Eco-tourism Sites</div>
-                </div>
-            </div>
-            <!-- Milestone: Local Tour Guides -->
-            <div class="col-lg-3 milestone_col">
-                <div class="milestone text-center">
-                    <div class="milestone_icon">
-                        <img src="public/dist/landing/images/milestone_3.png" alt="Guides Icon">
-                    </div>
-                    <div class="milestone_counter" data-end-value="21">0</div>
-                    <div class="milestone_text">Local Tour Guides</div>
-                </div>
-            </div>
-            <!-- Milestone: Barangays Involved -->
-            <div class="col-lg-3 milestone_col">
-                <div class="milestone text-center">
-                    <div class="milestone_icon">
-                        <img src="public/dist/landing/images/milestone_4.png" alt="Barangays Icon">
-                    </div>
-                    <div class="milestone_counter" data-end-value="14">0</div>
-                    <div class="milestone_text">Barangays Involved</div>
+                <div class="table-responsive my-4">
+                    <table class="table table-bordered table-hover align-middle small bg-white shadow-sm">
+                        <thead class="table-light text-center align-middle bg-light">
+                            <tr>
+                                <th rowspan="2" class="align-middle">Barangay</th>
+                                <th colspan="2">2020</th>
+                                <th colspan="2">2015</th>
+                                <th rowspan="2" class="align-middle">Absolute Change</th>
+                                <th rowspan="2" class="align-middle">% Change</th>
+                            </tr>
+                            <tr>
+                                <th>Population</th>
+                                <th>% of Total</th>
+                                <th>Population</th>
+                                <th>% of Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Agsam</td>
+                                <td class="text-end">1,234</td>
+                                <td class="text-end">3.3%</td>
+                                <td class="text-end">1,110</td>
+                                <td class="text-end">3.1%</td>
+                                <td class="text-end text-success">+124</td>
+                                <td class="text-end text-success">+11.2%</td>
+                            </tr>
+                            <tr>
+                                <td>Bagongong</td>
+                                <td class="text-end">1,100</td>
+                                <td class="text-end">2.9%</td>
+                                <td class="text-end">1,080</td>
+                                <td class="text-end">3.0%</td>
+                                <td class="text-end text-success">+20</td>
+                                <td class="text-end text-success">+1.9%</td>
+                            </tr>
+                            <tr>
+                                <td>Barangay 1</td>
+                                <td class="text-end">980</td>
+                                <td class="text-end">2.6%</td>
+                                <td class="text-end">1,000</td>
+                                <td class="text-end">2.8%</td>
+                                <td class="text-end text-danger">-20</td>
+                                <td class="text-end text-danger">-2.0%</td>
+                            </tr>
+                            <tr>
+                                <td>Barangay 2</td>
+                                <td class="text-end">1,405</td>
+                                <td class="text-end">3.8%</td>
+                                <td class="text-end">1,300</td>
+                                <td class="text-end">3.6%</td>
+                                <td class="text-end text-success">+105</td>
+                                <td class="text-end text-success">+8.1%</td>
+                            </tr>
+                            <tr>
+                                <td>Barangay 3</td>
+                                <td class="text-end">950</td>
+                                <td class="text-end">2.5%</td>
+                                <td class="text-end">1,020</td>
+                                <td class="text-end">2.8%</td>
+                                <td class="text-end text-danger">-70</td>
+                                <td class="text-end text-danger">-6.9%</td>
+                            </tr>
+                            <tr>
+                                <td>Barangay 4</td>
+                                <td class="text-end">1,050</td>
+                                <td class="text-end">2.8%</td>
+                                <td class="text-end">1,000</td>
+                                <td class="text-end">2.8%</td>
+                                <td class="text-end text-success">+50</td>
+                                <td class="text-end text-success">+5.0%</td>
+                            </tr>
+                            <tr>
+                                <td>Batuan</td>
+                                <td class="text-end">1,200</td>
+                                <td class="text-end">3.2%</td>
+                                <td class="text-end">1,180</td>
+                                <td class="text-end">3.3%</td>
+                                <td class="text-end text-success">+20</td>
+                                <td class="text-end text-success">+1.7%</td>
+                            </tr>
+                            <tr>
+                                <td>Bethel</td>
+                                <td class="text-end">1,170</td>
+                                <td class="text-end">3.1%</td>
+                                <td class="text-end">1,100</td>
+                                <td class="text-end">3.1%</td>
+                                <td class="text-end text-success">+70</td>
+                                <td class="text-end text-success">+6.4%</td>
+                            </tr>
+                            <tr>
+                                <td>Burak</td>
+                                <td class="text-end">1,145</td>
+                                <td class="text-end">3.1%</td>
+                                <td class="text-end">1,100</td>
+                                <td class="text-end">3.1%</td>
+                                <td class="text-end text-success">+45</td>
+                                <td class="text-end text-success">+4.1%</td>
+                            </tr>
+                            <tr>
+                                <td>Cagtoog</td>
+                                <td class="text-end">985</td>
+                                <td class="text-end">2.6%</td>
+                                <td class="text-end">1,020</td>
+                                <td class="text-end">2.8%</td>
+                                <td class="text-end text-danger">-35</td>
+                                <td class="text-end text-danger">-3.4%</td>
+                            </tr>
+                            <tr>
+                                <td>Campakirit</td>
+                                <td class="text-end">1,140</td>
+                                <td class="text-end">3.0%</td>
+                                <td class="text-end">1,100</td>
+                                <td class="text-end">3.1%</td>
+                                <td class="text-end text-success">+40</td>
+                                <td class="text-end text-success">+3.6%</td>
+                            </tr>
+                            <tr>
+                                <td>Carapdapan</td>
+                                <td class="text-end">1,190</td>
+                                <td class="text-end">3.2%</td>
+                                <td class="text-end">1,150</td>
+                                <td class="text-end">3.2%</td>
+                                <td class="text-end text-success">+40</td>
+                                <td class="text-end text-success">+3.5%</td>
+                            </tr>
+                            <tr>
+                                <td>Cawayan</td>
+                                <td class="text-end">1,230</td>
+                                <td class="text-end">3.3%</td>
+                                <td class="text-end">1,200</td>
+                                <td class="text-end">3.3%</td>
+                                <td class="text-end text-success">+30</td>
+                                <td class="text-end text-success">+2.5%</td>
+                            </tr>
+                            <tr>
+                                <td>Dolores</td>
+                                <td class="text-end">1,050</td>
+                                <td class="text-end">2.8%</td>
+                                <td class="text-end">1,020</td>
+                                <td class="text-end">2.8%</td>
+                                <td class="text-end text-success">+30</td>
+                                <td class="text-end text-success">+2.9%</td>
+                            </tr>
+                            <tr>
+                                <td>Guinpoliran</td>
+                                <td class="text-end">1,120</td>
+                                <td class="text-end">3.0%</td>
+                                <td class="text-end">1,100</td>
+                                <td class="text-end">3.1%</td>
+                                <td class="text-end text-success">+20</td>
+                                <td class="text-end text-success">+1.8%</td>
+                            </tr>
+                            <tr>
+                                <td>Hinatad</td>
+                                <td class="text-end">1,100</td>
+                                <td class="text-end">2.9%</td>
+                                <td class="text-end">1,120</td>
+                                <td class="text-end">3.1%</td>
+                                <td class="text-end text-danger">-20</td>
+                                <td class="text-end text-danger">-1.8%</td>
+                            </tr>
+                            <tr>
+                                <td>Luna</td>
+                                <td class="text-end">1,250</td>
+                                <td class="text-end">3.3%</td>
+                                <td class="text-end">1,200</td>
+                                <td class="text-end">3.3%</td>
+                                <td class="text-end text-success">+50</td>
+                                <td class="text-end text-success">+4.2%</td>
+                            </tr>
+                            <tr>
+                                <td>Maputi</td>
+                                <td class="text-end">1,130</td>
+                                <td class="text-end">3.0%</td>
+                                <td class="text-end">1,100</td>
+                                <td class="text-end">3.1%</td>
+                                <td class="text-end text-success">+30</td>
+                                <td class="text-end text-success">+2.7%</td>
+                            </tr>
+                            <tr>
+                                <td>Naga</td>
+                                <td class="text-end">1,020</td>
+                                <td class="text-end">2.7%</td>
+                                <td class="text-end">1,050</td>
+                                <td class="text-end">2.9%</td>
+                                <td class="text-end text-danger">-30</td>
+                                <td class="text-end text-danger">-2.9%</td>
+                            </tr>
+                            <tr>
+                                <td>Naparaan</td>
+                                <td class="text-end">1,190</td>
+                                <td class="text-end">3.2%</td>
+                                <td class="text-end">1,170</td>
+                                <td class="text-end">3.2%</td>
+                                <td class="text-end text-success">+20</td>
+                                <td class="text-end text-success">+1.7%</td>
+                            </tr>
+                            <tr>
+                                <td>Pantalan</td>
+                                <td class="text-end">1,110</td>
+                                <td class="text-end">3.0%</td>
+                                <td class="text-end">1,080</td>
+                                <td class="text-end">3.0%</td>
+                                <td class="text-end text-success">+30</td>
+                                <td class="text-end text-success">+2.8%</td>
+                            </tr>
+                            <tr>
+                                <td>Pili</td>
+                                <td class="text-end">1,200</td>
+                                <td class="text-end">3.2%</td>
+                                <td class="text-end">1,180</td>
+                                <td class="text-end">3.3%</td>
+                                <td class="text-end text-success">+20</td>
+                                <td class="text-end text-success">+1.7%</td>
+                            </tr>
+                            <tr>
+                                <td>Purok 1</td>
+                                <td class="text-end">1,150</td>
+                                <td class="text-end">3.1%</td>
+                                <td class="text-end">1,100</td>
+                                <td class="text-end">3.1%</td>
+                                <td class="text-end text-success">+50</td>
+                                <td class="text-end text-success">+4.5%</td>
+                            </tr>
+                            <tr>
+                                <td>Purok 2</td>
+                                <td class="text-end">1,100</td>
+                                <td class="text-end">2.9%</td>
+                                <td class="text-end">1,150</td>
+                                <td class="text-end">3.2%</td>
+                                <td class="text-end text-danger">-50</td>
+                                <td class="text-end text-danger">-4.3%</td>
+                            </tr>
+                            <tr>
+                                <td>Purok 3</td>
+                                <td class="text-end">1,180</td>
+                                <td class="text-end">3.2%</td>
+                                <td class="text-end">1,120</td>
+                                <td class="text-end">3.1%</td>
+                                <td class="text-end text-success">+60</td>
+                                <td class="text-end text-success">+5.4%</td>
+                            </tr>
+                            <tr>
+                                <td>Purok 4</td>
+                                <td class="text-end">1,105</td>
+                                <td class="text-end">3.0%</td>
+                                <td class="text-end">1,100</td>
+                                <td class="text-end">3.1%</td>
+                                <td class="text-end text-success">+5</td>
+                                <td class="text-end text-success">+0.5%</td>
+                            </tr>
+                            <tr>
+                                <td>Purok 5</td>
+                                <td class="text-end">1,090</td>
+                                <td class="text-end">2.9%</td>
+                                <td class="text-end">1,100</td>
+                                <td class="text-end">3.1%</td>
+                                <td class="text-end text-danger">-10</td>
+                                <td class="text-end text-danger">-0.9%</td>
+                            </tr>
+                            <tr>
+                                <td>San Roque</td>
+                                <td class="text-end">1,130</td>
+                                <td class="text-end">3.0%</td>
+                                <td class="text-end">1,120</td>
+                                <td class="text-end">3.1%</td>
+                                <td class="text-end text-success">+10</td>
+                                <td class="text-end text-success">+0.9%</td>
+                            </tr>
+                            <tr>
+                                <td>Santa Cruz</td>
+                                <td class="text-end">1,200</td>
+                                <td class="text-end">3.2%</td>
+                                <td class="text-end">1,180</td>
+                                <td class="text-end">3.3%</td>
+                                <td class="text-end text-success">+20</td>
+                                <td class="text-end text-success">+1.7%</td>
+                            </tr>
+                            <tr>
+                                <td>Santa Monica</td>
+                                <td class="text-end">1,170</td>
+                                <td class="text-end">3.1%</td>
+                                <td class="text-end">1,150</td>
+                                <td class="text-end">3.2%</td>
+                                <td class="text-end text-success">+20</td>
+                                <td class="text-end text-success">+1.7%</td>
+                            </tr>
+                            <tr>
+                                <td>San Vicente</td>
+                                <td class="text-end">1,110</td>
+                                <td class="text-end">3.0%</td>
+                                <td class="text-end">1,100</td>
+                                <td class="text-end">3.1%</td>
+                                <td class="text-end text-success">+10</td>
+                                <td class="text-end text-success">+0.9%</td>
+                            </tr>
+                            <tr>
+                                <td>Sugat</td>
+                                <td class="text-end">1,140</td>
+                                <td class="text-end">3.0%</td>
+                                <td class="text-end">1,100</td>
+                                <td class="text-end">3.1%</td>
+                                <td class="text-end text-success">+40</td>
+                                <td class="text-end text-success">+3.6%</td>
+                            </tr>
+                            <tr>
+                                <td>Tagpuro</td>
+                                <td class="text-end">1,180</td>
+                                <td class="text-end">3.2%</td>
+                                <td class="text-end">1,120</td>
+                                <td class="text-end">3.1%</td>
+                                <td class="text-end text-success">+60</td>
+                                <td class="text-end text-success">+5.4%</td>
+                            </tr>
+                            <tr>
+                                <td>Yabyaban</td>
+                                <td class="text-end">1,160</td>
+                                <td class="text-end">3.1%</td>
+                                <td class="text-end">1,150</td>
+                                <td class="text-end">3.2%</td>
+                                <td class="text-end text-success">+10</td>
+                                <td class="text-end text-success">+0.9%</td>
+                            </tr>
+                        </tbody>
+                        <tfoot class="table-light fw-semibold bg-light">
+                            <tr>
+                                <td class="text-end">Total</td>
+                                <td class="text-end">37,451</td>
+                                <td class="text-end">100%</td>
+                                <td class="text-end">36,000</td>
+                                <td class="text-end">100%</td>
+                                <td class="text-end text-success">+1,451</td>
+                                <td class="text-end text-success">+4.0%</td>
+                            </tr>
+                        </tfoot>
+                    </table>
                 </div>
             </div>
         </div>
