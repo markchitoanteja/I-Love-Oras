@@ -11,7 +11,7 @@
 <div class="intro">
     <div class="container">
         <div class="row">
-            <div class="col-lg-7">
+            <div class="col-lg-7 d-lg-block d-none">
                 <div class="intro_image">
                     <img src="public/dist/landing/images/about-oras.jpg" class="img-thumbnail" alt="">
                 </div>

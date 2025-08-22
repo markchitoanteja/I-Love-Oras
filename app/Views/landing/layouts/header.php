@@ -19,6 +19,14 @@
     <link rel="stylesheet" href="public/dist/landing/styles/about_styles.css?v=1.3" type="text/css">
     <link rel="stylesheet" href="public/dist/landing/styles/responsive.css" type="text/css">
     <link rel="stylesheet" href="public/dist/landing/styles/custom.css" type="text/css">
+
+    <style>
+        @media (max-width: 768px) {
+            .home_title {
+                font-size: 50px;
+            }
+        }
+    </style>
 </head>
 
 <body>

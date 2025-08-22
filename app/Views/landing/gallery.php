@@ -118,11 +118,22 @@
         }
 
         .gallery-modal-content {
-            max-height: 60vh;
+            width: 100%;
+            min-height: auto;
+        }
+
+        .content-wrapper {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
         }
 
         .caption {
             font-size: 16px;
+            margin: 0;
+            /* Remove extra default spacing */
         }
     }
 </style>
@@ -165,8 +176,10 @@
 <!-- Gallery Modal -->
 <div id="galleryModal" class="gallery-modal">
     <span class="close" onclick="closeModal()">&times;</span>
-    <img class="gallery-modal-content modal-content" id="modalImg">
-    <div id="modalCaption" class="caption"></div>
+    <div class="content-wrapper">
+        <img class="gallery-modal-content modal-content" id="modalImg">
+        <div id="modalCaption" class="caption"></div>
+    </div>
 </div>
 
 <script>
