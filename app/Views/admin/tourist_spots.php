@@ -185,6 +185,72 @@
     </div>
 </div>
 
+<!-- Update Tourist Spot Modal -->
+<div class="modal fade" id="update_tourist_spot_modal" tabindex="-1" role="dialog" aria-labelledby="uploadModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Update Tourist Spot</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <!-- Form -->
+            <form id="update_tourist_spot_form" action="javascript:void(0)">
+                <input type="hidden" id="update_tourist_spot_id">
+
+                <div class="modal-body">
+                    <!-- Basic Info Card -->
+                    <div class="card card-outline card-primary mb-3">
+                        <div class="card-header py-2">
+                            <h6 class="mb-0">Basic Information</h6>
+                        </div>
+                        <div class="card-body">
+                            <!-- Name -->
+                            <div class="form-group">
+                                <label for="update_tourist_spot_name">Attraction Name</label>
+                                <input type="text" class="form-control" id="update_tourist_spot_name" placeholder="Enter attraction name" required>
+                            </div>
+
+                            <!-- Description -->
+                            <div class="form-group">
+                                <label for="update_tourist_spot_description">Description</label>
+                                <textarea class="form-control" id="update_tourist_spot_description" rows="4" placeholder="Enter description" required></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Map Card -->
+                    <div class="card card-outline card-info">
+                        <div class="card-header py-2">
+                            <h6 class="mb-0">Map Information</h6>
+                        </div>
+                        <div class="card-body">
+                            <!-- Latitude & Longitude -->
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="update_tourist_spot_latitude">Latitude</label>
+                                    <input type="text" class="form-control" id="update_tourist_spot_latitude" placeholder="eg., 12.1393721" required>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="update_tourist_spot_longitude">Longitude</label>
+                                    <input type="text" class="form-control" id="update_tourist_spot_longitude" placeholder="eg., 125.4391028" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary" id="update_tourist_spot_submit">Update Tourist Spot</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 <script>
     const fileInput = document.getElementById('new_tourist_spot_photos');
     const uploadArea = document.getElementById('uploadArea');

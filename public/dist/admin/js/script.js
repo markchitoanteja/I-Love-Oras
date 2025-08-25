@@ -632,7 +632,6 @@ $(document).ready(function () {
   $("#new_tourist_spot_form").on("submit", function () {
     let name = $("#new_tourist_spot_name").val();
     let description = $("#new_tourist_spot_description").val();
-    let mapUrl = $("#new_tourist_spot_map_embed_url").val();
     let latitude = $("#new_tourist_spot_latitude").val();
     let longitude = $("#new_tourist_spot_longitude").val();
 
@@ -644,7 +643,6 @@ $(document).ready(function () {
 
     formData.append("name", name);
     formData.append("description", description);
-    formData.append("map_embed_url", mapUrl);
     formData.append("latitude", latitude);
     formData.append("longitude", longitude);
 
@@ -711,6 +709,64 @@ $(document).ready(function () {
             console.error(error);
           }
         });
+      }
+    });
+  });
+
+  $(document).on('click', '.update_attraction', function () {
+    const id = $(this).data('id');
+    const row = $(this).closest('tr');
+
+    // Get values from the row
+    const name = row.find('td:eq(0)').text().trim();
+    const description = row.find('td:eq(1)').text().trim();
+    const latitude = row.find('td:eq(2)').text().trim();
+    const longitude = row.find('td:eq(3)').text().trim();
+
+    // Fill the modal fields
+    $('#update_tourist_spot_id').val(id);
+    $('#update_tourist_spot_name').val(name);
+    $('#update_tourist_spot_description').val(description);
+    $('#update_tourist_spot_latitude').val(latitude);
+    $('#update_tourist_spot_longitude').val(longitude);
+
+    // Show the modal
+    $('#update_tourist_spot_modal').modal('show');
+  });
+
+  $('#update_tourist_spot_form').submit(function () {
+    const id = $('#update_tourist_spot_id').val();
+    const name = $('#update_tourist_spot_name').val();
+    const description = $('#update_tourist_spot_description').val();
+    const latitude = $('#update_tourist_spot_latitude').val();
+    const longitude = $('#update_tourist_spot_longitude').val();
+
+    $('#update_tourist_spot_submit').attr('disabled', true).html('Please wait...');
+
+    toggleModalLock('update_tourist_spot_modal');
+
+    var formData = new FormData();
+
+    formData.append('id', id);
+    formData.append('name', name);
+    formData.append('description', description);
+    formData.append('latitude', latitude);
+    formData.append('longitude', longitude);
+
+    $.ajax({
+      url: base_url + 'admin/update_tourist_spot',
+      data: formData,
+      type: 'POST',
+      dataType: 'JSON',
+      processData: false,
+      contentType: false,
+      success: function (response) {
+        if (response.success) {
+          location.reload();
+        }
+      },
+      error: function (_, _, error) {
+        console.error(error);
       }
     });
   });

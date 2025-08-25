@@ -907,7 +907,6 @@ class Admin extends BaseController
 
         $name        = $this->request->getPost('name');
         $description = $this->request->getPost('description');
-        $mapUrl      = $this->request->getPost('map_embed_url');
         $latitude    = $this->request->getPost('latitude');
         $longitude   = $this->request->getPost('longitude');
 
@@ -956,7 +955,6 @@ class Admin extends BaseController
         $Attraction_Model->insert([
             'name'        => $name,
             'description' => $description,
-            'map_embed_url' => $mapUrl,
             'latitude'    => $latitude,
             'longitude'   => $longitude,
             'photo_gallery'      => json_encode($uploadedImages), // store as JSON array
@@ -975,6 +973,44 @@ class Admin extends BaseController
         return $this->response->setJSON([
             'success' => true,
             'message' => 'Tourist Spot added successfully.'
+        ]);
+    }
+
+    public function update_tourist_spot()
+    {
+        if (!$this->request->isAJAX()) {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Invalid request.'
+            ]);
+        }
+
+        $id        = $this->request->getPost('id');
+        $name        = $this->request->getPost('name');
+        $description = $this->request->getPost('description');
+        $latitude    = $this->request->getPost('latitude');
+        $longitude   = $this->request->getPost('longitude');
+
+        $Attraction_Model = new Attraction_Model();
+
+        $Attraction_Model->update($id, [
+            'name'        => $name,
+            'description' => $description,
+            'latitude'    => $latitude,
+            'longitude'   => $longitude,
+        ]);
+
+        session()->setFlashdata("notification", [
+            "title" => "Success!",
+            "text"  => "Tourist Spot has been updated successfully.",
+            "icon"  => "success"
+        ]);
+
+        $this->addLog('Updated a tourist spot', "Tourist Spot");
+
+        return $this->response->setJSON([
+            'success' => true,
+            'message' => 'Tourist Spot updated successfully.'
         ]);
     }
 
