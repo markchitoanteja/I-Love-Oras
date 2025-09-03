@@ -296,6 +296,30 @@ class Landing extends BaseController
         ]);
     }
 
+    public function get_event_details()
+    {
+        if (!$this->request->isAJAX()) {
+            return $this->response->setJSON(['success' => false, 'message' => 'Invalid request.']);
+        }
+
+        $eventId = $this->request->getPost('id');
+
+        $eventsModel = new \App\Models\Event_Model();
+        $event = $eventsModel->find($eventId);
+
+        if ($event) {
+            return $this->response->setJSON([
+                'success' => true,
+                'event'   => $event
+            ]);
+        }
+
+        return $this->response->setJSON([
+            'success' => false,
+            'message' => 'Event not found.'
+        ]);
+    }
+
     private function send_email($receiver_email, $receiver_name, $subject, $body)
     {
         $mail = new PHPMailer(true);

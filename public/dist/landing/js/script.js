@@ -134,6 +134,42 @@ $(document).ready(function () {
         }
     });
 
+    $(document).on('click', '.btn-event', function () {
+        const eventId = $(this).data('id');
+
+        let formData = new FormData();
+        formData.append('id', eventId);
+
+        $.ajax({
+            url: base_url + 'landing/get-event-details',
+            data: formData,
+            type: 'POST',
+            dataType: 'JSON',
+            processData: false,
+            contentType: false,
+            success: function (response) {
+                if (response.success) {
+                    const event = response.event;
+
+                    // Populate modal
+                    $('#eventModalLabel').text(event.title);
+                    $('#eventPerformers').text(event.performers);
+                    $('#eventDateTime').text(`${event.date} | ${event.start_time} - ${event.end_time}`);
+                    $('#eventVenue').text(event.venue);
+                    $('#eventDescription').text(event.event_type); // or add another field for description
+
+                    // Show modal
+                    $('#eventModal').modal('show');
+                } else {
+                    alert(response.message);
+                }
+            },
+            error: function (_, _, error) {
+                console.error(error);
+            }
+        });
+    });
+
     function display_alert(notification) {
         Swal.fire({
             title: notification.title,

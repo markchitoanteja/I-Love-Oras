@@ -352,8 +352,46 @@
             </div>
         </div>
 
-        <!-- Events Section -->
+        <!-- Feature Video -->
         <div class="intro">
+            <div class="container">
+                <div class="row align-items-center">
+                    <!-- Video Column -->
+                    <div class="col-lg-6 mb-4 mb-lg-0">
+                        <div class="embed-responsive embed-responsive-16by9 shadow-lg rounded">
+                            <iframe class="embed-responsive-item"
+                                src="https://www.youtube.com/embed/D9xlfMOB9_0"
+                                title="Feature Video of Oras"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+
+                    <!-- Text Column -->
+                    <div class="col-lg-6">
+                        <h2 class="font-weight-bold mb-3">Experience Oras in Motion</h2>
+                        <p class="text-muted mb-4">
+                             Oras, Eastern Samar, is a vibrant coastal town with a rich cultural
+                    heritage and deep-rooted traditions. Known for its scenic landscapes,
+                    pristine beaches, and resilient communities, Oras offers both a
+                    glimpse into the past and a promise of growth for the future.
+                        </p>
+                        <p class="text-muted mb-4">
+                            From the colorful <strong>Larara Festival</strong> that showcases the
+                            agricultural bounty of the town to the warm hospitality of its people,
+                            Oras is more than just a destination—it’s an experience that connects
+                            you with history, culture, and nature.
+                        </p>
+                        <a href="<?= base_url('about_oras') ?>" class="btn btn-primary px-4">
+                            Learn More About Oras
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Events Section -->
+        <div class="intro bg-light">
             <div class="container">
                 <div class="text-center mb-5">
                     <h2 class="font-weight-bold">Featured Events in Oras</h2>
@@ -400,7 +438,7 @@
         </div>
 
         <!-- Testimonials -->
-        <div class="testimonials bg-light">
+        <div class="testimonials">
             <div class="container">
                 <div class="text-center">
                     <h2 class="font-weight-bold">Testimonials</h2>

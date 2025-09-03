@@ -39,3 +39,4 @@ $routes->post('/admin/new_tourist_spot', 'Admin::new_tourist_spot');
 $routes->post('/admin/update_tourist_spot', 'Admin::update_tourist_spot');
 $routes->post('/admin/delete_tourist_spot', 'Admin::delete_tourist_spot');
 $routes->post('/landing/submit_contact_form', 'Landing::submit_contact_form');
+$routes->post('/landing/get-event-details', 'Landing::get_event_details');
