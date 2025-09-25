@@ -8,6 +8,10 @@ use CodeIgniter\Router\RouteCollection;
 // Landing routes
  $routes->get('/', 'Landing::index');
  $routes->get('/about_oras', 'Landing::about_oras');
+ $routes->get('/history', 'Landing::history');
+ $routes->get('/mayor', 'Landing::mayor');
+ $routes->get('/barangays', 'Landing::barangays');
+ $routes->get('/economy', 'Landing::economy');
  $routes->get('/events', 'Landing::events');
  $routes->get('/attractions', 'Landing::attractions');
  $routes->get('/gallery', 'Landing::gallery');

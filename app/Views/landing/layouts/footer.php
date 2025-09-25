@@ -144,7 +144,7 @@
                             <div class="footer_nav">
                                 <ul class="footer_nav_list">
                                     <li class="footer_nav_item"><a href="<?= base_url() ?>">Home</a></li>
-                                    <li class="footer_nav_item"><a href="<?= base_url('about_oras') ?>">About Oras</a></li>
+                                    <li class="footer_nav_item"><a href="<?= base_url('history') ?>">About Oras</a></li>
                                     <li class="footer_nav_item"><a href="<?= base_url('attractions') ?>">Attractions</a></li>
                                     <li class="footer_nav_item"><a href="<?= base_url('gallery') ?>">Gallery</a></li>
                                     <li class="footer_nav_item"><a href="<?= base_url('contact') ?>">Contact</a></li>

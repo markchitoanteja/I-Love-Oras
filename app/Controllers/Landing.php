@@ -8,10 +8,47 @@ use PHPMailer\PHPMailer\Exception;
 use App\Models\Attraction_Model;
 use App\Models\Gallery_Model;
 use App\Models\Message_Model;
+use App\Models\Event_Model;
 use App\Models\Log_Model;
 
 class Landing extends BaseController
 {
+    public function __construct()
+    {
+        $this->updateEventStatuses();
+    }
+
+    /**
+     * Automatically update events status based on date and time.
+     */
+    private function updateEventStatuses()
+    {
+        $eventsModel = new Event_Model();
+        $events = $eventsModel->findAll();
+
+        $now = date('Y-m-d H:i:s');
+
+        foreach ($events as $event) {
+            $eventStart = $event['date'] . ' ' . $event['start_time'];
+            $eventEnd   = $event['date'] . ' ' . ($event['end_time'] ?? '23:59:59');
+
+            $newStatus = $event['status']; // default, only change if needed
+
+            if ($now < $eventStart) {
+                $newStatus = 'upcoming';
+            } elseif ($now >= $eventStart && $now <= $eventEnd) {
+                $newStatus = 'ongoing';
+            } elseif ($now > $eventEnd) {
+                $newStatus = 'completed';
+            }
+
+            // Update only if status has changed
+            if ($newStatus !== $event['status']) {
+                $eventsModel->update($event['id'], ['status' => $newStatus]);
+            }
+        }
+    }
+
     private function addLog($action, $type)
     {
         $logModel = new Log_Model();
@@ -30,14 +67,15 @@ class Landing extends BaseController
         session()->set('page', 'home');
         session()->set('page_title', 'Home');
 
-        $eventsModel = new \App\Models\Event_Model();
+        $eventsModel = new Event_Model();
+        $attractionModel = new Attraction_Model();
 
         // Fetch by categories with ordering
         $ongoing  = $eventsModel->where('status', 'ongoing')->orderBy('date', 'ASC')->findAll();
         $upcoming = $eventsModel->where('status', 'upcoming')->orderBy('date', 'ASC')->findAll();
         $past     = $eventsModel->where('status', 'completed')->orderBy('date', 'DESC')->findAll();
 
-        // Build featured list
+        // Build featured events list
         $featured = [];
 
         // 1. Add ongoing
@@ -61,8 +99,14 @@ class Landing extends BaseController
             }
         }
 
+        // 🔹 Fetch top 3 attractions (latest/desc by ID)
+        $topAttractions = $attractionModel
+            ->orderBy('id', 'DESC')
+            ->findAll(3); // Limit directly to 3
+
         $data = [
-            'featured' => $featured
+            'featured'      => $featured,
+            'attractions'   => $topAttractions
         ];
 
         if (session()->has('user')) {
@@ -100,12 +144,100 @@ class Landing extends BaseController
         return $header . $body . $footer;
     }
 
+    public function history()
+    {
+        session()->set('page', 'history');
+        session()->set('page_title', 'History of Oras');
+
+        $header = view('landing/layouts/header');
+        $body = view('landing/history');
+        $footer = view('landing/layouts/footer');
+
+        if (session()->has('user')) {
+            $user = session()->get('user');
+
+            if (isset($user['user_type']) && $user['user_type'] === 'user') {
+                return $header . $body . $footer;
+            } else {
+                return redirect()->to(base_url('admin/dashboard'));
+            }
+        }
+
+        return $header . $body . $footer;
+    }
+
+    public function mayor()
+    {
+        session()->set('page', 'mayor');
+        session()->set('page_title', 'Mayor of Oras');
+
+        $header = view('landing/layouts/header');
+        $body = view('landing/mayor');
+        $footer = view('landing/layouts/footer');
+
+        if (session()->has('user')) {
+            $user = session()->get('user');
+
+            if (isset($user['user_type']) && $user['user_type'] === 'user') {
+                return $header . $body . $footer;
+            } else {
+                return redirect()->to(base_url('admin/dashboard'));
+            }
+        }
+
+        return $header . $body . $footer;
+    }
+
+    public function barangays()
+    {
+        session()->set('page', 'barangays');
+        session()->set('page_title', 'Barangays');
+
+        $header = view('landing/layouts/header');
+        $body = view('landing/barangays');
+        $footer = view('landing/layouts/footer');
+
+        if (session()->has('user')) {
+            $user = session()->get('user');
+
+            if (isset($user['user_type']) && $user['user_type'] === 'user') {
+                return $header . $body . $footer;
+            } else {
+                return redirect()->to(base_url('admin/dashboard'));
+            }
+        }
+
+        return $header . $body . $footer;
+    }
+
+    public function economy()
+    {
+        session()->set('page', 'economy');
+        session()->set('page_title', 'Economy');
+
+        $header = view('landing/layouts/header');
+        $body = view('landing/economy');
+        $footer = view('landing/layouts/footer');
+
+        if (session()->has('user')) {
+            $user = session()->get('user');
+
+            if (isset($user['user_type']) && $user['user_type'] === 'user') {
+                return $header . $body . $footer;
+            } else {
+                return redirect()->to(base_url('admin/dashboard'));
+            }
+        }
+
+        return $header . $body . $footer;
+    }
+
     public function events()
     {
         session()->set('page', 'events');
         session()->set('page_title', 'Events');
 
-        $eventsModel = new \App\Models\Event_Model();
+        $eventsModel = new Event_Model();
 
         $upcoming = $eventsModel->where('status', 'upcoming')->orderBy('date', 'ASC')->findAll();
         $ongoing  = $eventsModel->where('status', 'ongoing')->orderBy('date', 'ASC')->findAll();
@@ -304,7 +436,7 @@ class Landing extends BaseController
 
         $eventId = $this->request->getPost('id');
 
-        $eventsModel = new \App\Models\Event_Model();
+        $eventsModel = new Event_Model();
         $event = $eventsModel->find($eventId);
 
         if ($event) {

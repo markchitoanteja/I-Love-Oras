@@ -26,6 +26,23 @@
                 font-size: 50px;
             }
         }
+
+        /* Make dropdown links full-width clickable */
+        .dropdown-menu .dropdown-link {
+            display: block;
+            width: 100%;
+            padding: 10px 15px;
+            color: #212529;
+            /* dark text */
+            text-decoration: none;
+        }
+
+        .dropdown-menu .dropdown-link:hover,
+        .dropdown-menu .dropdown-link:focus {
+            background-color: #f1f1f1;
+            /* light gray highlight */
+            color: #000;
+        }
     </style>
 </head>
 
@@ -71,12 +88,67 @@
                             </div>
                             <div class="main_nav_container ml-auto">
                                 <ul class="main_nav_list">
-                                    <li class="main_nav_item <?= (session()->get('page') === 'home') ? 'active' : '' ?>"><a href="<?= base_url() ?>">Home</a></li>
-                                    <li class="main_nav_item <?= (session()->get('page') === 'about_oras') ? 'active' : '' ?>"><a href="<?= base_url('about_oras') ?>">About Oras</a></li>
-                                    <li class="main_nav_item <?= (session()->get('page') === 'events') ? 'active' : '' ?>"><a href="<?= base_url('events') ?>">Events</a></li>
-                                    <li class="main_nav_item <?= (session()->get('page') === 'attractions') ? 'active' : '' ?>"><a href="<?= base_url('attractions') ?>">Attractions</a></li>
-                                    <li class="main_nav_item <?= (session()->get('page') === 'gallery') ? 'active' : '' ?>"><a href="<?= base_url('gallery') ?>">Gallery</a></li>
-                                    <li class="main_nav_item <?= (session()->get('page') === 'contact') ? 'active' : '' ?>"><a href="<?= base_url('contact') ?>">Contact</a></li>
+                                    <li class="main_nav_item <?= (session()->get('page') === 'home') ? 'active' : '' ?>">
+                                        <a href="<?= base_url() ?>">Home</a>
+                                    </li>
+
+                                    <!-- Dropdown: The Municipality -->
+                                    <li class="main_nav_item dropdown <?= in_array(session()->get('page'), ['history', 'mayor', 'barangays', 'economy']) ? 'active' : '' ?>">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">The Municipality <span class="caret"></span></a>
+                                        <ul class="dropdown-menu">
+                                            <li class="<?= (session()->get('page') === 'history') ? 'active' : '' ?>" style="<?= (session()->get('page') === 'history') ? 'background:#f8f9fa; border-radius:4px;' : '' ?>">
+                                                <a href="<?= base_url('history') ?>" class="dropdown-link" style="display:flex; align-items:center; gap:8px; padding:8px 12px; text-decoration:none; color:#333;">
+                                                    <?php if (session()->get('page') === 'history'): ?>
+                                                        <i class="fa fa-check-circle" style="color:#1b3a57;"></i>
+                                                    <?php endif; ?>
+                                                    History
+                                                </a>
+                                            </li>
+                                            <div class="dropdown-divider"></div>
+
+                                            <li class="<?= (session()->get('page') === 'mayor') ? 'active' : '' ?>" style="<?= (session()->get('page') === 'mayor') ? 'background:#f8f9fa; border-radius:4px;' : '' ?>">
+                                                <a href="<?= base_url('mayor') ?>" class="dropdown-link" style="display:flex; align-items:center; gap:8px; padding:8px 12px; text-decoration:none; color:#333;">
+                                                    <?php if (session()->get('page') === 'mayor'): ?>
+                                                        <i class="fa fa-check-circle" style="color:#1b3a57;"></i>
+                                                    <?php endif; ?>
+                                                    Mayor
+                                                </a>
+                                            </li>
+                                            <div class="dropdown-divider"></div>
+
+                                            <li class="<?= (session()->get('page') === 'barangays') ? 'active' : '' ?>" style="<?= (session()->get('page') === 'barangays') ? 'background:#f8f9fa; border-radius:4px;' : '' ?>">
+                                                <a href="<?= base_url('barangays') ?>" class="dropdown-link" style="display:flex; align-items:center; gap:8px; padding:8px 12px; text-decoration:none; color:#333;">
+                                                    <?php if (session()->get('page') === 'barangays'): ?>
+                                                        <i class="fa fa-check-circle" style="color:#1b3a57;"></i>
+                                                    <?php endif; ?>
+                                                    Barangays
+                                                </a>
+                                            </li>
+                                            <div class="dropdown-divider"></div>
+
+                                            <li class="<?= (session()->get('page') === 'economy') ? 'active' : '' ?>" style="<?= (session()->get('page') === 'economy') ? 'background:#f8f9fa; border-radius:4px;' : '' ?>">
+                                                <a href="<?= base_url('economy') ?>" class="dropdown-link" style="display:flex; align-items:center; gap:8px; padding:8px 12px; text-decoration:none; color:#333;">
+                                                    <?php if (session()->get('page') === 'economy'): ?>
+                                                        <i class="fa fa-check-circle" style="color:#1b3a57;"></i>
+                                                    <?php endif; ?>
+                                                    Economy
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="main_nav_item <?= (session()->get('page') === 'events') ? 'active' : '' ?>">
+                                        <a href="<?= base_url('events') ?>">Events</a>
+                                    </li>
+                                    <li class="main_nav_item <?= (session()->get('page') === 'attractions') ? 'active' : '' ?>">
+                                        <a href="<?= base_url('attractions') ?>">Attractions</a>
+                                    </li>
+                                    <li class="main_nav_item <?= (session()->get('page') === 'gallery') ? 'active' : '' ?>">
+                                        <a href="<?= base_url('gallery') ?>">Gallery</a>
+                                    </li>
+                                    <li class="main_nav_item <?= (session()->get('page') === 'contact') ? 'active' : '' ?>">
+                                        <a href="<?= base_url('contact') ?>">Contact</a>
+                                    </li>
                                 </ul>
                             </div>
 
@@ -102,7 +174,10 @@
                 </div>
                 <ul>
                     <li class="menu_item <?= (session()->get('page') === 'home') ? 'active' : '' ?>"><a href="<?= base_url() ?>">Home</a></li>
-                    <li class="menu_item <?= (session()->get('page') === 'about_oras') ? 'active' : '' ?>"><a href="<?= base_url('about_oras') ?>">About Oras</a></li>
+                    <li class="menu_item <?= (session()->get('page') === 'history') ? 'active' : '' ?>"><a href="<?= base_url('history') ?>">History</a></li>
+                    <li class="menu_item <?= (session()->get('page') === 'mayor') ? 'active' : '' ?>"><a href="<?= base_url('mayor') ?>">Mayor</a></li>
+                    <li class="menu_item <?= (session()->get('page') === 'barangays') ? 'active' : '' ?>"><a href="<?= base_url('barangays') ?>">Barangays</a></li>
+                    <li class="menu_item <?= (session()->get('page') === 'economy') ? 'active' : '' ?>"><a href="<?= base_url('economy') ?>">Economy</a></li>
                     <li class="menu_item <?= (session()->get('page') === 'attractions') ? 'active' : '' ?>"><a href="<?= base_url('attractions') ?>">Attractions</a></li>
                     <li class="menu_item <?= (session()->get('page') === 'gallery') ? 'active' : '' ?>"><a href="<?= base_url('gallery') ?>">Gallery</a></li>
                     <li class="menu_item <?= (session()->get('page') === 'contact') ? 'active' : '' ?>"><a href="<?= base_url('contact') ?>">Contact</a></li>

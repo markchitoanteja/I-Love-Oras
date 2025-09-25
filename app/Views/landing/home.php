@@ -36,6 +36,36 @@
             object-fit: cover;
             border-radius: 0.25rem;
         }
+
+        /* Make dropdown links full-width clickable */
+        .dropdown-menu .dropdown-link {
+            display: block;
+            width: 100%;
+            padding: 10px 15px;
+            color: #212529;
+            /* dark text */
+            text-decoration: none;
+        }
+
+        .dropdown-menu .dropdown-link:hover,
+        .dropdown-menu .dropdown-link:focus {
+            background-color: #f1f1f1;
+            /* light gray highlight */
+            color: #000;
+        }
+
+        .title-truncate {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            /* Limit to 3 lines */
+            line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-height: 4.5em;
+            /* Approx for 3 lines (1.5em each) */
+            word-wrap: break-word;
+        }
     </style>
 </head>
 
@@ -82,12 +112,47 @@
                             </div>
                             <div class="main_nav_container ml-auto">
                                 <ul class="main_nav_list">
-                                    <li class="main_nav_item <?= (session()->get('page') === 'home') ? 'active' : '' ?>"><a href="<?= base_url() ?>">Home</a></li>
-                                    <li class="main_nav_item <?= (session()->get('page') === 'about_oras') ? 'active' : '' ?>"><a href="<?= base_url('about_oras') ?>">About Oras</a></li>
-                                    <li class="main_nav_item <?= (session()->get('page') === 'events') ? 'active' : '' ?>"><a href="<?= base_url('events') ?>">Events</a></li>
-                                    <li class="main_nav_item <?= (session()->get('page') === 'attractions') ? 'active' : '' ?>"><a href="<?= base_url('attractions') ?>">Attractions</a></li>
-                                    <li class="main_nav_item <?= (session()->get('page') === 'gallery') ? 'active' : '' ?>"><a href="<?= base_url('gallery') ?>">Gallery</a></li>
-                                    <li class="main_nav_item <?= (session()->get('page') === 'contact') ? 'active' : '' ?>"><a href="<?= base_url('contact') ?>">Contact</a></li>
+                                    <li class="main_nav_item <?= (session()->get('page') === 'home') ? 'active' : '' ?>">
+                                        <a href="<?= base_url() ?>">Home</a>
+                                    </li>
+
+                                    <!-- Dropdown: The Municipality -->
+                                    <li class="main_nav_item dropdown <?= in_array(session()->get('page'), ['history', 'mayor', 'barangays', 'economy']) ? 'active' : '' ?>">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">The Municipality <span class="caret"></span></a>
+                                        <ul class="dropdown-menu">
+                                            <li class="<?= (session()->get('page') === 'history') ? 'bg-light' : '' ?>">
+                                                <a href="<?= base_url('history') ?>" class="dropdown-link">History</a>
+                                            </li>
+                                            <div class="dropdown-divider"></div>
+
+                                            <li class="<?= (session()->get('page') === 'mayor') ? 'bg-light' : '' ?>">
+                                                <a href="<?= base_url('mayor') ?>" class="dropdown-link">Mayor</a>
+                                            </li>
+                                            <div class="dropdown-divider"></div>
+
+                                            <li class="<?= (session()->get('page') === 'barangays') ? 'bg-light' : '' ?>">
+                                                <a href="<?= base_url('barangays') ?>" class="dropdown-link">Barangays</a>
+                                            </li>
+                                            <div class="dropdown-divider"></div>
+
+                                            <li class="<?= (session()->get('page') === 'economy') ? 'bg-light' : '' ?>">
+                                                <a href="<?= base_url('economy') ?>" class="dropdown-link">Economy</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="main_nav_item <?= (session()->get('page') === 'events') ? 'active' : '' ?>">
+                                        <a href="<?= base_url('events') ?>">Events</a>
+                                    </li>
+                                    <li class="main_nav_item <?= (session()->get('page') === 'attractions') ? 'active' : '' ?>">
+                                        <a href="<?= base_url('attractions') ?>">Attractions</a>
+                                    </li>
+                                    <li class="main_nav_item <?= (session()->get('page') === 'gallery') ? 'active' : '' ?>">
+                                        <a href="<?= base_url('gallery') ?>">Gallery</a>
+                                    </li>
+                                    <li class="main_nav_item <?= (session()->get('page') === 'contact') ? 'active' : '' ?>">
+                                        <a href="<?= base_url('contact') ?>">Contact</a>
+                                    </li>
                                 </ul>
                             </div>
 
@@ -113,7 +178,10 @@
                 </div>
                 <ul>
                     <li class="menu_item <?= (session()->get('page') === 'home') ? 'active' : '' ?>"><a href="<?= base_url() ?>">Home</a></li>
-                    <li class="menu_item <?= (session()->get('page') === 'about_oras') ? 'active' : '' ?>"><a href="<?= base_url('about_oras') ?>">About Oras</a></li>
+                    <li class="menu_item <?= (session()->get('page') === 'history') ? 'active' : '' ?>"><a href="<?= base_url('history') ?>">History</a></li>
+                    <li class="menu_item <?= (session()->get('page') === 'mayor') ? 'active' : '' ?>"><a href="<?= base_url('mayor') ?>">Mayor</a></li>
+                    <li class="menu_item <?= (session()->get('page') === 'barangays') ? 'active' : '' ?>"><a href="<?= base_url('barangays') ?>">Barangays</a></li>
+                    <li class="menu_item <?= (session()->get('page') === 'economy') ? 'active' : '' ?>"><a href="<?= base_url('economy') ?>">Economy</a></li>
                     <li class="menu_item <?= (session()->get('page') === 'attractions') ? 'active' : '' ?>"><a href="<?= base_url('attractions') ?>">Attractions</a></li>
                     <li class="menu_item <?= (session()->get('page') === 'gallery') ? 'active' : '' ?>"><a href="<?= base_url('gallery') ?>">Gallery</a></li>
                     <li class="menu_item <?= (session()->get('page') === 'contact') ? 'active' : '' ?>"><a href="<?= base_url('contact') ?>">Contact</a></li>
@@ -132,7 +200,7 @@
 
                         <div class="home_slider_content text-center">
                             <div class="home_slider_content_inner" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
-                                <h1>Uswag Pa</h1>
+                                <h1>Lovely</h1>
                                 <h1>ORAS</h1>
                             </div>
                         </div>
@@ -143,7 +211,7 @@
 
                         <div class="home_slider_content text-center">
                             <div class="home_slider_content_inner" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
-                                <h1>Uswag Pa</h1>
+                                <h1>Lovely</h1>
                                 <h1>ORAS</h1>
                             </div>
                         </div>
@@ -154,7 +222,7 @@
 
                         <div class="home_slider_content text-center">
                             <div class="home_slider_content_inner" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
-                                <h1>Uswag Pa</h1>
+                                <h1>Lovely</h1>
                                 <h1>ORAS</h1>
                             </div>
                         </div>
@@ -296,58 +364,58 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="row intro_items">
-                    <!-- Intro Item -->
-                    <div class="col-lg-4 intro_col">
-                        <div class="intro_item">
-                            <div class="intro_item_overlay"></div>
-                            <!-- Image of a beach in Oras -->
-                            <div class="intro_item_background" style="background-image:url(public/dist/landing/images/harafehafun.jpg)"></div>
-                            <div class="intro_item_content d-flex flex-column align-items-center justify-content-center">
-                                <div class="button intro_button">
-                                    <div class="button_bcg"></div>
-                                    <a href="javascript:void(0)" data-toggle="modal" data-target="#modalHarafehafun">More Info<span></span><span></span><span></span></a>
-                                </div>
-                                <div class="intro_center text-center">
-                                    <h1>HaraFeha Fun</h1>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Intro Item -->
-                    <div class="col-lg-4 intro_col">
-                        <div class="intro_item">
-                            <div class="intro_item_overlay"></div>
-                            <!-- Image of local cultural festival -->
-                            <div class="intro_item_background" style="background-image:url(public/dist/landing/images/binogawan.jpg)"></div>
-                            <div class="intro_item_content d-flex flex-column align-items-center justify-content-center">
-                                <div class="button intro_button">
-                                    <div class="button_bcg"></div>
-                                    <a href="javascript:void(0)" data-toggle="modal" data-target="#modalBinogawan">More Info<span></span><span></span><span></span></a>
-                                </div>
-                                <div class="intro_center text-center">
-                                    <h1>Binogawan Island</h1>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Intro Item -->
-                    <div class="col-lg-4 intro_col">
-                        <div class="intro_item">
-                            <div class="intro_item_overlay"></div>
-                            <!-- Image of eco-tourism or hiking -->
-                            <div class="intro_item_background" style="background-image:url(public/dist/landing/images/apiton.jpg)"></div>
-                            <div class="intro_item_content d-flex flex-column align-items-center justify-content-center">
-                                <div class="button intro_button">
-                                    <div class="button_bcg"></div>
-                                    <a href="javascript:void(0)" data-toggle="modal" data-target="#modalApiton">More Info<span></span><span></span><span></span></a>
-                                </div>
-                                <div class="intro_center text-center">
-                                    <h1>Apiton Island</h1>
+                    <?php if (!empty($attractions)): ?>
+                        <?php
+                        // Take only the top 3 (descending order assumed from DB)
+                        $topAttractions = array_slice($attractions, 0, 3);
+                        ?>
+                        <?php foreach ($topAttractions as $attraction): ?>
+                            <?php
+                            $photos = json_decode($attraction['photo_gallery'], true);
+                            $firstPhoto = !empty($photos)
+                                ? base_url('public/dist/landing/images/attractions/' . $photos[0])
+                                : base_url('public/dist/landing/images/no-image.jpg');
+                            ?>
+                            <div class="col-lg-4 intro_col">
+                                <div class="intro_item">
+                                    <div class="intro_item_overlay"></div>
+                                    <!-- Background Image -->
+                                    <div class="intro_item_background" style="background-image:url('<?= esc($firstPhoto) ?>')"></div>
+                                    <div class="intro_item_content d-flex flex-column align-items-center justify-content-center">
+                                        <div class="button intro_button">
+                                            <div class="button_bcg"></div>
+                                            <a href="javascript:void(0);"
+                                                data-toggle="modal"
+                                                data-target="#attractionModal"
+                                                data-name="<?= esc($attraction['name']) ?>"
+                                                data-description="<?= esc($attraction['description']) ?>"
+                                                data-photos='<?= json_encode($photos) ?>'
+                                                data-lat="<?= esc($attraction['latitude']) ?>"
+                                                data-lng="<?= esc($attraction['longitude']) ?>">
+                                                More Info<span></span><span></span><span></span>
+                                            </a>
+                                        </div>
+                                        <div class="intro_center text-center">
+                                            <h1 class="title-truncate"><?= esc($attraction['name']) ?></h1>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <div class="col-12 text-center py-5">
+                            <div class="no-gallery-placeholder">
+                                <img src="<?= base_url('public/dist/landing/images/no-image.png'); ?>"
+                                    alt="No images"
+                                    class="mb-3"
+                                    style="max-width:150px; opacity:0.6;">
+                                <h4 class="text-muted">No tours available</h4>
+                                <p class="text-muted">Our tours will be updated soon. Please check back later.</p>
+                            </div>
                         </div>
-                    </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -371,10 +439,10 @@
                     <div class="col-lg-6">
                         <h2 class="font-weight-bold mb-3">Experience Oras in Motion</h2>
                         <p class="text-muted mb-4">
-                             Oras, Eastern Samar, is a vibrant coastal town with a rich cultural
-                    heritage and deep-rooted traditions. Known for its scenic landscapes,
-                    pristine beaches, and resilient communities, Oras offers both a
-                    glimpse into the past and a promise of growth for the future.
+                            Oras, Eastern Samar, is a vibrant coastal town with a rich cultural
+                            heritage and deep-rooted traditions. Known for its scenic landscapes,
+                            pristine beaches, and resilient communities, Oras offers both a
+                            glimpse into the past and a promise of growth for the future.
                         </p>
                         <p class="text-muted mb-4">
                             From the colorful <strong>Larara Festival</strong> that showcases the
@@ -382,7 +450,7 @@
                             Oras is more than just a destination—it’s an experience that connects
                             you with history, culture, and nature.
                         </p>
-                        <a href="<?= base_url('about_oras') ?>" class="btn btn-primary px-4">
+                        <a href="<?= base_url('history') ?>" class="btn btn-primary px-4">
                             Learn More About Oras
                         </a>
                     </div>
@@ -749,286 +817,42 @@
         </div>
     </div>
 
-    <!-- HaraFehaFun Modal -->
-    <div class="modal fade" id="modalHarafehafun" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <!-- Attraction Modal -->
+    <div class="modal fade" id="attractionModal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content shadow-lg border-0">
-                <!-- Header -->
+
                 <div class="modal-header bg-primary text-white">
-                    <h5 class="modal-title mb-0" id="loginModalLabel">HaraFehaFun</h5>
+                    <h5 class="modal-title mb-0" id="modalTitle"></h5>
                     <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
 
-                <!-- Body -->
                 <div class="modal-body p-4 bg-white rounded-bottom">
-                    <!-- Description Card -->
                     <h6 class="font-weight-bold mb-3">Description</h6>
                     <div class="mb-4 p-3 border rounded bg-light">
-                        <p class="text-dark mb-0">
-                            <strong>HaraFehaFun</strong> is a local favorite destination in Oras known for its <em>pristine beaches</em>,
-                            peaceful environment, and stunning natural scenery. Whether you're here to unwind or explore,
-                            it's the perfect spot for a relaxing escape with family and friends.
-                        </p>
+                        <p id="modalDescription" class="text-dark mb-0"></p>
                     </div>
 
-                    <!-- Photo Gallery -->
                     <h6 class="font-weight-bold mb-3">Photo Gallery</h6>
                     <div class="border rounded mb-4 p-2 bg-light">
-                        <div id="harafehaCarousel" class="carousel slide" data-ride="carousel">
-                            <div class="carousel-inner">
-                                <!-- Slide 1 -->
-                                <div class="carousel-item active">
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <div class="img-wrapper">
-                                                <img src="public/dist/landing/images/harafehafun.jpg" alt="Image 1">
-                                            </div>
-                                        </div>
-                                        <div class="col-4">
-                                            <div class="img-wrapper">
-                                                <img src="public/dist/landing/images/harafehafun_2.jpg" alt="Image 2">
-                                            </div>
-                                        </div>
-                                        <div class="col-4">
-                                            <div class="img-wrapper">
-                                                <img src="public/dist/landing/images/harafehafun_3.jfif" alt="Image 3">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Slide 2 -->
-                                <div class="carousel-item">
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <div class="img-wrapper">
-                                                <img src="public/dist/landing/images/harafehafun_4.jfif" alt="Image 4">
-                                            </div>
-                                        </div>
-                                        <div class="col-4">
-                                            <div class="img-wrapper">
-                                                <img src="public/dist/landing/images/harafehafun_5.jpg" alt="Image 5">
-                                            </div>
-                                        </div>
-                                        <div class="col-4">
-                                            <div class="img-wrapper">
-                                                <img src="public/dist/landing/images/harafehafun_6.jfif" alt="Image 6">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Carousel Controls -->
-                            <a class="carousel-control-prev" href="#harafehaCarousel" role="button" data-slide="prev">
+                        <div id="modalCarousel" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner" id="carouselInner"></div>
+                            <a class="carousel-control-prev" href="#modalCarousel" role="button" data-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Previous</span>
                             </a>
-                            <a class="carousel-control-next" href="#harafehaCarousel" role="button" data-slide="next">
+                            <a class="carousel-control-next" href="#modalCarousel" role="button" data-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Next</span>
                             </a>
                         </div>
                     </div>
 
-                    <!-- Map Section -->
                     <h6 class="font-weight-bold mb-3">Map</h6>
                     <div class="border rounded overflow-hidden shadow-sm">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.6018402391164!2d125.4391028!3d12.1393721!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33096f394630aa6d%3A0x6f444a9844396091!2sHaraFehaFun!5e0!3m2!1sen!2sph!4v1753722759137!5m2!1sen!2sph"
-                            width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Binogawan Island Modal -->
-    <div class="modal fade" id="modalBinogawan" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-            <div class="modal-content shadow-lg border-0">
-                <!-- Header -->
-                <div class="modal-header bg-primary text-white">
-                    <h5 class="modal-title mb-0" id="loginModalLabel">Binogawan Island</h5>
-                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-
-                <!-- Body -->
-                <div class="modal-body p-4 bg-white rounded-bottom">
-                    <!-- Description Card -->
-                    <h6 class="font-weight-bold mb-3">Description</h6>
-                    <div class="mb-4 p-3 border rounded bg-light">
-                        <p class="text-dark mb-0">
-                            <strong>Binogawan Island</strong> is a tranquil destination known for its crystal-clear waters,
-                            soft sand, and gentle waves. Ideal for snorkeling, beach picnics, and nature lovers seeking solitude.
-                        </p>
-                    </div>
-
-                    <!-- Photo Gallery -->
-                    <h6 class="font-weight-bold mb-3">Photo Gallery</h6>
-                    <div class="border rounded mb-4 p-2 bg-light">
-                        <div id="binogawanCarousel" class="carousel slide" data-ride="carousel">
-                            <div class="carousel-inner">
-                                <!-- Slide 1 -->
-                                <div class="carousel-item active">
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <div class="img-wrapper">
-                                                <img src="public/dist/landing/images/binogawan.jpg" alt="Image 1">
-                                            </div>
-                                        </div>
-                                        <div class="col-4">
-                                            <div class="img-wrapper">
-                                                <img src="public/dist/landing/images/binogawan_2.jpg?v=1.0" alt="Image 2">
-                                            </div>
-                                        </div>
-                                        <div class="col-4">
-                                            <div class="img-wrapper">
-                                                <img src="public/dist/landing/images/binogawan_3.jfif" alt="Image 3">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Slide 2 -->
-                                <div class="carousel-item">
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <div class="img-wrapper">
-                                                <img src="public/dist/landing/images/binogawan_4.jfif" alt="Image 4">
-                                            </div>
-                                        </div>
-                                        <div class="col-4">
-                                            <div class="img-wrapper">
-                                                <img src="public/dist/landing/images/binogawan_5.jpg" alt="Image 5">
-                                            </div>
-                                        </div>
-                                        <div class="col-4">
-                                            <div class="img-wrapper">
-                                                <img src="public/dist/landing/images/binogawan_6.jfif" alt="Image 6">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Carousel Controls -->
-                            <a class="carousel-control-prev" href="#binogawanCarousel" role="button" data-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="carousel-control-next" href="#binogawanCarousel" role="button" data-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Map Section -->
-                    <h6 class="font-weight-bold mb-3">Map</h6>
-                    <div class="border rounded overflow-hidden shadow-sm">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7800.196056147177!2d125.47191898126694!3d12.173728984561517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x330968ac9b2f629d%3A0xf7db52fe23309d4c!2sBinogawan%20Beach!5e0!3m2!1sen!2sph!4v1753722801665!5m2!1sen!2sph"
-                            width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Apiton Island Modal -->
-    <div class="modal fade" id="modalApiton" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-            <div class="modal-content shadow-lg border-0">
-                <!-- Header -->
-                <div class="modal-header bg-primary text-white">
-                    <h5 class="modal-title mb-0" id="loginModalLabel">Apiton Island</h5>
-                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-
-                <!-- Body -->
-                <div class="modal-body p-4 bg-white rounded-bottom">
-                    <!-- Description Card -->
-                    <h6 class="font-weight-bold mb-3">Description</h6>
-                    <div class="mb-4 p-3 border rounded bg-light">
-                        <p class="text-dark mb-0">
-                            <strong>Apiton Island</strong> is a small but beautiful island with calm turquoise waters and vibrant marine life.
-                            A must-visit for kayaking, diving, or simply enjoying the view from a quiet cove.
-                        </p>
-                    </div>
-
-                    <!-- Photo Gallery -->
-                    <h6 class="font-weight-bold mb-3">Photo Gallery</h6>
-                    <div class="border rounded mb-4 p-2 bg-light">
-                        <div id="apitonCarousel" class="carousel slide" data-ride="carousel">
-                            <div class="carousel-inner">
-                                <!-- Slide 1 -->
-                                <div class="carousel-item active">
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <div class="img-wrapper">
-                                                <img src="public/dist/landing/images/apiton.jpg" alt="Image 1">
-                                            </div>
-                                        </div>
-                                        <div class="col-4">
-                                            <div class="img-wrapper">
-                                                <img src="public/dist/landing/images/apiton_2.jpg" alt="Image 2">
-                                            </div>
-                                        </div>
-                                        <div class="col-4">
-                                            <div class="img-wrapper">
-                                                <img src="public/dist/landing/images/apiton_3.jfif" alt="Image 3">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Slide 2 -->
-                                <div class="carousel-item">
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <div class="img-wrapper">
-                                                <img src="public/dist/landing/images/apiton_4.jfif" alt="Image 4">
-                                            </div>
-                                        </div>
-                                        <div class="col-4">
-                                            <div class="img-wrapper">
-                                                <img src="public/dist/landing/images/apiton_5.jfif" alt="Image 5">
-                                            </div>
-                                        </div>
-                                        <div class="col-4">
-                                            <div class="img-wrapper">
-                                                <img src="public/dist/landing/images/apiton_6.jfif" alt="Image 6">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Carousel Controls -->
-                            <a class="carousel-control-prev" href="#apitonCarousel" role="button" data-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="carousel-control-next" href="#apitonCarousel" role="button" data-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Map Section -->
-                    <h6 class="font-weight-bold mb-3">Map</h6>
-                    <div class="border rounded overflow-hidden shadow-sm">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7800.444765651568!2d125.51715733773491!3d12.165257640273827!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33096887f7821111%3A0x2dca438f9e05f46d!2sApiton%20Island!5e0!3m2!1sen!2sph!4v1753722831145!5m2!1sen!2sph"
-                            width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
+                        <iframe id="modalMap" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                     </div>
                 </div>
             </div>
@@ -1049,7 +873,7 @@
     <script src="public/dist/landing/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
     <script src="public/dist/landing/plugins/easing/easing.js"></script>
     <script src="public/dist/landing/js/custom.js"></script>
-    <script src="public/dist/landing/js/script.js?v=1.0"></script>
+    <script src="public/dist/landing/js/script.js?v=<?= app_version() ?>"></script>
 </body>
 
 </html>
