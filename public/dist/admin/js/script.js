@@ -7,14 +7,6 @@ $(document).ready(function () {
     display_alert(notification);
   }
 
-  $('#onlineUsersModal').on('shown.bs.modal', loadLiveUsers);
-
-  setInterval(() => {
-    if ($('#onlineUsersModal').hasClass('show')) {
-      loadLiveUsers();
-    }
-  }, 10000);
-
   $(".dataTable").DataTable({
     responsive: true,
     autoWidth: false,
@@ -779,31 +771,79 @@ $(document).ready(function () {
     });
   });
 
+  let liveUsersTable;
+
   function loadLiveUsers() {
-    fetch("<?= base_url('admin/getLiveUsers') ?>")
-      .then(response => response.json())
-      .then(data => {
-        let tbody = "";
-        if (data.length > 0) {
-          data.forEach(user => {
-            let statusBadge = user.status === "online"
-              ? '<span class="badge bg-success">Online</span>'
-              : '<span class="badge bg-danger">Offline</span>';
-            tbody += `
-                        <tr>
-                            <td>${user.ip_address}</td>
-                            <td>${user.user_agent}</td>
-                            <td>${user.last_activity}</td>
-                            <td>${statusBadge}</td>
-                        </tr>
-                    `;
+    let tableBody = $("#liveUsersTable tbody");
+
+    // Show loading spinner while fetching
+    if (!liveUsersTable) {
+      tableBody.html(`
+      <tr id="loadingRow">
+        <td colspan="4" class="text-center">
+          <div class="spinner-border text-info" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+          <p class="mt-2">Fetching users...</p>
+        </td>
+      </tr>
+    `);
+    }
+
+    $.ajax({
+      url: base_url + 'admin/getLiveUsers',
+      type: 'GET',
+      dataType: 'json',
+      success: function (data) {
+        if (!liveUsersTable) {
+          liveUsersTable = $('#liveUsersTable').DataTable({
+            data: data,
+            columns: [
+              { data: 'ip_address' },
+              { data: 'user_agent' },
+              { data: 'last_activity' },
+              {
+                data: 'status',
+                render: function (status) {
+                  return status === "online"
+                    ? '<span class="badge bg-success">Online</span>'
+                    : '<span class="badge bg-danger">Offline</span>';
+                }
+              }
+            ],
+            responsive: true,
+            autoWidth: false,
+            lengthChange: false,
+            paging: true,
+            searching: true,
+            ordering: false,
+            info: true,
+            destroy: true
           });
         } else {
-          tbody = `<tr><td colspan="4" class="text-center">No users found</td></tr>`;
+          liveUsersTable.clear().rows.add(data).draw();
         }
-        document.querySelector("#liveUsersTable tbody").innerHTML = tbody;
-      });
+      },
+      error: function (_, _, error) {
+        tableBody.html(`
+        <tr>
+          <td colspan="4" class="text-center text-danger">Failed to load users</td>
+        </tr>
+      `);
+        console.error("Error loading users:", error);
+      }
+    });
   }
+
+  // Load when modal opens
+  $('#onlineUsersModal').on('shown.bs.modal', loadLiveUsers);
+
+  // Auto-refresh every 10s while modal is open
+  setInterval(() => {
+    if ($('#onlineUsersModal').hasClass('show')) {
+      loadLiveUsers();
+    }
+  }, 10000);
 
   function overlayLoader(enabled) {
     if (enabled) {

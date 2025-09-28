@@ -24,6 +24,7 @@ $routes->get('/admin/events', 'Admin::events');
 $routes->get('/admin/tourist_spots', 'Admin::tourist_spots');
 $routes->get('/admin/photo_gallery', 'Admin::photo_gallery');
 $routes->get('/admin/communication', 'Admin::communication');
+$routes->get('/admin/getLiveUsers', 'Admin::getLiveUsers');
 
 // Server side routes
 $routes->post('/login', 'Auth::login');

@@ -62,12 +62,17 @@
                 <div class="col-lg-3 col-6">
                     <div class="small-box bg-info">
                         <div class="inner">
-                            <h3><?= esc($count_data['online_users'] ?? 0) ?></h3>
-                            <p>Online Users</p>
+                            <h3><?= esc($count_data['unique_users']) ?></h3>
+                            <p>
+                                Unique Users
+                                <span class="badge badge-success">
+                                    <?= esc($count_data['live_users']) ?> Live
+                                </span>
+                            </p>
                         </div>
                         <div class="icon"><i class="fas fa-users"></i></div>
-                        <a href="#" data-toggle="modal" data-target="#onlineUsersModal" class="small-box-footer">
-                            Live <i class="fas fa-signal"></i>
+                        <a href="javascript:void(0)" class="small-box-footer" data-toggle="modal" data-target="#onlineUsersModal">
+                            Live Users <i class="fas fa-eye"></i>
                         </a>
                     </div>
                 </div>
@@ -119,11 +124,12 @@
     </section>
 </div>
 
+<!-- Online Users Modal -->
 <div class="modal fade" id="onlineUsersModal" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Live Online Users</h5>
+                <h5 class="modal-title">Unique Users</h5>
                 <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
             </div>
             <div class="modal-body table-responsive">
@@ -137,8 +143,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td colspan="4" class="text-center">Loading...</td>
+                        <tr id="loadingRow">
+                            <td colspan="4" class="text-center">
+                                <div class="spinner-border text-info" role="status">
+                                    <span class="sr-only">Loading...</span>
+                                </div>
+                                <p class="mt-2">Fetching users...</p>
+                            </td>
                         </tr>
                     </tbody>
                 </table>

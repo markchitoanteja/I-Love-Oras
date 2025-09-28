@@ -121,23 +121,36 @@ class Admin extends BaseController
         $touristSpotModel = new Attraction_Model();
         $userSessionModel = new UserSession_Model();
 
-        $timeLimit = date('Y-m-d H:i:s', strtotime('-5 minutes'));
-        $online_users = $userSessionModel->where('last_activity >=', $timeLimit)->findAll();
+        // Time limit for "live" status (1 minute)
+        $timeLimit = date('Y-m-d H:i:s', strtotime('-1 minute'));
+
+        // Unique users (by IP)
+        $unique_users = $userSessionModel
+            ->select('ip_address')
+            ->groupBy('ip_address')
+            ->findAll();
+
+        // Live users (active in last 1 min)
+        $live_users = $userSessionModel
+            ->select('ip_address')
+            ->where('last_activity >=', $timeLimit)
+            ->groupBy('ip_address')
+            ->findAll();
 
         $count_data = [
             'total_events'        => $eventModel->countAll(),
             'total_gallery'       => $galleryModel->countAll(),
             'total_tourist_spots' => $touristSpotModel->countAll(),
-            'online_users'        => count($online_users),
+            'unique_users'        => count($unique_users),
+            'live_users'          => count($live_users),
         ];
 
         $logs = $logModel->orderBy('id', 'DESC')->findAll();
 
         $header = view('admin/layouts/header');
         $body   = view('admin/dashboard', [
-            'logs'         => $logs,
-            'count_data'   => $count_data,
-            'online_users' => $online_users
+            'logs'       => $logs,
+            'count_data' => $count_data
         ]);
         $footer = view('admin/layouts/footer');
 
@@ -147,13 +160,18 @@ class Admin extends BaseController
     public function getLiveUsers()
     {
         $userSessionModel = new UserSession_Model();
-        $timeLimit = date('Y-m-d H:i:s', strtotime('-5 minutes'));
+        $timeLimit = date('Y-m-d H:i:s', strtotime('-1 minute'));
 
-        $users = $userSessionModel->findAll();
+        // get latest activity per unique IP
+        $builder = $userSessionModel->select('ip_address, user_agent, MAX(last_activity) as last_activity')
+            ->groupBy('ip_address')
+            ->get();
+
+        $users = $builder->getResultArray();
 
         foreach ($users as &$u) {
             $u['status'] = ($u['last_activity'] >= $timeLimit) ? 'online' : 'offline';
-            $u['last_activity'] = date('M d, Y h:i A', strtotime($u['last_activity']));
+            $u['last_activity'] = date('M d, Y h:i:s A', strtotime($u['last_activity']));
         }
 
         return $this->response->setJSON($users);
