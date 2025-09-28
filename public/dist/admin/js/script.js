@@ -7,6 +7,14 @@ $(document).ready(function () {
     display_alert(notification);
   }
 
+  $('#onlineUsersModal').on('shown.bs.modal', loadLiveUsers);
+
+  setInterval(() => {
+    if ($('#onlineUsersModal').hasClass('show')) {
+      loadLiveUsers();
+    }
+  }, 10000);
+
   $(".dataTable").DataTable({
     responsive: true,
     autoWidth: false,
@@ -770,6 +778,32 @@ $(document).ready(function () {
       }
     });
   });
+
+  function loadLiveUsers() {
+    fetch("<?= base_url('admin/getLiveUsers') ?>")
+      .then(response => response.json())
+      .then(data => {
+        let tbody = "";
+        if (data.length > 0) {
+          data.forEach(user => {
+            let statusBadge = user.status === "online"
+              ? '<span class="badge bg-success">Online</span>'
+              : '<span class="badge bg-danger">Offline</span>';
+            tbody += `
+                        <tr>
+                            <td>${user.ip_address}</td>
+                            <td>${user.user_agent}</td>
+                            <td>${user.last_activity}</td>
+                            <td>${statusBadge}</td>
+                        </tr>
+                    `;
+          });
+        } else {
+          tbody = `<tr><td colspan="4" class="text-center">No users found</td></tr>`;
+        }
+        document.querySelector("#liveUsersTable tbody").innerHTML = tbody;
+      });
+  }
 
   function overlayLoader(enabled) {
     if (enabled) {

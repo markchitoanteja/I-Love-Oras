@@ -44,15 +44,15 @@
                                     <?php if (!empty($events)): ?>
                                         <?php foreach ($events as $event): ?>
                                             <tr>
-                                                <td class="fw-bold"><?= esc($event['title']) ?></td>
-                                                <td><?= esc($event['event_type']) ?></td>
-                                                <td><?= date('M d, Y', strtotime($event['date'])) ?></td>
-                                                <td>
+                                                <td class="text-truncate" style="max-width: 150px;" title="<?= esc($event['title']) ?>"><?= esc($event['title']) ?></td>
+                                                <td class="text-truncate" style="max-width: 100px;" title="<?= esc($event['event_type']) ?>"><?= esc($event['event_type']) ?></td>
+                                                <td class="text-truncate" style="max-width: 100px;" title="<?= date('M d, Y', strtotime($event['date'])) ?>"><?= date('M d, Y', strtotime($event['date'])) ?></td>
+                                                <td class="text-truncate" style="max-width: 150px;">
                                                     <?= date('h:i A', strtotime($event['start_time'])) ?>
                                                     -
                                                     <?= date('h:i A', strtotime($event['end_time'])) ?>
                                                 </td>
-                                                <td><?= esc($event['venue']) ?></td>
+                                                <td class="text-truncate" style="max-width: 150px;" title="<?= esc($event['venue']) ?>"><?= esc($event['venue']) ?></td>
                                                 <td>
                                                     <?php if ($event['status'] === 'upcoming'): ?>
                                                         <span class="badge bg-success">Upcoming</span>

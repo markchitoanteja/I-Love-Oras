@@ -11,6 +11,7 @@ use App\Models\Message_Model;
 use App\Models\Event_Model;
 use App\Models\Attraction_Model;
 use App\Models\Log_Model;
+use App\Models\UserSession_Model;
 
 class Admin extends BaseController
 {
@@ -91,56 +92,76 @@ class Admin extends BaseController
         $logModel->insert($data);
     }
 
-    public function index()
-    {
-        return redirect()->to(base_url('admin/dashboard'));
-    }
-
     public function dashboard()
     {
         if (!session()->has('user')) {
             session()->setFlashdata([
-                'type' => 'error',
+                'type'    => 'error',
                 'message' => 'You must log in first!',
             ]);
+            return redirect()->to(base_url());
+        }
 
+        $user = session()->get('user');
+
+        if (!isset($user['user_type']) || $user['user_type'] !== 'admin') {
+            session()->setFlashdata([
+                'type'    => 'error',
+                'message' => 'Access denied! Admins only.',
+            ]);
             return redirect()->to(base_url());
         }
 
         session()->set("current_page", "dashboard");
         session()->set("current_page_title", "Dashboard");
 
-        $user = session()->get('user');
-
-        if (!isset($user['user_type']) || $user['user_type'] !== 'admin') {
-            session()->setFlashdata([
-                'type' => 'error',
-                'message' => 'Access denied! Admins only.',
-            ]);
-
-            return redirect()->to(base_url());
-        }
-
-        // ===== Models =====
         $eventModel       = new Event_Model();
         $galleryModel     = new Gallery_Model();
         $logModel         = new Log_Model();
         $touristSpotModel = new Attraction_Model();
+        $userSessionModel = new UserSession_Model();
+
+        $timeLimit = date('Y-m-d H:i:s', strtotime('-5 minutes'));
+        $online_users = $userSessionModel->where('last_activity >=', $timeLimit)->findAll();
 
         $count_data = [
-            'total_events'     => $eventModel->countAll(),
-            'total_gallery'   => $galleryModel->countAll(),
-            'total_tourist_spots'     => $touristSpotModel->countAll(),
+            'total_events'        => $eventModel->countAll(),
+            'total_gallery'       => $galleryModel->countAll(),
+            'total_tourist_spots' => $touristSpotModel->countAll(),
+            'online_users'        => count($online_users),
         ];
 
         $logs = $logModel->orderBy('id', 'DESC')->findAll();
 
-        // ===== Pass to view =====
         $header = view('admin/layouts/header');
-        $body   = view('admin/dashboard', ['logs' => $logs, 'count_data' => $count_data]);
+        $body   = view('admin/dashboard', [
+            'logs'         => $logs,
+            'count_data'   => $count_data,
+            'online_users' => $online_users
+        ]);
         $footer = view('admin/layouts/footer');
 
         return $header . $body . $footer;
+    }
+
+    public function getLiveUsers()
+    {
+        $userSessionModel = new UserSession_Model();
+        $timeLimit = date('Y-m-d H:i:s', strtotime('-5 minutes'));
+
+        $users = $userSessionModel->findAll();
+
+        foreach ($users as &$u) {
+            $u['status'] = ($u['last_activity'] >= $timeLimit) ? 'online' : 'offline';
+            $u['last_activity'] = date('M d, Y h:i A', strtotime($u['last_activity']));
+        }
+
+        return $this->response->setJSON($users);
+    }
+
+    public function index()
+    {
+        return redirect()->to(base_url('admin/dashboard'));
     }
 
     public function events()

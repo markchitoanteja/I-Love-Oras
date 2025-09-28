@@ -23,7 +23,7 @@
             <!-- Info boxes -->
             <div class="row">
                 <!-- Total Events -->
-                <div class="col-lg-4 col-6">
+                <div class="col-lg-3 col-6">
                     <div class="small-box bg-primary">
                         <div class="inner">
                             <h3><?= esc($count_data['total_events']) ?? 0 ?></h3>
@@ -35,7 +35,7 @@
                 </div>
 
                 <!-- Gallery -->
-                <div class="col-lg-4 col-6">
+                <div class="col-lg-3 col-6">
                     <div class="small-box bg-success">
                         <div class="inner">
                             <h3><?= esc($count_data['total_gallery']) ?? 0 ?></h3>
@@ -47,7 +47,7 @@
                 </div>
 
                 <!-- Tourist Spots -->
-                <div class="col-lg-4 col-6">
+                <div class="col-lg-3 col-6">
                     <div class="small-box bg-danger">
                         <div class="inner">
                             <h3><?= esc($count_data['total_tourist_spots'] ?? 0) ?></h3>
@@ -55,6 +55,20 @@
                         </div>
                         <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
                         <a href="<?= base_url('admin/tourist_spots') ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Online Users -->
+                <div class="col-lg-3 col-6">
+                    <div class="small-box bg-info">
+                        <div class="inner">
+                            <h3><?= esc($count_data['online_users'] ?? 0) ?></h3>
+                            <p>Online Users</p>
+                        </div>
+                        <div class="icon"><i class="fas fa-users"></i></div>
+                        <a href="#" data-toggle="modal" data-target="#onlineUsersModal" class="small-box-footer">
+                            Live <i class="fas fa-signal"></i>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -103,4 +117,32 @@
             </div>
         </div>
     </section>
+</div>
+
+<div class="modal fade" id="onlineUsersModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Live Online Users</h5>
+                <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+            </div>
+            <div class="modal-body table-responsive">
+                <table class="table table-bordered table-hover" id="liveUsersTable">
+                    <thead>
+                        <tr>
+                            <th>IP Address</th>
+                            <th>Browser</th>
+                            <th>Last Activity</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="4" class="text-center">Loading...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
