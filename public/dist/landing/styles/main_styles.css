@@ -319,12 +319,14 @@ section {
 .header {
 	position: fixed;
 	width: 100%;
-	background: rgba(54, 19, 84, 0.6);
+	background: rgba(37, 73, 187, 0.6);
+	/* base blue with transparency */
 	z-index: 12;
 }
 
 .header.scrolled {
-	background: rgba(54, 19, 84, 0.85);
+	background: rgba(37, 73, 187, 0.85);
+	/* darker blue when scrolled */
 }
 
 /*********************************
@@ -334,7 +336,8 @@ section {
 .top_bar {
 	width: 100%;
 	height: 36px;
-	background: #350a4e;
+	background: #162b70;
+	/* a darker shade of #2549bb */
 	-webkit-transition: all 400ms ease;
 	-moz-transition: all 400ms ease;
 	-ms-transition: all 400ms ease;
@@ -460,7 +463,7 @@ section {
 
 .logo a {
 	font-family: 'Open Sans', sans-serif;
-	font-size: 30px;
+	font-size: 20px;
 	color: #f4f4f8;
 	font-weight: 800;
 	text-transform: uppercase;
@@ -765,7 +768,8 @@ section {
 	width: 100%;
 	height: 100%;
 	z-index: 10;
-	background: #31124b;
+	background: #1f367f;
+	/* deep blue to replace the purple (#1f367f) */
 }
 
 .home_slider {
@@ -1125,7 +1129,7 @@ section {
 	line-height: 53px;
 	padding-left: 46px;
 	padding-right: 46px;
-	background: #31124b;
+	background: #1f367f;
 	-webkit-transform: translateY(15px);
 	-moz-transform: translateY(15px);
 	-ms-transform: translateY(15px);
@@ -1678,7 +1682,8 @@ section {
 	bottom: 0;
 	width: 100%;
 	height: 44.1%;
-	background: rgba(49, 18, 75, 0.8);
+	background: rgba(31, 54, 127, 0.8);
+	/* deep blue with 80% opacity */
 }
 
 .test_content {
@@ -1917,7 +1922,7 @@ section {
 	line-height: 53px;
 	padding-left: 29px;
 	padding-right: 29px;
-	background: #31124b;
+	background: #1f367f;
 	-webkit-transform: translateY(15px);
 	-moz-transform: translateY(15px);
 	-ms-transform: translateY(15px);
@@ -1976,7 +1981,7 @@ section {
 	width: 100%;
 	padding-top: 113px;
 	padding-bottom: 104px;
-	background: #31124b;
+	background: #1f367f;
 }
 
 .footer_title {
@@ -2055,7 +2060,7 @@ section {
 }
 
 .footer_social_item:hover a i {
-	color: #31124b;
+	color: #1f367f;
 }
 
 /*********************************
@@ -2185,7 +2190,8 @@ section {
 *********************************/
 
 .copyright {
-	background: #1f0733;
+	background: #162354;
+	/* deep navy blue to replace the dark purple */
 }
 
 .copyright_content {

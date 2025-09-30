@@ -4,10 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="I❤️Oras Project">
+    <meta name="description" content="Lovely Oras Project">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>I❤️Oras - <?= session("page_title") ?></title>
+    <title>Lovely Oras - <?= session("page_title") ?></title>
 
     <link rel="shortcut icon" href="favicon.ico?v=1.1" type="image/x-icon">
 
@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="public/dist/landing/plugins/OwlCarousel2-2.2.1/owl.carousel.css" type="text/css">
     <link rel="stylesheet" href="public/dist/landing/plugins/OwlCarousel2-2.2.1/owl.theme.default.css" type="text/css">
     <link rel="stylesheet" href="public/dist/landing/plugins/OwlCarousel2-2.2.1/animate.css" type="text/css">
-    <link rel="stylesheet" href="public/dist/landing/styles/main_styles.css?v=1.2" type="text/css">
+    <link rel="stylesheet" href="public/dist/landing/styles/main_styles.css?v=<?= app_version() ?>" type="text/css">
     <link rel="stylesheet" href="public/dist/landing/styles/responsive.css" type="text/css">
     <link rel="stylesheet" href="public/dist/landing/styles/custom.css" type="text/css">
 
@@ -79,15 +79,36 @@
                 <div class="container">
                     <div class="row">
                         <div class="col d-flex flex-row">
-                            <div class="phone">+63 917 6080 214</div>
+                            <div class="phone">+63 932 7802 725</div>
                             <div class="social">
                                 <ul class="social_list">
-                                    <li class="social_list_item"><a href="javascript:void(0)" class="no-function"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-                                    <li class="social_list_item"><a href="javascript:void(0)" class="no-function"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                    <li class="social_list_item"><a href="javascript:void(0)" class="no-function"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                    <li class="social_list_item"><a href="javascript:void(0)" class="no-function"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
-                                    <li class="social_list_item"><a href="javascript:void(0)" class="no-function"><i class="fa fa-behance" aria-hidden="true"></i></a></li>
-                                    <li class="social_list_item"><a href="javascript:void(0)" class="no-function"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                    <!-- Facebook -->
+                                    <li class="social_list_item">
+                                        <a href="https://www.facebook.com/profile.php?id=61563939982244" target="_blank">
+                                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+
+                                    <!-- YouTube -->
+                                    <li class="social_list_item">
+                                        <a href="https://www.youtube.com/" target="_blank">
+                                            <i class="fa fa-youtube" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+
+                                    <!-- Twitter -->
+                                    <li class="social_list_item">
+                                        <a href="https://twitter.com/" target="_blank">
+                                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+
+                                    <!-- Instagram -->
+                                    <li class="social_list_item">
+                                        <a href="https://www.instagram.com/" target="_blank">
+                                            <i class="fa fa-instagram" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                             <div class="user_box ml-auto">
@@ -106,7 +127,7 @@
                             <div class="logo_container">
                                 <div class="logo">
                                     <a href="<?= base_url() ?>">
-                                        <img src="public/dist/landing/images/logo.png?v=1.0" alt="" width="40">I❤️Oras
+                                        <img src="public/dist/landing/images/logo.png?v=1.0" alt="" width="40">Lovely Oras
                                     </a>
                                 </div>
                             </div>
@@ -196,7 +217,7 @@
                 <div class="owl-carousel owl-theme home_slider">
                     <!-- Slider Item -->
                     <div class="owl-item home_slider_item">
-                        <div class="home_slider_background" style="background-image:url(public/dist/landing/images/bg.jpg)"></div>
+                        <div class="home_slider_background" style="background-image:url(public/dist/landing/images/header-bg-2.jpg?v=<?= app_version() ?>)"></div>
 
                         <div class="home_slider_content text-center">
                             <div class="home_slider_content_inner" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
@@ -207,7 +228,7 @@
                     </div>
                     <!-- Slider Item -->
                     <div class="owl-item home_slider_item">
-                        <div class="home_slider_background" style="background-image:url(public/dist/landing/images/bg_2.jpg)"></div>
+                        <div class="home_slider_background" style="background-image:url(public/dist/landing/images/header-bg-3.jpg?v=<?= app_version() ?>)"></div>
 
                         <div class="home_slider_content text-center">
                             <div class="home_slider_content_inner" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
@@ -218,7 +239,7 @@
                     </div>
                     <!-- Slider Item -->
                     <div class="owl-item home_slider_item">
-                        <div class="home_slider_background" style="background-image:url(public/dist/landing/images/bg_3.jpg)"></div>
+                        <div class="home_slider_background" style="background-image:url(public/dist/landing/images/header-bg-1.jpg?v=<?= app_version() ?>)"></div>
 
                         <div class="home_slider_content text-center">
                             <div class="home_slider_content_inner" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
@@ -245,109 +266,20 @@
 
                 <!-- Home Slider Nav - Next -->
                 <div class="home_slider_nav home_slider_next">
-                    <svg version="1.1" id="Layer_3" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="28px" height="33px" viewBox="0 0 28 33" enable-background="new 0 0 28 33" xml:space="preserve">
+                    <svg version="1.1" id="Layer_3" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                        width="28px" height="33px" viewBox="0 0 28 33" enable-background="new 0 0 28 33" xml:space="preserve">
                         <defs>
                             <linearGradient id='home_grad_next'>
                                 <stop offset='0%' stop-color='#fa9e1b' />
                                 <stop offset='100%' stop-color='#8d4fff' />
                             </linearGradient>
                         </defs>
-                        <path class="nav_path" fill="#F3F6F9" d="M19,0H9C4.029,0,0,4.029,0,9v15c0,4.971,4.029,9,9,9h10c4.97,0,9-4.029,9-9V9C28,4.029,23.97,0,19,0zM26,23.091C26,27.459,22.545,31,18.285,31H9.714C5.454,31,2,27.459,2,23.091V9.909C2,5.541,5.454,2,9.714,2h8.571C22.545,2,26,5.541,26,9.909V23.091z" />
-                        <polygon class="nav_arrow" fill="#F3F6F9" points="13.044,11.551 11.71,12.885 15.714,16.888 11.71,20.891 13.044,22.224 18.379,16.888 17.048,15.55417.046,15.554 " />
+                        <path class="nav_path" fill="#F3F6F9" d="M19,0H9C4.029,0,0,4.029,0,9v15c0,4.971,4.029,9,9,9h10c4.97,0,9-4.029,9-9V9C28,4.029,23.97,0,19,0z M26,23.091C26,27.459,22.545,31,18.285,31H9.714C5.454,31,2,27.459,2,23.091V9.909C2,5.541,5.454,2,9.714,2h8.571 C22.545,2,26,5.541,26,9.909V23.091z" />
+                        <polygon class="nav_arrow" fill="#F3F6F9" points="13.044,11.551 11.71,12.885 15.714,16.888 11.71,20.891 13.044,22.224 18.379,16.888 17.048,15.554 17.046,15.554 " />
                     </svg>
                 </div>
-
-                <!-- Home Slider Dots -->
-                <!-- <div class="home_slider_dots">
-                    <ul id="home_slider_custom_dots" class="home_slider_custom_dots">
-                        <li class="home_slider_custom_dot active">
-                            <div></div>01.
-                        </li>
-                        <li class="home_slider_custom_dot">
-                            <div></div>02.
-                        </li>
-                        <li class="home_slider_custom_dot">
-                            <div></div>03.
-                        </li>
-                    </ul>
-                </div> -->
             </div>
         </div>
-
-        <!-- Search -->
-        <!-- <div class="search">
-            <div class="container fill_height">
-                <div class="row fill_height">
-                    <div class="col fill_height">
-                        <div class="search_tabs_container">
-                            <div class="search_tabs d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
-                                <div class="search_tab active d-flex flex-row align-items-center justify-content-lg-center justify-content-start">
-                                    <span>History</span>
-                                </div>
-                                <div class="search_tab d-flex flex-row align-items-center justify-content-lg-center justify-content-start">
-                                    <span>Mayor</span>
-                                </div>
-                                <div class="search_tab d-flex flex-row align-items-center justify-content-lg-center justify-content-start">
-                                    <span>Economy</span>
-                                </div>
-                                <div class="search_tab d-flex flex-row align-items-center justify-content-lg-center justify-content-start">
-                                    <span>Culture</span>
-                                </div>
-                                <div class="search_tab d-flex flex-row align-items-center justify-content-lg-center justify-content-start">
-                                    <span>Tourism</span>
-                                </div>
-                                <div class="search_tab d-flex flex-row align-items-center justify-content-lg-center justify-content-start">
-                                    <span>Environment</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="search_panel text-white active">
-                            <div class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
-                                <p class="text-white">
-                                    Oras, Eastern Samar, with its rich cultural heritage and deep-rooted traditions, has long been a resilient coastal town shaped by its storied past—from its early days of settlement to its role in regional trade and resistance during historical conflicts. Established during the Spanish colonial period, Oras became a vital hub for agriculture and fishing, contributing significantly to the province’s economy. Its fertile lands and abundant waters provided a sustainable livelihood for generations, making it a key community in Eastern Samar’s development.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="search_panel text-white">
-                            <div class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
-                                <p class="text-white">
-                                    Mayor Roy C. Ador currently leads Oras, Eastern Samar, with a strong vision focused on sustainable infrastructure development and enhancing community welfare. Since taking office, Mayor Ador has prioritized projects that directly improve the quality of life for residents, particularly in agriculture, education, and health services. Under his leadership, the municipality has launched a ₱100-million farm-to-market road initiative, which has significantly improved connectivity for eight barangays, facilitating better access to markets, healthcare facilities, and schools.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="search_panel text-white">
-                            <div class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
-                                <p class="text-white">
-                                    The economy of Oras is steadily evolving as a vibrant hub rooted in its natural resources and strategic location. Traditionally dependent on agriculture and fisheries, the town has adapted to modern challenges by embracing sustainable practices and diversification of income sources. Agriculture remains the backbone of Oras’s economy, with rice, coconut, and root crops cultivated across fertile plains. Local farmers increasingly utilize modern farming techniques and organic fertilizers to boost productivity while preserving soil health.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="search_panel text-white">
-                            <div class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
-                                <p class="text-white">
-                                    The cultural identity of Oras is a vibrant mosaic that reflects the rich heritage of its people. Rooted in indigenous traditions and enriched by centuries of interaction with colonial and neighboring influences, the town celebrates its unique customs through music, dance, festivals, and crafts. Local festivals such as the annual “Pakol Festival” highlight the community’s connection to agriculture and the sea, featuring colorful parades, traditional dances, and culinary fairs that bring residents and visitors together.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="search_panel text-white">
-                            <div class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
-                                <p class="text-white">
-                                    Tourism in Oras, Eastern Samar, is emerging as a promising sector with vast potential for sustainable growth. The town’s natural beauty, characterized by pristine beaches, lush forests, and historical landmarks, offers unique experiences for travelers seeking both adventure and cultural immersion. Attractions such as the white sand shores and coral reefs provide excellent opportunities for swimming, snorkeling, and diving, while inland areas invite hiking and birdwatching amidst diverse flora and fauna.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="search_panel text-white">
-                            <div class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
-                                <p class="text-white">
-                                    Environmental conservation is a vital priority in Oras, Eastern Samar, reflecting the community’s deep connection to its natural surroundings. The municipality recognizes that protecting coastal ecosystems, forests, and biodiversity is essential for sustaining livelihoods and mitigating the impacts of climate change. To this end, Oras actively promotes coastal resource management programs aimed at preserving marine habitats such as mangroves and coral reefs, which serve as natural barriers against storms and support fisheries.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
 
         <!-- Intro -->
         <div class="intro bg-light">
@@ -637,7 +569,7 @@
                                     <div class="logo">
                                         <a href="#">
                                             <img src="public/dist/landing/images/logo.png?v=1.0" alt="" width="37">
-                                            I❤️Oras
+                                            Lovely Oras
                                         </a>
                                     </div>
                                 </div>
@@ -645,11 +577,33 @@
                                     Discover the heart of Oras with us. We bring you closer to the culture, experiences, and community that make this place unique.
                                 </p>
                                 <ul class="footer_social_list">
-                                    <li class="footer_social_item"><a href="javascript:void(0)" class="no-function"><i class="fa fa-facebook-f"></i></a></li>
-                                    <li class="footer_social_item"><a href="javascript:void(0)" class="no-function"><i class="fa fa-twitter"></i></a></li>
-                                    <li class="footer_social_item"><a href="javascript:void(0)" class="no-function"><i class="fa fa-pinterest"></i></a></li>
-                                    <li class="footer_social_item"><a href="javascript:void(0)" class="no-function"><i class="fa fa-dribbble"></i></a></li>
-                                    <li class="footer_social_item"><a href="javascript:void(0)" class="no-function"><i class="fa fa-behance"></i></a></li>
+                                    <!-- Facebook -->
+                                    <li class="footer_social_item">
+                                        <a href="https://www.facebook.com/profile.php?id=61563939982244" target="_blank">
+                                            <i class="fa fa-facebook-f"></i>
+                                        </a>
+                                    </li>
+
+                                    <!-- YouTube -->
+                                    <li class="footer_social_item">
+                                        <a href="https://www.youtube.com/" target="_blank">
+                                            <i class="fa fa-youtube"></i>
+                                        </a>
+                                    </li>
+
+                                    <!-- Twitter -->
+                                    <li class="footer_social_item">
+                                        <a href="https://twitter.com/" target="_blank">
+                                            <i class="fa fa-twitter"></i>
+                                        </a>
+                                    </li>
+
+                                    <!-- Instagram -->
+                                    <li class="footer_social_item">
+                                        <a href="https://www.instagram.com/" target="_blank">
+                                            <i class="fa fa-instagram"></i>
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -731,15 +685,15 @@
                                 <ul class="contact_info_list">
                                     <li class="contact_info_item d-flex flex-row align-items-center">
                                         <div class="contact_info_icon"><img src="public/dist/landing/images/placeholder.svg" alt="Location Icon" /></div>
-                                        <div class="contact_info_text">Butnga, Oras, Eastern Samar</div>
+                                        <div class="contact_info_text">Brgy. Butnga, Oras, Eastern Samar</div>
                                     </li>
                                     <li class="contact_info_item d-flex flex-row align-items-center">
                                         <div class="contact_info_icon"><img src="public/dist/landing/images/phone-call.svg" alt="Phone Icon" /></div>
-                                        <div class="contact_info_text"><a href="tel:+639176080214">+63 917 6080 214</a></div>
+                                        <div class="contact_info_text"><a href="tel:+639327802725">+63 932 7802 725</a></div>
                                     </li>
                                     <li class="contact_info_item d-flex flex-row align-items-center">
                                         <div class="contact_info_icon"><img src="public/dist/landing/images/message.svg" alt="Email Icon" /></div>
-                                        <div class="contact_info_text"><a href="mailto:lguoras@gmail.com?Subject=Inquiry">lguoras@gmail.com</a></div>
+                                        <div class="contact_info_text"><a href="mailto:oraseasternsamarlgu@gmail.com?Subject=Inquiry">oraseasternsamarlgu@gmail.com</a></div>
                                     </li>
                                     <li class="contact_info_item d-flex flex-row align-items-center">
                                         <div class="contact_info_icon"><img src="public/dist/landing/images/planet-earth.svg" alt="Website Icon" /></div>
@@ -762,7 +716,7 @@
                             <div>
                                 &copy; <script>
                                     document.write(new Date().getFullYear());
-                                </script> I❤️Oras. All rights reserved.
+                                </script> Lovely Oras. All rights reserved.
                             </div>
                         </div>
                     </div>

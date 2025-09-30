@@ -10,7 +10,7 @@
                                     <div class="logo">
                                         <a href="#">
                                             <img src="public/dist/landing/images/logo.png?v=1.0" alt="" width="37">
-                                            I❤️Oras
+                                            Lovely Oras
                                         </a>
                                     </div>
                                 </div>
@@ -104,15 +104,15 @@
                                 <ul class="contact_info_list">
                                     <li class="contact_info_item d-flex flex-row align-items-center">
                                         <div class="contact_info_icon"><img src="public/dist/landing/images/placeholder.svg" alt="Location Icon" /></div>
-                                        <div class="contact_info_text">Butnga, Oras, Eastern Samar</div>
+                                        <div class="contact_info_text">Brgy. Butnga, Oras, Eastern Samar</div>
                                     </li>
                                     <li class="contact_info_item d-flex flex-row align-items-center">
                                         <div class="contact_info_icon"><img src="public/dist/landing/images/phone-call.svg" alt="Phone Icon" /></div>
-                                        <div class="contact_info_text"><a href="tel:+639176080214">+63 917 6080 214</a></div>
+                                        <div class="contact_info_text"><a href="tel:+639327802725">+63 932 7802 725</a></div>
                                     </li>
                                     <li class="contact_info_item d-flex flex-row align-items-center">
                                         <div class="contact_info_icon"><img src="public/dist/landing/images/message.svg" alt="Email Icon" /></div>
-                                        <div class="contact_info_text"><a href="mailto:lguoras@gmail.com?Subject=Inquiry">lguoras@gmail.com</a></div>
+                                        <div class="contact_info_text"><a href="mailto:oraseasternsamarlgu@gmail.com?Subject=Inquiry">oraseasternsamarlgu@gmail.com</a></div>
                                     </li>
                                     <li class="contact_info_item d-flex flex-row align-items-center">
                                         <div class="contact_info_icon"><img src="public/dist/landing/images/planet-earth.svg" alt="Website Icon" /></div>
@@ -135,7 +135,7 @@
                             <div>
                                 &copy; <script>
                                     document.write(new Date().getFullYear());
-                                </script> I❤️Oras. All rights reserved.
+                                </script> Lovely Oras. All rights reserved.
                             </div>
                         </div>
                     </div>

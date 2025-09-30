@@ -4,10 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="I❤️Oras Project">
+    <meta name="description" content="Lovely Oras Project">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>I❤️Oras - <?= session("page_title") ?></title>
+    <title>Lovely Oras - <?= session("page_title") ?></title>
 
     <link rel="shortcut icon" href="favicon.ico?v=1.1" type="image/x-icon">
 
@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="public/dist/landing/plugins/OwlCarousel2-2.2.1/owl.carousel.css" type="text/css">
     <link rel="stylesheet" href="public/dist/landing/plugins/OwlCarousel2-2.2.1/owl.theme.default.css" type="text/css">
     <link rel="stylesheet" href="public/dist/landing/plugins/OwlCarousel2-2.2.1/animate.css" type="text/css">
-    <link rel="stylesheet" href="public/dist/landing/styles/about_styles.css?v=1.3" type="text/css">
+    <link rel="stylesheet" href="public/dist/landing/styles/about_styles.css?v=<?= app_version() ?>" type="text/css">
     <link rel="stylesheet" href="public/dist/landing/styles/responsive.css" type="text/css">
     <link rel="stylesheet" href="public/dist/landing/styles/custom.css" type="text/css">
 
@@ -55,15 +55,36 @@
                 <div class="container">
                     <div class="row">
                         <div class="col d-flex flex-row">
-                            <div class="phone">+63 917 6080 214</div>
+                            <div class="phone">+63 932 7802 725</div>
                             <div class="social">
                                 <ul class="social_list">
-                                    <li class="social_list_item"><a href="javascript:void(0)" class="no-function"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-                                    <li class="social_list_item"><a href="javascript:void(0)" class="no-function"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                    <li class="social_list_item"><a href="javascript:void(0)" class="no-function"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                    <li class="social_list_item"><a href="javascript:void(0)" class="no-function"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
-                                    <li class="social_list_item"><a href="javascript:void(0)" class="no-function"><i class="fa fa-behance" aria-hidden="true"></i></a></li>
-                                    <li class="social_list_item"><a href="javascript:void(0)" class="no-function"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                    <!-- Facebook -->
+                                    <li class="social_list_item">
+                                        <a href="https://www.facebook.com/profile.php?id=61563939982244" target="_blank">
+                                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+
+                                    <!-- YouTube -->
+                                    <li class="social_list_item">
+                                        <a href="https://www.youtube.com/" target="_blank">
+                                            <i class="fa fa-youtube" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+
+                                    <!-- Twitter -->
+                                    <li class="social_list_item">
+                                        <a href="https://twitter.com/" target="_blank">
+                                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+
+                                    <!-- Instagram -->
+                                    <li class="social_list_item">
+                                        <a href="https://www.instagram.com/" target="_blank">
+                                            <i class="fa fa-instagram" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                             <div class="user_box ml-auto">
@@ -82,7 +103,7 @@
                             <div class="logo_container">
                                 <div class="logo">
                                     <a href="<?= base_url() ?>">
-                                        <img src="public/dist/landing/images/logo.png?v=1.0" alt="" width="40">I❤️Oras
+                                        <img src="public/dist/landing/images/logo.png?v=1.0" alt="" width="40">Lovely Oras
                                     </a>
                                 </div>
                             </div>
