@@ -127,7 +127,11 @@ class Landing extends BaseController
         session()->set('page', 'about_oras');
         session()->set('page_title', 'About Oras');
 
-        $header = view('landing/layouts/header');
+        $data = [
+            'bg_image' => 'about-oras.jpg'
+        ];
+
+        $header = view('landing/layouts/header', $data);
         $body = view('landing/about_oras');
         $footer = view('landing/layouts/footer');
 
@@ -147,9 +151,13 @@ class Landing extends BaseController
     public function history()
     {
         session()->set('page', 'history');
-        session()->set('page_title', 'History of Oras');
+        session()->set('page_title', 'History');
 
-        $header = view('landing/layouts/header');
+        $data = [
+            'bg_image' => 'about-oras.jpg'
+        ];
+
+        $header = view('landing/layouts/header', $data);
         $body = view('landing/history');
         $footer = view('landing/layouts/footer');
 
@@ -171,7 +179,11 @@ class Landing extends BaseController
         session()->set('page', 'mayor');
         session()->set('page_title', 'Mayor of Oras');
 
-        $header = view('landing/layouts/header');
+        $data = [
+            'bg_image' => 'about-oras.jpg'
+        ];
+
+        $header = view('landing/layouts/header', $data);
         $body = view('landing/mayor');
         $footer = view('landing/layouts/footer');
 
@@ -193,7 +205,11 @@ class Landing extends BaseController
         session()->set('page', 'barangays');
         session()->set('page_title', 'Barangays');
 
-        $header = view('landing/layouts/header');
+        $data = [
+            'bg_image' => 'about-oras.jpg'
+        ];
+
+        $header = view('landing/layouts/header', $data);
         $body = view('landing/barangays');
         $footer = view('landing/layouts/footer');
 
@@ -215,7 +231,11 @@ class Landing extends BaseController
         session()->set('page', 'economy');
         session()->set('page_title', 'Economy');
 
-        $header = view('landing/layouts/header');
+        $data = [
+            'bg_image' => 'about-oras.jpg'
+        ];
+
+        $header = view('landing/layouts/header', $data);
         $body = view('landing/economy');
         $footer = view('landing/layouts/footer');
 
@@ -247,10 +267,11 @@ class Landing extends BaseController
             'upcoming' => $upcoming,
             'ongoing'  => $ongoing,
             'past'     => $past,
+            'bg_image' => 'about-oras.jpg',
         ];
 
-        $header = view('landing/layouts/header');
-        $body   = view('landing/events', $data);
+        $header = view('landing/layouts/header', $data);
+        $body   = view('landing/events');
         $footer = view('landing/layouts/footer');
 
         if (session()->has('user')) {
@@ -275,11 +296,12 @@ class Landing extends BaseController
         $attractions = $Attraction_Model->findAll();
 
         $data = [
-            'attractions' => $attractions
+            'attractions' => $attractions,
+            'bg_image' => 'about-oras.jpg',
         ];
 
-        $header = view('landing/layouts/header');
-        $body = view('landing/attractions', $data);
+        $header = view('landing/layouts/header', $data);
+        $body = view('landing/attractions');
         $footer = view('landing/layouts/footer');
 
         if (session()->has('user')) {
@@ -303,8 +325,13 @@ class Landing extends BaseController
         $Gallery_Model = new Gallery_Model();
         $images = $Gallery_Model->orderBy('id', 'DESC')->findAll();
 
-        $header = view('landing/layouts/header');
-        $body = view('landing/gallery', ['images' => $images]);
+        $data = [
+            'images' => $images,
+            'bg_image' => 'about-oras.jpg',
+        ];
+
+        $header = view('landing/layouts/header', $data);
+        $body = view('landing/gallery');
         $footer = view('landing/layouts/footer');
 
         if (session()->has('user')) {
@@ -325,7 +352,11 @@ class Landing extends BaseController
         session()->set('page', 'contact');
         session()->set('page_title', 'Contact Us');
 
-        $header = view('landing/layouts/header');
+        $data = [
+            'bg_image' => 'about-oras.jpg'
+        ];
+
+        $header = view('landing/layouts/header', $data);
         $body = view('landing/contact');
         $footer = view('landing/layouts/footer');
 

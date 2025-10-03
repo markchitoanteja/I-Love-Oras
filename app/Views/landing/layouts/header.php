@@ -114,9 +114,19 @@
                                     </li>
 
                                     <!-- Dropdown: The Municipality -->
-                                    <li class="main_nav_item dropdown <?= in_array(session()->get('page'), ['history', 'mayor', 'barangays', 'economy']) ? 'active' : '' ?>">
+                                    <li class="main_nav_item dropdown <?= in_array(session()->get('page'), ['about_oras', 'history', 'mayor', 'barangays', 'economy']) ? 'active' : '' ?>">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">The Municipality <span class="caret"></span></a>
                                         <ul class="dropdown-menu">
+                                            <li class="<?= (session()->get('page') === 'about_oras') ? 'active' : '' ?>" style="<?= (session()->get('page') === 'about_oras') ? 'background:#f8f9fa; border-radius:4px;' : '' ?>">
+                                                <a href="<?= base_url('about_oras') ?>" class="dropdown-link" style="display:flex; align-items:center; gap:8px; padding:8px 12px; text-decoration:none; color:#333;">
+                                                    <?php if (session()->get('page') === 'about_oras'): ?>
+                                                        <i class="fa fa-check-circle" style="color:#1b3a57;"></i>
+                                                    <?php endif; ?>
+                                                    About Oras
+                                                </a>
+                                            </li>
+                                            <div class="dropdown-divider"></div>
+                                            
                                             <li class="<?= (session()->get('page') === 'history') ? 'active' : '' ?>" style="<?= (session()->get('page') === 'history') ? 'background:#f8f9fa; border-radius:4px;' : '' ?>">
                                                 <a href="<?= base_url('history') ?>" class="dropdown-link" style="display:flex; align-items:center; gap:8px; padding:8px 12px; text-decoration:none; color:#333;">
                                                     <?php if (session()->get('page') === 'history'): ?>
@@ -182,7 +192,7 @@
             </nav>
         </header>
 
-        <!-- Menu -->
+        <!-- Mobile App Menu -->
         <div class="menu trans_500">
             <div class="menu_content d-flex flex-column align-items-center justify-content-center text-center">
                 <div class="menu_close_container">
@@ -208,7 +218,7 @@
 
         <!-- Home -->
         <div class="home">
-            <div class="home_background parallax-window" data-parallax="scroll" data-image-src="public/dist/landing/images/bg_2.jpg?v=1.0"></div>
+            <div class="home_background parallax-window" data-parallax="scroll" data-image-src="public/dist/landing/images/<?= $bg_image ?>?v=<?= app_version() ?>"></div>
             <div class="home_content">
                 <div class="home_title"><?= session()->get('page_title') ?></div>
             </div>

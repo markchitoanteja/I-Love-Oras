@@ -18,11 +18,33 @@
                                     Discover the heart of Oras with us. We bring you closer to the culture, experiences, and community that make this place unique.
                                 </p>
                                 <ul class="footer_social_list">
-                                    <li class="footer_social_item"><a href="javascript:void(0)" class="no-function"><i class="fa fa-facebook-f"></i></a></li>
-                                    <li class="footer_social_item"><a href="javascript:void(0)" class="no-function"><i class="fa fa-twitter"></i></a></li>
-                                    <li class="footer_social_item"><a href="javascript:void(0)" class="no-function"><i class="fa fa-pinterest"></i></a></li>
-                                    <li class="footer_social_item"><a href="javascript:void(0)" class="no-function"><i class="fa fa-dribbble"></i></a></li>
-                                    <li class="footer_social_item"><a href="javascript:void(0)" class="no-function"><i class="fa fa-behance"></i></a></li>
+                                    <!-- Facebook -->
+                                    <li class="footer_social_item">
+                                        <a href="https://www.facebook.com/profile.php?id=61563939982244" target="_blank">
+                                            <i class="fa fa-facebook-f"></i>
+                                        </a>
+                                    </li>
+
+                                    <!-- YouTube -->
+                                    <li class="footer_social_item">
+                                        <a href="https://www.youtube.com/" target="_blank">
+                                            <i class="fa fa-youtube"></i>
+                                        </a>
+                                    </li>
+
+                                    <!-- Twitter -->
+                                    <li class="footer_social_item">
+                                        <a href="https://twitter.com/" target="_blank">
+                                            <i class="fa fa-twitter"></i>
+                                        </a>
+                                    </li>
+
+                                    <!-- Instagram -->
+                                    <li class="footer_social_item">
+                                        <a href="https://www.instagram.com/" target="_blank">
+                                            <i class="fa fa-instagram"></i>
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -144,7 +166,7 @@
                             <div class="footer_nav">
                                 <ul class="footer_nav_list">
                                     <li class="footer_nav_item"><a href="<?= base_url() ?>">Home</a></li>
-                                    <li class="footer_nav_item"><a href="<?= base_url('history') ?>">About Oras</a></li>
+                                    <li class="footer_nav_item"><a href="<?= base_url('about_oras') ?>">About Oras</a></li>
                                     <li class="footer_nav_item"><a href="<?= base_url('attractions') ?>">Attractions</a></li>
                                     <li class="footer_nav_item"><a href="<?= base_url('gallery') ?>">Gallery</a></li>
                                     <li class="footer_nav_item"><a href="<?= base_url('contact') ?>">Contact</a></li>
